@@ -8,6 +8,7 @@ Instruções para o Claude Code neste repositório.
 - **Não reviso o código linha a linha.** Ao criar ou alterar código, explique em linguagem simples o que cada parte principal faz e por quê. Escolha a tecnologia que for melhor para o produto, sem se limitar ao que eu já conheço.
 - **Quero explorar os arquivos `.gdb` em Python por conta própria.** Quando eu pedir, me instrua passo a passo.
 - **Não adicione funcionalidades que não pedi.** Se achar que algo seria útil, proponha e espere minha aprovação antes de implementar.
+- **Issues já criadas são implementadas direto**, sem parar para aprovar o plano: o escopo é o que está escrito na issue. O que sair desse escopo continua precisando de proposta e aprovação.
 - **Fluxo de Git:**
   - Todo trabalho é feito num branch ligado a uma issue (ex.: branch `explorar-bdgd` ↔ issue #1).
   - Nada é commitado direto no `main`. Mudanças entram no `main` só por Pull Request, para ficarem registradas.
@@ -49,6 +50,10 @@ dados brutos (dados/brutos/, fora do Git)
    → publicado como site estático (GitHub Pages)
 ```
 
+- Ordem do pipeline:
+  1. `pipeline/catalogar_gdb.py` → `arquivo.json` e `catalogo.json` (estrutura do `.gdb`);
+  2. `pipeline/extrair_dicionario.py` → `dicionario.json` (entidades, campos e domínios do Manual, comparados com o catálogo);
+  3. `pipeline/checar_privacidade.py` (trava) e `python -m unittest discover -s pipeline\testes`.
 - O site só lê dados processados; nunca lê o `.gdb`.
 - O `.gitignore` ignora `dados/brutos/`; `dados/processados/` é versionado.
 - Scripts do pipeline usam caminhos relativos à pasta do projeto e terminam com erro (código diferente de zero) quando algo falha.
@@ -78,14 +83,19 @@ As explicações do produto sobre entidades, campos e códigos devem vir destes 
   - Anexo II (p. 161–212): Dicionário de Dados ANEEL do SIG-R (DDA), com os códigos.
   - Anexo III (p. 213): lista de distribuidoras.
 
-Os PDFs não vão para o repositório.
+Os PDFs não vão para o repositório. A cópia do Manual usada pelo pipeline fica em `dados/brutos/referencias/Manual_Instrucoes_BDGD_Rev5.pdf` (SHA-256 `93D22D64D41865452CA4A95D4F6124E2029E09D2367670694F04A350C4A13459`); o `extrair_dicionario.py` para se o PDF for outro, porque as páginas citadas dependem da revisão.
+
+O conteúdo dos Anexos I e II está em `dados/processados/dicionario.json`: 43 entidades, 1.390 campos e 44 domínios do DDA, cada item com a página do Manual. Explicações do site sobre camadas, campos e códigos saem desse arquivo.
 
 ### Fatos já confirmados nos dados e nas referências
 
 - Sufixo de modelo no nome do arquivo: `M6` = Modelo Antigo (Módulo 6), `M10` = Modelo Novo (Módulo 10, Rev. 0), `V10` = Modelo V1.0, `V11` = Modelo V1.1 (atual). A última parte (ex.: `20260823-1836`) parece ser data e hora de geração; ainda não confirmado.
 - Coordenadas em SIRGAS 2000 geográfico (EPSG:4674), conforme o item 45 do Módulo 10. `Shape_Length` está em graus: para comprimentos, usar `COMP` ou reprojetar.
-- No Manual, unidades consumidoras e geradoras são entidades com geometria (ponto). No arquivo publicado, elas vêm como tabelas sem geometria (`UCBT_tab`, `UGBT_tab` etc.).
-- `POT_NOM` muda de tipo conforme a entidade: em umas é Decimal, em outras é código DDA (`TPOTAPRT`, kVA). Sempre conferir o tipo do campo no Anexo I antes de usar.
+- No Manual, unidades consumidoras e geradoras são entidades com geometria (ponto) e têm o campo `LGRD` (logradouro). No arquivo publicado, elas vêm como tabelas sem geometria (`UCBT_tab`, `UGBT_tab` etc.) e sem `LGRD`, mas **mantêm `CEP` e `BRR`**.
+- `POT_NOM` muda de tipo conforme a entidade: em `UNTRMT` é Decimal em kVA (p. 104); em `EQTRMT` é código DDA `TPOTAPRT` (p. 126), cuja tabela traz a coluna `pot` com o valor em kVA. Sempre conferir o tipo do campo no `dicionario.json` antes de usar.
+- `POT_INST` (GD) é Decimal em kW; `COMP` (rede) é Decimal em metros.
+- Divergências de nome entre Manual e arquivo: em `EQTRMT`/`EQTRAT`, o Manual escreve `UN_TR_MT`/`UN_TR_AT` e o arquivo usa `UNI_TR_MT`/`UNI_TR_AT` (como todas as outras camadas). A lista completa fica em `comparacao_com_arquivo` no `dicionario.json`.
+- Erros de digitação do Manual: o domínio `TCABOGEOM` aparece no título do Anexo II como `TCABOGTCEOM` (p. 176); a `SSDAT` lista `SAHPE_LENG`. O extrator corrige a sigla do domínio de forma explícita e registra em `inconsistencias_do_manual`.
 
 ## Privacidade
 

@@ -24,7 +24,9 @@ Uma **plataforma web interativa que é ao mesmo tempo tutorial e explorador da B
 
 **Princípio central: rastreabilidade.** Todo número, tabela ou mapa mostra de onde veio: arquivo, camada, coluna(s) e o cálculo feito.
 
-**Princípio de design: mostrar, não só explicar.** O site não pode ser uma reescrita dos manuais. Cada página começa por um elemento visual ou interativo (animação, ilustração, diagrama clicável, mapa) que mostra a ideia; o texto é curto e serve de apoio. Animações respeitam `prefers-reduced-motion` (o estado final fica sempre visível) e tudo funciona no celular. Referência: a página "Decifrando o arquivo" (nome do arquivo em peças clicáveis, animação zip → arquivos internos → mosaico de camadas, certidão do arquivo).
+**Princípio de design: mostrar, não só explicar.** O site não pode ser uma reescrita dos manuais. Cada página começa por um elemento visual ou interativo (animação, ilustração, diagrama clicável, mapa) que mostra a ideia; o texto é curto e serve de apoio. Animações respeitam `prefers-reduced-motion` (o estado final fica sempre visível) e tudo funciona no celular. Referências: "Decifrando o arquivo" (nome em peças clicáveis, animação zip → arquivos internos → mosaico de camadas, certidão) e "O que é a BDGD" (cena interativa da rede, linha do tempo dos prazos em escala real, diagrama do SIG-R).
+
+**Princípio de aprendizagem: a pessoa experimenta.** Cada página termina com um teste (`site/src/componentes/Quiz.tsx`): escolha, classificar e, de preferência, **estimativa** (chutar um número da Nova Palma num controle deslizante antes de ver o valor real), que faz imaginar antes de saber. Toda resposta mostra a explicação com fonte; números vêm dos JSON. Nada de quem joga é guardado fora do navegador. O plano completo está na issue #22.
 
 Seções planejadas:
 1. O que é a BDGD (regulação, portal da ANEEL, concessionária × permissionária).
@@ -61,6 +63,7 @@ dados brutos (dados/brutos/, fora do Git)
   - A lista de seções (menu, página inicial e páginas provisórias) fica em `site/src/secoes.ts`; a seção que ganha página própria entra em `PAGINAS_PRONTAS`, no `site/src/main.tsx`.
   - **Toda afirmação sobre a BDGD leva fonte**: `<Fonte de="modulo10" onde="item 41.2" />` (componente em `site/src/componentes/Fonte.tsx`), com as fontes cadastradas em `site/src/referencias.ts`, e `<ListaDeFontes />` no fim da página. O que for leitura nossa, e não do documento, é dito como observação.
   - Números sobre a Nova Palma são lidos dos JSON, nunca digitados no texto.
+  - Estilos: `site/src/estilos.css` (moldura do site), `site/src/visual.css` (cores, formas, selos, botões, código, animações comuns) e um CSS por página ou componente. **Nomes de classe CSS valem para o site inteiro**: classes de componente levam prefixo próprio (ex.: `quiz-…`, `regua-marca`, `cena-…`) para não colidir.
   - Os JSON de `dados/processados/` são importados em `site/src/dados.ts`.
   - Endereços próprios por página (`/camadas/UNTRMT`); o `404.html` é cópia do `index.html` para o GitHub Pages abrir esses endereços diretamente.
   - Comandos (em `site/`): `npm ci`, `npm run dev`, `npm run build`, `npm run preview`.

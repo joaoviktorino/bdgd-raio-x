@@ -6,6 +6,7 @@ import App from "./App";
 import Camada from "./paginas/Camada";
 import EmConstrucao from "./paginas/EmConstrucao";
 import Inicio from "./paginas/Inicio";
+import DecifrandoArquivo from "./paginas/DecifrandoArquivo";
 import NaoEncontrada from "./paginas/NaoEncontrada";
 import OQueEBdgd from "./paginas/OQueEBdgd";
 import { SECOES } from "./secoes";
@@ -14,6 +15,7 @@ import "./estilos.css";
 // Seções que já têm página própria; as demais mostram "Em construção".
 const PAGINAS_PRONTAS: Record<string, ReactNode> = {
   "o-que-e-bdgd": <OQueEBdgd />,
+  "decifrando-o-arquivo": <DecifrandoArquivo />,
 };
 
 createRoot(document.getElementById("raiz")!).render(

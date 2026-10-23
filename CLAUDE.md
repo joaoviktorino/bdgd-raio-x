@@ -24,6 +24,8 @@ Uma **plataforma web interativa que é ao mesmo tempo tutorial e explorador da B
 
 **Princípio central: rastreabilidade.** Todo número, tabela ou mapa mostra de onde veio: arquivo, camada, coluna(s) e o cálculo feito.
 
+**Princípio de design: mostrar, não só explicar.** O site não pode ser uma reescrita dos manuais. Cada página começa por um elemento visual ou interativo (animação, ilustração, diagrama clicável, mapa) que mostra a ideia; o texto é curto e serve de apoio. Animações respeitam `prefers-reduced-motion` (o estado final fica sempre visível) e tudo funciona no celular. Referência: a página "Decifrando o arquivo" (nome do arquivo em peças clicáveis, animação zip → arquivos internos → mosaico de camadas, certidão do arquivo).
+
 Seções planejadas:
 1. O que é a BDGD (regulação, portal da ANEEL, concessionária × permissionária).
 2. Decifrando o arquivo (o nome do arquivo baixado, parte por parte, e a procedência: link, tamanho, SHA-256, data do download).
@@ -71,8 +73,7 @@ dados brutos (dados/brutos/, fora do Git)
 - **Node.js** 24 LTS e npm em `C:\Program Files\nodejs\`. Em terminais abertos antes da instalação, acrescentar essa pasta ao `PATH` da sessão.
 - **GitHub CLI:** `C:\Program Files\GitHub CLI\gh.exe`, logado como `joaoviktorino`. O `gh issue develop --checkout` precisa rodar de dentro da pasta do repositório.
 - **PowerShell 5.1** quebra texto passado a outros programas:
-  - mensagens de commit sempre por arquivo UTF-8: `git commit -F arquivo` (aspas duplas e acentos na linha de comando dão erro);
-  - títulos e textos com acento para o `gh` passam por um script Python (`subprocess`), não direto pelo PowerShell;
+  - **qualquer texto com aspas duplas ou acentos vai por arquivo UTF-8**, nunca pela linha de comando: mensagem de commit (`git commit -F arquivo`), título e corpo de PR e issue (`gh ... --body-file`, e o título lido de arquivo por um script Python que chama o `gh` via `subprocess`). O PowerShell 5.1 quebra os argumentos nas aspas, inclusive em filtros `--jq`; para consultas, preferir `Invoke-RestMethod` na API do GitHub;
   - a exibição de acentos no terminal sai quebrada; para conferir textos, gravar em arquivo UTF-8 e ler.
 
 ## Distribuidora de estudo

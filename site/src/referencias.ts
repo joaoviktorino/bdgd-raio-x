@@ -29,6 +29,11 @@ export const REFERENCIAS = {
     titulo: "BDGD da Nova Palma (UHENPAL), data de referência 31/12/2025, portal de dados abertos da ANEEL",
     url: "https://dadosabertos-aneel.opendata.arcgis.com/search?tags=distribuicao",
   },
+  pipeline: {
+    curto: "pipeline deste projeto",
+    titulo: "pipeline/catalogar_gdb.py, o script deste projeto que abre o .gdb e gera o catálogo de camadas",
+    url: "https://github.com/joaoviktorino/bdgd-raio-x/blob/main/pipeline/catalogar_gdb.py",
+  },
 } satisfies Record<string, Referencia>;
 
 export type ChaveReferencia = keyof typeof REFERENCIAS;

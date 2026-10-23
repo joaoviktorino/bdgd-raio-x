@@ -2,7 +2,7 @@
 
 Projeto para estudar a BDGD de uma pequena distribuidora e verificar a GD nela.
 
-É uma plataforma web que é ao mesmo tempo **tutorial e explorador da BDGD** (Base de Dados Geográfica da Distribuidora), da ANEEL, usando o arquivo real da **Nova Palma (UHENPAL)**, com data de referência 31/12/2025. Cada número mostrado diz de qual camada e coluna veio.
+É uma plataforma web que é ao mesmo tempo **tutorial e explorador da BDGD** (Base de Dados Geográfica da Distribuidora), da ANEEL, usando o arquivo real da **DMED**, com data de referência 31/12/2025, escolhida por ser a mais completa entre 8 concessionárias comparadas (issue #24). Cada número mostrado diz de qual camada e coluna veio. O visual segue a identidade da Norven.
 
 Site: https://joaoviktorino.github.io/bdgd-raio-x/
 
@@ -32,7 +32,7 @@ A cada mudança no `main`, o GitHub Actions (`.github/workflows/publicar-site.ym
 
 ## Como rodar o pipeline
 
-Precisa do Python 3.13 e de um ambiente virtual com as dependências do `requirements.txt`. Os arquivos brutos (o `.gdb` da Nova Palma e o PDF do Manual de Instruções da BDGD, Revisão 5) ficam em `dados/brutos/`; veja a procedência em `dados/processados/arquivo.json` e no `CLAUDE.md`.
+Precisa do Python 3.13 e de um ambiente virtual com as dependências do `requirements.txt`. Os arquivos brutos (o `.gdb` da distribuidora e o PDF do Manual de Instruções da BDGD, Revisão 5) ficam em `dados/brutos/`; a distribuidora de estudo é configurada em `pipeline/distribuidora.json`, e a procedência fica em `dados/processados/arquivo.json` e no `CLAUDE.md`.
 
 ```
 python pipeline/catalogar_gdb.py          # estrutura do .gdb -> arquivo.json, catalogo.json

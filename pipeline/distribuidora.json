@@ -1,0 +1,19 @@
+{
+  "_sobre": "Distribuidora de estudo. Tudo o que é próprio dela fica aqui; os scripts do pipeline e o site leem deste arquivo (via dados/processados/arquivo.json).",
+  "nome": "DMED",
+  "pasta_brutos": "dmed_2025",
+  "arquivo_zip": "Dmed_51_2025-12-31_V11_20260823-1827.gdb.zip",
+  "tamanho_bytes": 21114411,
+  "sha256": "5A17276584484A2C6CD9EEB5F8B242972DBC7557D184C97D556609FA7C36B09E",
+  "item_arcgis": "44ccd59a1cba4e019a258b3e58fea420",
+  "data_download": "2026-10-23",
+  "anexo_iii": {
+    "_fonte": "Manual de Instruções da BDGD, Revisão 5, Anexo III, p. 214",
+    "sigla": "DMED",
+    "codigo_area_atuacao": "C.039.MG.1999",
+    "dist_sig_r": 39,
+    "dist_sari": 51,
+    "pagina": 214
+  },
+  "escolha": "Entre 8 concessionárias com BDGD 2025 no modelo V11 (Nova Palma, Chesp, Cocel, Dcelt, DMED, Eletrocar, Santa Maria e Sulgipe), a DMED teve menos camadas vazias (4) e tem rede de alta tensão. Ver a issue #24."
+}

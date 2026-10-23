@@ -2,14 +2,15 @@ import CenaRede from "../componentes/CenaRede";
 import ConcessaoPermissao from "../componentes/ConcessaoPermissao";
 import DiagramaSigr from "../componentes/DiagramaSigr";
 import { Fonte, ListaDeFontes } from "../componentes/Fonte";
+import Icone from "../componentes/Icone";
 import LinhaPrazos from "../componentes/LinhaPrazos";
 import Quiz, { type Pergunta } from "../componentes/Quiz";
-import { acharCamada, arquivo } from "../dados";
+import { acharCamada, arquivo, distribuidora, registrosNumero } from "../dados";
 import { inteiro } from "../formatos";
 import { REFERENCIAS } from "../referencias";
 import "./oque.css";
 
-const registros = (sigla: string) => acharCamada(sigla)?.registros ?? 0;
+const registros = (sigla: string) => registrosNumero(acharCamada(sigla));
 
 const PERGUNTAS: Pergunta[] = [
   {
@@ -37,15 +38,15 @@ const PERGUNTAS: Pergunta[] = [
   {
     id: "estimar-trechos-mt",
     tipo: "estimativa",
-    enunciado: "Chute: quantos trechos de rede de média tensão a Nova Palma tem?",
+    enunciado: `Chute: quantos trechos de rede de média tensão a ${distribuidora} tem?`,
     valor: registros("SSDMT"),
     min: 10,
     max: 1_000_000,
     unidade: "trechos",
     explicacao: (
       <p>
-        São {inteiro(registros("SSDMT"))} trechos <Fonte de="arquivo" onde="camada SSDMT" />. Parece muito para uma
-        distribuidora pequena, mas cada trecho vai só de uma estrutura de suporte à seguinte, o vão{" "}
+        São {inteiro(registros("SSDMT"))} trechos <Fonte de="arquivo" onde="camada SSDMT" />. O número é grande
+        porque cada trecho vai só de uma estrutura de suporte à seguinte, o vão{" "}
         <Fonte de="modulo10" onde="Tabela 3" />.
       </p>
     ),
@@ -66,7 +67,7 @@ const PERGUNTAS: Pergunta[] = [
   {
     id: "estimar-ucbt",
     tipo: "estimativa",
-    enunciado: "Chute: quantas unidades consumidoras de baixa tensão a Nova Palma atende?",
+    enunciado: `Chute: quantas unidades consumidoras de baixa tensão a ${distribuidora} atende?`,
     valor: registros("UCBT"),
     min: 100,
     max: 10_000_000,
@@ -158,7 +159,8 @@ export default function OQueEBdgd() {
           </p>
           <ConcessaoPermissao />
           <p className="nota">
-            Códigos de área de atuação do Anexo III <Fonte de="manual" onde="p. 214" />. A letra inicial acompanha a
+            Códigos de área de atuação do Anexo III{" "}
+            <Fonte de="manual" onde={`p. ${[...new Set([arquivo.anexo_iii.pagina, 214])].join(" e ")}`} />. A letra inicial acompanha a
             forma de outorga, mas isso é uma leitura nossa do código: o Manual não explica o formato.
           </p>
         </div>
@@ -168,9 +170,7 @@ export default function OQueEBdgd() {
         <h2>Onde baixar</h2>
         <div className="atalhos">
           <a className="atalho" href={REFERENCIAS.arquivo.url}>
-            <span className="atalho-icone" aria-hidden="true">
-              ⬇
-            </span>
+            <Icone nome="baixar" />
             <strong>Os arquivos da BDGD</strong>
             <span>
               Portal de dados abertos da ANEEL: um <code>.gdb.zip</code> por distribuidora e data de referência{" "}
@@ -178,9 +178,7 @@ export default function OQueEBdgd() {
             </span>
           </a>
           <a className="atalho" href={REFERENCIAS.manual.url}>
-            <span className="atalho-icone" aria-hidden="true">
-              📘
-            </span>
+            <Icone nome="livro" />
             <strong>O Manual de Instruções</strong>
             <span>
               Página de manuais de distribuição da ANEEL <Fonte de="manual" onde="Seção 1, item 2.1, p. 7" />

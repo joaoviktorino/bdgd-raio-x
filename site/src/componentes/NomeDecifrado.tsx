@@ -22,6 +22,7 @@ const MODELOS = [
 
 function montarPartes(): Parte[] {
   const p = arquivo.partes_do_nome;
+  const a3 = arquivo.anexo_iii;
   const geracao = lerDataHora(p.geracao);
   const zip = arquivo.conteudo_zip;
   return [
@@ -30,11 +31,11 @@ function montarPartes(): Parte[] {
       texto: p.nome,
       rotulo: "distribuidora",
       status: "confirmado",
-      significado: "Nova Palma, a UHENPAL",
+      significado: `A distribuidora ${a3.sigla}`,
       detalhe: (
         <p>
-          O nome curto da distribuidora. No Manual, ela aparece como UHENPAL, com o mesmo código que vem logo
-          depois no nome do arquivo <Fonte de="manual" onde="Anexo III, p. 214" />.
+          O nome curto da distribuidora. No Manual, ela aparece como {a3.sigla}, com o mesmo código que vem logo
+          depois no nome do arquivo <Fonte de="manual" onde={`Anexo III, p. ${a3.pagina}`} />.
         </p>
       ),
     },
@@ -48,7 +49,8 @@ function montarPartes(): Parte[] {
         <p>
           É o código da distribuidora no Cadastro Institucional da ANEEL (SARI), usado a partir do modelo de
           dados do Módulo 10 <Fonte de="manual" onde="Anexo III, item 3.1, p. 213" />. No modelo antigo, a
-          mesma Nova Palma tinha o código 63 <Fonte de="manual" onde="Anexo III, p. 214" />.
+          mesma {a3.sigla} tinha o código {a3.dist_sig_r}{" "}
+          <Fonte de="manual" onde={`Anexo III, p. ${a3.pagina}`} />.
         </p>
       ),
     },

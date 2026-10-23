@@ -51,12 +51,26 @@
   text-anchor: middle;
 }
 
+.rede-at,
 .rede-mt,
 .rede-bt {
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 1;
+}
+
+.rede-at {
+  stroke: var(--forma-linha-at);
+  stroke-width: 6;
+}
+
+.industria {
+  fill: color-mix(in srgb, var(--forma-ponto) 22%, var(--superficie));
+  stroke: var(--forma-ponto);
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
 }
 
 .rede-mt {
@@ -228,17 +242,26 @@
 
 /* desenho da cena: só esconde antes se a animação for acontecer */
 @media (prefers-reduced-motion: no-preference) {
+  .cena:not(.desenhando) .rede-at,
   .cena:not(.desenhando) .rede-mt,
   .cena:not(.desenhando) .rede-bt {
     stroke-dashoffset: 1;
   }
 
-  .cena:not(.desenhando) :is(.poste, .casa, .trafo, .solar, .solar-grade, .alvo-ficha) {
+  .cena:not(.desenhando) :is(.poste, .casa, .trafo, .solar, .solar-grade, .alvo-ficha, .industria) {
     opacity: 0;
   }
 
+  .desenhando .rede-at {
+    animation: tracar 0.7s ease backwards;
+  }
+
+  .desenhando .industria {
+    animation: brotar 0.4s cubic-bezier(0.3, 1.6, 0.5, 1) 0.6s backwards;
+  }
+
   .desenhando .rede-mt {
-    animation: tracar 1.3s ease backwards;
+    animation: tracar 1.3s ease 0.5s backwards;
   }
 
   .desenhando .rede-bt {
@@ -445,7 +468,7 @@
   background: color-mix(in srgb, var(--forma-ponto) 16%, var(--superficie));
 }
 
-.sigr-distribuidoras li.nova-palma {
+.sigr-distribuidoras li.sigr-destaque {
   grid-column: span 3;
   aspect-ratio: auto;
   display: grid;
@@ -467,7 +490,7 @@
     animation-delay: calc(var(--i) * 40ms);
   }
 
-  .montando li.nova-palma {
+  .montando li.sigr-destaque {
     animation: surgir 0.4s ease backwards, pulso 2.2s ease-in-out 1.4s 3;
     animation-delay: calc(var(--i) * 40ms), 1.4s;
   }
@@ -566,8 +589,9 @@
   border-color: var(--destaque);
 }
 
-.atalho-icone {
-  font-size: 1.6rem;
+.atalho .icone {
+  width: 2rem;
+  height: 2rem;
 }
 
 .atalho span:last-child {

@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router";
 
-import { acharCamada } from "../dados";
+import { acharCamada, registrosTexto } from "../dados";
 import { URL_REPOSITORIO } from "../secoes";
 
 /** Página de uma camada (ex.: /camadas/UNTRMT). Por enquanto, só confirma que ela existe. */
@@ -28,7 +28,7 @@ export default function Camada() {
       <h1>{camada.nome}</h1>
       <p>
         {camada.geometria === "tabela" ? "Tabela sem geometria" : `Geometria: ${camada.geometria}`},{" "}
-        {camada.registros.toLocaleString("pt-BR")} registros, {camada.colunas.length} colunas.
+        {registrosTexto(camada)} registros, {camada.colunas.length} colunas.
       </p>
       <p className="aviso">
         A descrição completa desta camada está em construção na{" "}

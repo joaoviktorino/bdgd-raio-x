@@ -1,4 +1,4 @@
-import { arquivo } from "../dados";
+import { distribuidora } from "../dados";
 import { Fonte } from "./Fonte";
 import { useVisivel } from "./useVisivel";
 
@@ -11,9 +11,9 @@ const BASES = [
   { sigla: "ANEEL", nome: "Outras bases de dados da ANEEL" },
 ];
 
-// Quantidade ilustrativa de caixas; a posição da Nova Palma é só visual.
+// Quantidade ilustrativa de caixas; a posição da distribuidora de estudo é só visual.
 const CAIXAS = 24;
-const POSICAO_NOVA_PALMA = 9;
+const POSICAO_DESTAQUE = 9;
 
 /** O SIG-R como uma caixa grande: bases de apoio de um lado, uma BDGD por distribuidora do outro. */
 export default function DiagramaSigr() {
@@ -37,10 +37,10 @@ export default function DiagramaSigr() {
               {Array.from({ length: CAIXAS }, (_, i) => (
                 <li
                   key={i}
-                  className={i === POSICAO_NOVA_PALMA ? "nova-palma" : undefined}
+                  className={i === POSICAO_DESTAQUE ? "sigr-destaque" : undefined}
                   style={{ ["--i" as string]: i }}
                 >
-                  {i === POSICAO_NOVA_PALMA ? arquivo.distribuidora.split(" (")[0] : ""}
+                  {i === POSICAO_DESTAQUE ? distribuidora : ""}
                 </li>
               ))}
             </ul>

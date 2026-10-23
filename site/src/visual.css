@@ -1,53 +1,58 @@
 /* Base visual comum às páginas do site (cores, formas, selos, código e animações). */
 
+/* Paleta oficial Norven (design system "Norven"): roxo #550899, lilás #AC4DFF, roxo-médio #6C0AC6,
+   azul #2B60D6, verde #518E16, marrom #A34200, laranja #FF6A00, ciano #00CDE2, verde-lima #AAF766.
+   Ciano e verde-lima só em formas ou sobre fundo escuro (contraste baixo sobre branco). */
 .pagina-visual {
-  --cor-nome: #2563eb;
-  --cor-codigo: #7c3aed;
-  --cor-referencia: #d97706;
-  --cor-modelo: #059669;
-  --cor-geracao: #db2777;
-  --cor-formato: #475569;
+  --cor-nome: #550899;
+  --cor-codigo: #2b60d6;
+  --cor-referencia: #a34200;
+  --cor-modelo: #518e16;
+  --cor-geracao: #ac4dff;
+  --cor-formato: #5a5a5a;
 
-  --forma-ponto: #2563eb;
-  --forma-linha: #d97706;
-  --forma-poligono: #059669;
-  --forma-tabela: #7c3aed;
+  --forma-ponto: #2b60d6;
+  --forma-linha: #ff6a00;
+  --forma-linha-at: #a34200;
+  --forma-poligono: #518e16;
+  --forma-tabela: #6c0ac6;
 
-  --ext-gdbtable: #2563eb;
-  --ext-gdbtablx: #93c5fd;
-  --ext-gdbindexes: #a78bfa;
-  --ext-outra: #cbd5e1;
+  --ext-gdbtable: #550899;
+  --ext-gdbtablx: #ac4dff;
+  --ext-gdbindexes: #00cde2;
+  --ext-outra: #d9d2e3;
 
-  --certo: #16a34a;
-  --errado: #dc2626;
+  --certo: #518e16;
+  --errado: #a34200;
 
-  --codigo-fundo: #0f172a;
-  --codigo-texto: #e2e8f0;
+  --codigo-fundo: #1b1b1b;
+  --codigo-texto: #f0f0f0;
 }
 
 @media (prefers-color-scheme: dark) {
   .pagina-visual {
-    --cor-nome: #60a5fa;
-    --cor-codigo: #a78bfa;
-    --cor-referencia: #fbbf24;
-    --cor-modelo: #34d399;
-    --cor-geracao: #f472b6;
-    --cor-formato: #94a3b8;
+    --cor-nome: #ac4dff;
+    --cor-codigo: #00cde2;
+    --cor-referencia: #ff6a00;
+    --cor-modelo: #aaf766;
+    --cor-geracao: #c98bff;
+    --cor-formato: #bcbcbc;
 
-    --forma-ponto: #60a5fa;
-    --forma-linha: #fbbf24;
-    --forma-poligono: #34d399;
-    --forma-tabela: #a78bfa;
+    --forma-ponto: #00cde2;
+    --forma-linha: #ff6a00;
+    --forma-linha-at: #aaf766;
+    --forma-poligono: #518e16;
+    --forma-tabela: #ac4dff;
 
-    --ext-gdbtable: #60a5fa;
-    --ext-gdbtablx: #1e40af;
-    --ext-gdbindexes: #7c3aed;
-    --ext-outra: #475569;
+    --ext-gdbtable: #ac4dff;
+    --ext-gdbtablx: #6c0ac6;
+    --ext-gdbindexes: #00cde2;
+    --ext-outra: #3a3340;
 
-    --certo: #4ade80;
-    --errado: #f87171;
+    --certo: #aaf766;
+    --errado: #ff6a00;
 
-    --codigo-fundo: #0b1220;
+    --codigo-fundo: #121112;
   }
 }
 
@@ -118,6 +123,22 @@
   vertical-align: -0.05rem;
 }
 
+/* --- ícones (traço em destaque, detalhe em lilás) --- */
+
+.icone {
+  width: 2.1rem;
+  height: 2.1rem;
+  fill: none;
+  stroke: var(--destaque);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icone-detalhe {
+  stroke: #ac4dff;
+}
+
 /* --- selos --- */
 
 .selo {
@@ -131,13 +152,13 @@
 }
 
 .selo-ok {
-  background: color-mix(in srgb, #16a34a 18%, transparent);
-  color: #15803d;
+  background: color-mix(in srgb, #518e16 16%, transparent);
+  color: #3f6f11;
 }
 
 .selo-talvez {
-  background: color-mix(in srgb, #d97706 20%, transparent);
-  color: #b45309;
+  background: color-mix(in srgb, #ff6a00 16%, transparent);
+  color: #a34200;
 }
 
 .selo-neutro {
@@ -146,8 +167,8 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .selo-ok { color: #4ade80; }
-  .selo-talvez { color: #fbbf24; }
+  .selo-ok { color: #aaf766; }
+  .selo-talvez { color: #ff6a00; }
 }
 
 /* --- botões --- */

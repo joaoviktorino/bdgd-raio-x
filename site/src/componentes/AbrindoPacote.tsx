@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
-import { arquivo, catalogo } from "../dados";
+import { arquivo, catalogo, registrosNumero, registrosTexto } from "../dados";
 import { inteiro, megabytes } from "../formatos";
 import { Fonte } from "./Fonte";
 import { preferePoucoMovimento, useVisivel } from "./useVisivel";
@@ -38,10 +38,10 @@ export default function AbrindoPacote() {
     Array.from({ length: n }, () => ext),
   );
 
-  const maior = Math.max(...catalogo.camadas.map((c) => c.registros));
-  const camadas = [...catalogo.camadas].sort((a, b) => b.registros - a.registros);
+  const maior = Math.max(...catalogo.camadas.map(registrosNumero));
+  const camadas = [...catalogo.camadas].sort((a, b) => registrosNumero(b) - registrosNumero(a));
   const porForma = camadas.reduce<Record<string, number>>((acc, c) => {
-    const f = c.registros === 0 ? "vazia" : forma(c.geometria);
+    const f = registrosNumero(c) === 0 ? "vazia" : forma(c.geometria);
     acc[f] = (acc[f] ?? 0) + 1;
     return acc;
   }, {});
@@ -88,15 +88,16 @@ export default function AbrindoPacote() {
         <li className="pacote-etapa etapa-camadas">
           <div className="mosaico">
             {camadas.map((c, i) => {
-              const lado = c.registros === 0 ? 14 : 18 + 58 * Math.sqrt(c.registros / maior);
+              const n = registrosNumero(c);
+              const lado = n === 0 ? 14 : 18 + 58 * Math.sqrt(n / maior);
               return (
                 <Link
                   key={c.nome}
                   to={`/camadas/${c.nome}`}
-                  className={`bloco forma-${c.registros === 0 ? "vazia" : forma(c.geometria)}`}
+                  className={`bloco forma-${n === 0 ? "vazia" : forma(c.geometria)}`}
                   style={{ ["--lado" as string]: `${lado}px`, ["--i" as string]: i }}
-                  title={`${c.nome}: ${inteiro(c.registros)} registros`}
-                  aria-label={`${c.nome}, ${inteiro(c.registros)} registros`}
+                  title={`${c.nome}: ${registrosTexto(c)} registros`}
+                  aria-label={`${c.nome}, ${registrosTexto(c)} registros`}
                 />
               );
             })}

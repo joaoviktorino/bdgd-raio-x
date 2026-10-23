@@ -4,7 +4,8 @@ Percorre todos os .json, .geojson e .csv de dados/processados/ e termina com
 erro (código 1) se encontrar:
   1. coluna que identifica unidade (PAC, PN_CON, CEP, BRR, RAMAL, COD_ID);
   2. grupo com 1 ou 2 unidades exposto (qtd_uc/qtd_ug não mascarado como
-     "menos de 3", ou campo uc_*/ug_* preenchido num grupo mascarado);
+     "menos de 3", ou campo uc_*/ug_* preenchido num grupo mascarado; no
+     catálogo, camada de unidades com 1 ou 2 registros);
   3. feição de mapa sem a propriedade "camada" ou vinda de camada de unidade
      consumidora/geradora (UCBT, UGMT_tab...);
   4. coordenada solta (lat, lon, latitude, longitude...).
@@ -76,9 +77,18 @@ def verificar_contagens(registro, onde):
     return problemas
 
 
+def verificar_camada_de_unidades(registro, onde):
+    """Regra 2b: no catálogo, camada de unidades consumidoras/geradoras com 1 ou 2 registros fica mascarada."""
+    nome, n = registro.get("nome"), registro.get("registros")
+    if isinstance(nome, str) and CAMADA_DE_UNIDADES.match(nome) and isinstance(n, (int, float)) and 0 < n < MINIMO_UNIDADES:
+        return [f"{onde}: camada '{nome}' com {n} registros exposta (deveria ser '{MASCARA}')"]
+    return []
+
+
 def verificar_registro(registro, onde):
-    """Aplica as regras 1, 2 e 4 a um registro (dict)."""
-    return verificar_colunas(registro, onde) + verificar_contagens(registro, onde)
+    """Aplica as regras 1, 2, 2b e 4 a um registro (dict)."""
+    return (verificar_colunas(registro, onde) + verificar_contagens(registro, onde)
+            + verificar_camada_de_unidades(registro, onde))
 
 
 def verificar_geojson(dados, onde):

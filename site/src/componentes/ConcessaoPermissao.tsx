@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import { arquivo } from "../dados";
 import { Fonte } from "./Fonte";
 
 type Linha = { aspecto: string; concessao: ReactNode; permissao: ReactNode };
@@ -48,7 +49,7 @@ export default function ConcessaoPermissao() {
           ))}
         </dl>
         <p className="outorga-exemplo">
-          Nova Palma (UHENPAL): <code>C.062.RS.2001</code>
+          {arquivo.anexo_iii.sigla}: <code>{arquivo.anexo_iii.codigo_area_atuacao}</code>
         </p>
       </div>
 

@@ -26,7 +26,13 @@ Uma **plataforma web interativa que é ao mesmo tempo tutorial e explorador da B
 
 **Princípio de design: mostrar, não só explicar.** O site não pode ser uma reescrita dos manuais. Cada página começa por um elemento visual ou interativo (animação, ilustração, diagrama clicável, mapa) que mostra a ideia; o texto é curto e serve de apoio. Animações respeitam `prefers-reduced-motion` (o estado final fica sempre visível) e tudo funciona no celular. Referências: "Decifrando o arquivo" (nome em peças clicáveis, animação zip → arquivos internos → mosaico de camadas, certidão) e "O que é a BDGD" (cena interativa da rede, linha do tempo dos prazos em escala real, diagrama do SIG-R).
 
-**Princípio de aprendizagem: a pessoa experimenta.** Cada página termina com um teste (`site/src/componentes/Quiz.tsx`): escolha, classificar e, de preferência, **estimativa** (chutar um número da Nova Palma num controle deslizante antes de ver o valor real), que faz imaginar antes de saber. Toda resposta mostra a explicação com fonte; números vêm dos JSON. Nada de quem joga é guardado fora do navegador. O plano completo está na issue #22.
+**Princípio de aprendizagem: a pessoa experimenta.** Cada página termina com um teste (`site/src/componentes/Quiz.tsx`): escolha, classificar e, de preferência, **estimativa** (chutar um número da distribuidora de estudo num controle deslizante antes de ver o valor real), que faz imaginar antes de saber. Toda resposta mostra a explicação com fonte; números vêm dos JSON. Nada de quem joga é guardado fora do navegador. O plano completo está na issue #22.
+
+**Identidade visual: Norven.** O site segue o design system "Norven" (artifact no claude.ai da conta do usuário):
+- cores da marca: roxo `#550899` (destaque no modo claro) e lilás `#AC4DFF` (destaque no escuro); preto Norven `#1B1B1B` para texto e fundo escuro, nunca `#000`; dados e formas com as cores de apoio da paleta (azul, verde, marrom, laranja, roxo-médio; ciano e verde-lima só em formas ou sobre fundo escuro);
+- fonte de texto **Mulish** (a Muli oficial, livre, via Google Fonts). Títulos com a pilha `"Styrene A Bold", …, Mulish`: a Styrene A só aparece onde já estiver instalada. **Não publicar os arquivos da Styrene A** no repositório nem no site sem confirmação de que a licença da Norven cobre este domínio;
+- grafismo de faixas diagonais (subindo para a direita) só em aberturas e cantos, nunca atrás de texto; ícones de traço em roxo/lilás, nunca emoji; tom factual, especialista e sucinto;
+- **sem logotipo** no repositório público (mesma decisão do painel-gd-aneel).
 
 Seções planejadas:
 1. O que é a BDGD (regulação, portal da ANEEL, concessionária × permissionária).
@@ -37,7 +43,7 @@ Seções planejadas:
 6. GD × capacidade (Fase 2).
 7. Mapa (subestações, rede, transformadores; consumidores nunca como pontos).
 
-### Fase 1: raio-x da rede de uma distribuidora pequena
+### Fase 1: raio-x da rede da distribuidora
 Subestações, alimentadores, km de rede, transformadores e consumidores por alimentador.
 
 ### Fase 2: geração distribuída (GD)
@@ -54,6 +60,7 @@ dados brutos (dados/brutos/, fora do Git)
    → publicado como site estático (GitHub Pages)
 ```
 
+- **A distribuidora de estudo é configurada em `pipeline/distribuidora.json`** (arquivo, tamanho, SHA-256, item do ArcGIS, nome, códigos do Anexo III). Trocar de distribuidora é mudar esse arquivo, baixar o zip para `dados/brutos/<pasta_brutos>/`, extrair e rodar o pipeline; o site lê tudo do `arquivo.json`.
 - Ordem do pipeline:
   1. `pipeline/catalogar_gdb.py` → `arquivo.json` e `catalogo.json` (estrutura do `.gdb`);
   2. `pipeline/extrair_dicionario.py` → `dicionario.json` (entidades, campos e domínios do Manual, comparados com o catálogo);
@@ -62,7 +69,7 @@ dados brutos (dados/brutos/, fora do Git)
 - **Site** em `site/`, publicado em https://joaoviktorino.github.io/bdgd-raio-x/ pelo workflow `.github/workflows/publicar-site.yml` a cada push no `main`.
   - A lista de seções (menu, página inicial e páginas provisórias) fica em `site/src/secoes.ts`; a seção que ganha página própria entra em `PAGINAS_PRONTAS`, no `site/src/main.tsx`.
   - **Toda afirmação sobre a BDGD leva fonte**: `<Fonte de="modulo10" onde="item 41.2" />` (componente em `site/src/componentes/Fonte.tsx`), com as fontes cadastradas em `site/src/referencias.ts`, e `<ListaDeFontes />` no fim da página. O que for leitura nossa, e não do documento, é dito como observação.
-  - Números sobre a Nova Palma são lidos dos JSON, nunca digitados no texto.
+  - Números e nomes da distribuidora são lidos dos JSON, nunca digitados no texto. Registros de camada podem vir como `"menos de 3"`: usar `registrosTexto` (mostrar) e `registrosNumero` (calcular) de `site/src/dados.ts`.
   - Estilos: `site/src/estilos.css` (moldura do site), `site/src/visual.css` (cores, formas, selos, botões, código, animações comuns) e um CSS por página ou componente. **Nomes de classe CSS valem para o site inteiro**: classes de componente levam prefixo próprio (ex.: `quiz-…`, `regua-marca`, `cena-…`) para não colidir.
   - Os JSON de `dados/processados/` são importados em `site/src/dados.ts`.
   - Endereços próprios por página (`/camadas/UNTRMT`); o `404.html` é cópia do `index.html` para o GitHub Pages abrir esses endereços diretamente.
@@ -81,9 +88,10 @@ dados brutos (dados/brutos/, fora do Git)
 
 ## Distribuidora de estudo
 
-- **Nova Palma (UHENPAL)**, código ANEEL 400, concessionária (RS).
-- Arquivo: `Nova_Palma_400_2025-12-31_V11_20260823-1836.gdb.zip` (6.293.535 bytes, SHA-256 `1742CD48698F01A040AEEC50117E365D294876D9D689CB69247D555636321025`).
-- Origem: portal de dados abertos da ANEEL no ArcGIS (item `e3a518b754ff42fcaf0232003c0b1e9d`).
+- **DMED**, DIST (SARI) 51, código de área de atuação `C.039.MG.1999`, DIST antigo do SIG-R 39 (Manual, Anexo III, p. 214). Configuração em `pipeline/distribuidora.json`.
+- Arquivo: `Dmed_51_2025-12-31_V11_20260823-1827.gdb.zip` (21.114.411 bytes, SHA-256 `5A17276584484A2C6CD9EEB5F8B242972DBC7557D184C97D556609FA7C36B09E`), portal de dados abertos da ANEEL no ArcGIS (item `44ccd59a1cba4e019a258b3e58fea420`).
+- **Por que a DMED** (issue #24): entre 8 concessionárias com BDGD 2025 no modelo V11 (Nova Palma, Chesp, Cocel, Dcelt, DMED, Eletrocar, Santa Maria, Sulgipe), é a que tem menos camadas vazias (4) e tem rede de alta tensão, consumidores e geradores em AT. As 4 vazias (`UNCRAT`, `UNCRBT`, `UNREAT`, `UNSEBT`) estão vazias nos 8 arquivos.
+- Até a issue #24 o estudo usou a **Nova Palma (UHENPAL)**, código 400, com 9 camadas vazias por não ter rede AT. O arquivo dela continua em `dados/brutos/nova_palma_2025/`, fora do Git.
 
 ## Referências
 
@@ -115,6 +123,7 @@ O conteúdo dos Anexos I e II está em `dados/processados/dicionario.json`: 43 e
 
 - Dados de unidades consumidoras e geradoras **só podem aparecer agregados**: por alimentador, transformador ou município. **Nunca por consumidor individual**, em tabelas, mapas, gráficos, logs ou arquivos commitados.
 - **Grupos com menos de 3 unidades** não mostram o valor: aparecem como "menos de 3" ou são omitidos. Isso evita que um transformador com um único consumidor exponha um dado individual.
+- Vale também para a contagem de uma camada inteira: no `catalogo.json`, camadas de unidades consumidoras ou geradoras com 1 ou 2 registros têm `"registros": "menos de 3"` (ex.: na DMED, `UCAT_tab` e `UGAT_tab`).
 - Colunas que identificam a unidade (`COD_ID`, `PAC`, `PN_CON`, `CEP`, `BRR`, `RAMAL`) servem só para agrupar e ligar camadas. Nunca vão para os dados processados.
 - Nunca ligar unidades consumidoras ou geradoras à camada `PONNOT` para obter localização em saídas.
 

@@ -93,6 +93,17 @@ class TravaDePrivacidade(unittest.TestCase):
         self.gravar("gd.json", [{"transformador": "TR1", "qtd_ug": "poucos"}])
         self.assertBarra("valor inválido")
 
+    def test_barra_camada_de_unidades_com_2_registros_no_catalogo(self):
+        self.gravar("catalogo.json", {"camadas": [{"nome": "UCAT_tab", "registros": 2, "colunas": []}]})
+        self.assertBarra("camada 'UCAT_tab' com 2 registros exposta")
+
+    def test_camada_de_unidades_mascarada_e_camada_de_rede_pequena_passam(self):
+        self.gravar("catalogo.json", {"camadas": [
+            {"nome": "UGAT_tab", "registros": "menos de 3", "colunas": []},
+            {"nome": "SUB", "registros": 2, "colunas": []},
+        ]})
+        self.assertEqual(self.problemas(), [])
+
     # --- regra 3: mapas ---
 
     def test_barra_feicao_de_unidade_consumidora(self):

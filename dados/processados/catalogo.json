@@ -1,8 +1,9 @@
 {
-  "arquivo": "Nova_Palma_400_2025-12-31_V11_20260823-1836.gdb",
+  "arquivo": "Dmed_51_2025-12-31_V11_20260823-1827.gdb",
   "total_camadas": 43,
   "camadas_geograficas": 17,
   "tabelas": 26,
+  "camadas_vazias": 4,
   "camadas": [
     {
       "nome": "ARAT",
@@ -43,7 +44,7 @@
     {
       "nome": "BAR",
       "geometria": "tabela",
-      "registros": 26,
+      "registros": 20,
       "crs": null,
       "colunas": [
         {
@@ -167,7 +168,7 @@
     {
       "nome": "BAY",
       "geometria": "tabela",
-      "registros": 5,
+      "registros": 11,
       "crs": null,
       "colunas": [
         {
@@ -203,7 +204,7 @@
     {
       "nome": "BE",
       "geometria": "tabela",
-      "registros": 9,
+      "registros": 13,
       "crs": null,
       "colunas": [
         {
@@ -279,7 +280,7 @@
     {
       "nome": "CONJ",
       "geometria": "MultiPolygon",
-      "registros": 1,
+      "registros": 3,
       "crs": "EPSG:4674",
       "colunas": [
         {
@@ -319,7 +320,7 @@
     {
       "nome": "CRVCRG",
       "geometria": "tabela",
-      "registros": 87,
+      "registros": 186,
       "crs": null,
       "colunas": [
         {
@@ -731,7 +732,7 @@
     {
       "nome": "CTAT",
       "geometria": "tabela",
-      "registros": 0,
+      "registros": 7,
       "crs": null,
       "colunas": [
         {
@@ -763,7 +764,7 @@
     {
       "nome": "CTMT",
       "geometria": "tabela",
-      "registros": 5,
+      "registros": 39,
       "crs": null,
       "colunas": [
         {
@@ -1003,7 +1004,7 @@
     {
       "nome": "EP",
       "geometria": "tabela",
-      "registros": 5,
+      "registros": 4,
       "crs": null,
       "colunas": [
         {
@@ -1079,7 +1080,7 @@
     {
       "nome": "EQCR",
       "geometria": "tabela",
-      "registros": 37,
+      "registros": 159,
       "crs": null,
       "colunas": [
         {
@@ -1167,7 +1168,7 @@
     {
       "nome": "EQME",
       "geometria": "tabela",
-      "registros": 17435,
+      "registros": 90682,
       "crs": null,
       "colunas": [
         {
@@ -1267,7 +1268,7 @@
     {
       "nome": "EQRE",
       "geometria": "tabela",
-      "registros": 16,
+      "registros": 15,
       "crs": null,
       "colunas": [
         {
@@ -1399,7 +1400,7 @@
     {
       "nome": "EQSE",
       "geometria": "tabela",
-      "registros": 2853,
+      "registros": 5574,
       "crs": null,
       "colunas": [
         {
@@ -1511,7 +1512,7 @@
     {
       "nome": "EQTRAT",
       "geometria": "tabela",
-      "registros": 5,
+      "registros": 9,
       "crs": null,
       "colunas": [
         {
@@ -1639,7 +1640,7 @@
     {
       "nome": "EQTRM",
       "geometria": "tabela",
-      "registros": 164,
+      "registros": 929,
       "crs": null,
       "colunas": [
         {
@@ -1739,7 +1740,7 @@
     {
       "nome": "EQTRMT",
       "geometria": "tabela",
-      "registros": 2085,
+      "registros": 3385,
       "crs": null,
       "colunas": [
         {
@@ -1887,7 +1888,7 @@
     {
       "nome": "PIP",
       "geometria": "tabela",
-      "registros": 7191,
+      "registros": 26153,
       "crs": null,
       "colunas": [
         {
@@ -2147,7 +2148,7 @@
     {
       "nome": "PONNOT",
       "geometria": "Point",
-      "registros": 23512,
+      "registros": 43553,
       "crs": "EPSG:4674",
       "colunas": [
         {
@@ -2255,7 +2256,7 @@
     {
       "nome": "PT",
       "geometria": "tabela",
-      "registros": 9,
+      "registros": 4,
       "crs": null,
       "colunas": [
         {
@@ -2327,7 +2328,7 @@
     {
       "nome": "RAMLIG",
       "geometria": "tabela",
-      "registros": 14929,
+      "registros": 46118,
       "crs": null,
       "colunas": [
         {
@@ -2423,7 +2424,7 @@
     {
       "nome": "SEGCON",
       "geometria": "tabela",
-      "registros": 246,
+      "registros": 652,
       "crs": null,
       "colunas": [
         {
@@ -2587,7 +2588,7 @@
     {
       "nome": "SSDAT",
       "geometria": "MultiLineString",
-      "registros": 0,
+      "registros": 224,
       "crs": "EPSG:4674",
       "colunas": [
         {
@@ -2679,7 +2680,7 @@
     {
       "nome": "SSDBT",
       "geometria": "MultiLineString",
-      "registros": 13463,
+      "registros": 33748,
       "crs": "EPSG:4674",
       "colunas": [
         {
@@ -2783,7 +2784,7 @@
     {
       "nome": "SSDMT",
       "geometria": "MultiLineString",
-      "registros": 14825,
+      "registros": 23692,
       "crs": "EPSG:4674",
       "colunas": [
         {
@@ -2883,7 +2884,7 @@
     {
       "nome": "SUB",
       "geometria": "MultiPolygon",
-      "registros": 2,
+      "registros": 5,
       "crs": "EPSG:4674",
       "colunas": [
         {
@@ -2919,7 +2920,7 @@
     {
       "nome": "UCAT_tab",
       "geometria": "tabela",
-      "registros": 0,
+      "registros": "menos de 3",
       "crs": null,
       "colunas": [
         {
@@ -3319,7 +3320,7 @@
     {
       "nome": "UCBT_tab",
       "geometria": "tabela",
-      "registros": 17715,
+      "registros": 93995,
       "crs": null,
       "colunas": [
         {
@@ -3587,7 +3588,7 @@
     {
       "nome": "UCMT_tab",
       "geometria": "tabela",
-      "registros": 177,
+      "registros": 220,
       "crs": null,
       "colunas": [
         {
@@ -3899,7 +3900,7 @@
     {
       "nome": "UGAT_tab",
       "geometria": "tabela",
-      "registros": 0,
+      "registros": "menos de 3",
       "crs": null,
       "colunas": [
         {
@@ -4279,7 +4280,7 @@
     {
       "nome": "UGBT_tab",
       "geometria": "tabela",
-      "registros": 1073,
+      "registros": 1943,
       "crs": null,
       "colunas": [
         {
@@ -4523,7 +4524,7 @@
     {
       "nome": "UGMT_tab",
       "geometria": "tabela",
-      "registros": 26,
+      "registros": 22,
       "crs": null,
       "colunas": [
         {
@@ -4967,7 +4968,7 @@
     {
       "nome": "UNCRMT",
       "geometria": "Point",
-      "registros": 26,
+      "registros": 54,
       "crs": "EPSG:4674",
       "colunas": [
         {
@@ -5115,7 +5116,7 @@
     {
       "nome": "UNREMT",
       "geometria": "Point",
-      "registros": 6,
+      "registros": 9,
       "crs": "EPSG:4674",
       "colunas": [
         {
@@ -5191,7 +5192,7 @@
     {
       "nome": "UNSEAT",
       "geometria": "Point",
-      "registros": 0,
+      "registros": 127,
       "crs": "EPSG:4674",
       "colunas": [
         {
@@ -5359,7 +5360,7 @@
     {
       "nome": "UNSEMT",
       "geometria": "Point",
-      "registros": 1092,
+      "registros": 2053,
       "crs": "EPSG:4674",
       "colunas": [
         {
@@ -5447,7 +5448,7 @@
     {
       "nome": "UNTRAT",
       "geometria": "Point",
-      "registros": 5,
+      "registros": 9,
       "crs": "EPSG:4674",
       "colunas": [
         {
@@ -5759,7 +5760,7 @@
     {
       "nome": "UNTRMT",
       "geometria": "Point",
-      "registros": 2086,
+      "registros": 3343,
       "crs": "EPSG:4674",
       "colunas": [
         {

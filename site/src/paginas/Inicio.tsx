@@ -3,11 +3,11 @@ import { Link } from "react-router";
 import Contador from "../componentes/Contador";
 import { Fonte } from "../componentes/Fonte";
 import Icone from "../componentes/Icone";
-import { acharCamada, arquivo, catalogo, dataBR } from "../dados";
+import { acharCamada, arquivo, catalogo, dataBR, registrosNumero } from "../dados";
 import { SECOES } from "../secoes";
 import "./inicio.css";
 
-const registros = (sigla: string) => acharCamada(sigla)?.registros ?? 0;
+const registros = (sigla: string) => registrosNumero(acharCamada(sigla));
 
 const NUMEROS = [
   { valor: catalogo.total_camadas, rotulo: "camadas no arquivo", camada: undefined },

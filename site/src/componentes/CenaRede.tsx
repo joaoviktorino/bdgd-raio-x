@@ -1,8 +1,7 @@
 import { type ReactNode, useState } from "react";
 import { Link } from "react-router";
 
-import { acharCamada } from "../dados";
-import { inteiro } from "../formatos";
+import { acharCamada, distribuidora, registrosTexto } from "../dados";
 import { Fonte } from "./Fonte";
 import { useVisivel } from "./useVisivel";
 
@@ -18,6 +17,38 @@ type Elemento = {
 
 const ELEMENTOS: Elemento[] = [
   {
+    sigla: "SSDAT",
+    apelido: "Rede de alta tensão",
+    nome: "Segmento de Rede Alta Tensão",
+    tipo: "geografica",
+    forma: "Linha",
+    oQueE: (
+      <>
+        Os trechos da rede de alta tensão, que trazem a energia até a subestação{" "}
+        <Fonte de="modulo10" onde="Tabela 3" />.
+      </>
+    ),
+  },
+  {
+    sigla: "UCAT",
+    apelido: "Indústria em alta tensão",
+    nome: "Unidade Consumidora de Alta Tensão",
+    tipo: "geografica",
+    forma: "Ponto",
+    oQueE: (
+      <>
+        Unidade consumidora ligada direto na alta tensão, como uma grande indústria{" "}
+        <Fonte de="modulo10" onde="Tabela 1" />.
+      </>
+    ),
+    nota: (
+      <>
+        Quando uma camada de unidades tem 1 ou 2 registros, este site mostra só "menos de 3", para não expor
+        ninguém <Fonte de="arquivo" onde="camada UCAT_tab" />.
+      </>
+    ),
+  },
+  {
     sigla: "SUB",
     apelido: "Subestação",
     nome: "Subestação",
@@ -26,6 +57,19 @@ const ELEMENTOS: Elemento[] = [
     oQueE: (
       <>
         A área do terreno ocupado pela subestação <Fonte de="modulo10" onde="Tabela 4" />.
+      </>
+    ),
+  },
+  {
+    sigla: "UNTRAT",
+    apelido: "Transformador da subestação",
+    nome: "Unidade Transformadora de Alta Tensão",
+    tipo: "geografica",
+    forma: "Ponto",
+    oQueE: (
+      <>
+        O transformador que baixa a alta tensão para a média. Dentro da subestação, a posição pode ser o ponto
+        central dela <Fonte de="modulo10" onde="Tabela 2 e item 25" />.
       </>
     ),
   },
@@ -194,12 +238,26 @@ export default function CenaRede() {
             <text className="ficha-sub" x="700" y="238">ficha do transformador</text>
           </g>
 
-          {/* subestação */}
+          {/* rede de alta tensão chegando à subestação, com uma indústria ligada nela */}
+          <g {...alvo("SSDAT")}>
+            <path className="rede-at" pathLength={1} d="M83 0 V 176" />
+            <path className="rede-at" pathLength={1} d="M83 78 H 46 V 102" />
+            <path className="toque" d="M83 0 V 176 M83 78 H 46 V 102" />
+          </g>
+          <g {...alvo("UCAT")}>
+            <g transform="translate(46 140)">
+              <path className="industria" d="M-22 0 V-26 L-11 -18 V-26 L0 -18 V-38 H8 V-18 L18 -26 V0 Z" />
+            </g>
+          </g>
+
+          {/* subestação e o transformador dentro dela */}
           <g {...alvo("SUB")}>
             <rect className="sub" x="24" y="176" width="118" height="96" rx="6" />
+            <text className="rotulo-desenho" x="83" y="292">subestação</text>
+          </g>
+          <g {...alvo("UNTRAT")}>
             <circle className="sub-simbolo" cx="72" cy="224" r="13" />
             <circle className="sub-simbolo" cx="94" cy="224" r="13" />
-            <text className="rotulo-desenho" x="83" y="292">subestação</text>
           </g>
 
           {/* rede de média tensão (dois alimentadores) */}
@@ -278,7 +336,7 @@ export default function CenaRede() {
         {elemento.nota && <p className="nota">{elemento.nota}</p>}
         {camada && (
           <p className="cena-contagem">
-            <strong>{inteiro(camada.registros)}</strong> registros na Nova Palma{" "}
+            <strong>{registrosTexto(camada)}</strong> registros na {distribuidora}{" "}
             <Fonte de="arquivo" onde={`camada ${camada.nome}`} />
             <br />
             <Link to={`/camadas/${camada.nome}`}>Ver a camada {camada.nome} →</Link>

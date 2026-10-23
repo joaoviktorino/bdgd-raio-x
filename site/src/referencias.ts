@@ -1,5 +1,6 @@
 // Cadastro das fontes citadas no site. Toda afirmação sobre a BDGD aponta para
 // uma destas fontes, com o item ou a página (componente <Fonte />).
+import { arquivo, dataBR, distribuidora } from "./dados";
 
 export type Referencia = {
   curto: string;
@@ -25,8 +26,8 @@ export const REFERENCIAS = {
     url: "https://www.planalto.gov.br/ccivil_03/leis/l8987cons.htm",
   },
   arquivo: {
-    curto: "Arquivo da Nova Palma",
-    titulo: "BDGD da Nova Palma (UHENPAL), data de referência 31/12/2025, portal de dados abertos da ANEEL",
+    curto: `Arquivo da ${distribuidora}`,
+    titulo: `BDGD da ${distribuidora}, data de referência ${dataBR(arquivo.partes_do_nome.data_referencia)}, portal de dados abertos da ANEEL`,
     url: "https://dadosabertos-aneel.opendata.arcgis.com/search?tags=distribuicao",
   },
   pipeline: {

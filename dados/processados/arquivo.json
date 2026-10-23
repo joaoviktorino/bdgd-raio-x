@@ -1,22 +1,29 @@
 {
-  "arquivo": "Nova_Palma_400_2025-12-31_V11_20260823-1836.gdb.zip",
-  "distribuidora": "Nova Palma (UHENPAL)",
+  "arquivo": "Dmed_51_2025-12-31_V11_20260823-1827.gdb.zip",
+  "distribuidora": "DMED",
   "partes_do_nome": {
-    "nome": "Nova_Palma",
-    "codigo_aneel": 400,
+    "nome": "Dmed",
+    "codigo_aneel": 51,
     "data_referencia": "2025-12-31",
     "modelo": "V11",
     "modelo_descricao": "Modelo V1.1 (versão atual do Manual de Instruções da BDGD)",
-    "geracao": "20260823-1836",
-    "geracao_interpretada": "2026-08-23 18:36",
+    "geracao": "20260823-1827",
+    "geracao_interpretada": "2026-08-23 18:27",
     "geracao_confirmada": false
   },
-  "tamanho_bytes": 6293535,
-  "sha256": "1742CD48698F01A040AEEC50117E365D294876D9D689CB69247D555636321025",
+  "anexo_iii": {
+    "sigla": "DMED",
+    "codigo_area_atuacao": "C.039.MG.1999",
+    "dist_sig_r": 39,
+    "dist_sari": 51,
+    "pagina": 214
+  },
+  "tamanho_bytes": 21114411,
+  "sha256": "5A17276584484A2C6CD9EEB5F8B242972DBC7557D184C97D556609FA7C36B09E",
   "conteudo_zip": {
-    "pasta": "Nova_Palma_400_2025-12-31_V11_20260823-1836.gdb",
+    "pasta": "Dmed_51_2025-12-31_V11_20260823-1827.gdb",
     "arquivos": 209,
-    "tamanho_descompactado_bytes": 30142022,
+    "tamanho_descompactado_bytes": 106391150,
     "arquivos_por_extensao": {
       ".gdbtable": 50,
       ".gdbtablx": 50,
@@ -30,8 +37,8 @@
   },
   "origem": {
     "portal": "Dados Abertos ANEEL (ArcGIS Hub)",
-    "item_arcgis": "e3a518b754ff42fcaf0232003c0b1e9d",
-    "url_download": "https://www.arcgis.com/sharing/rest/content/items/e3a518b754ff42fcaf0232003c0b1e9d/data"
+    "item_arcgis": "44ccd59a1cba4e019a258b3e58fea420",
+    "url_download": "https://www.arcgis.com/sharing/rest/content/items/44ccd59a1cba4e019a258b3e58fea420/data"
   },
   "data_download": "2026-10-23",
   "fonte": "ANEEL - Base de Dados Geográfica da Distribuidora (BDGD)",

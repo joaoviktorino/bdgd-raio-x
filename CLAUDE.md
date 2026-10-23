@@ -5,6 +5,8 @@ Instruções para o Claude Code neste repositório.
 ## Regras de trabalho
 
 - **Estou aprendendo Git, Python e dados geográficos.** Explique cada comando antes de rodar: o que ele faz, por que é necessário e o que muda.
+- **Não reviso o código linha a linha.** Ao criar ou alterar código, explique em linguagem simples o que cada parte principal faz e por quê. Escolha a tecnologia que for melhor para o produto, sem se limitar ao que eu já conheço.
+- **Quero explorar os arquivos `.gdb` em Python por conta própria.** Quando eu pedir, me instrua passo a passo.
 - **Não adicione funcionalidades que não pedi.** Se achar que algo seria útil, proponha e espere minha aprovação antes de implementar.
 - **Fluxo de Git:**
   - Todo trabalho é feito num branch ligado a uma issue (ex.: branch `explorar-bdgd` ↔ issue #1).
@@ -14,25 +16,72 @@ Instruções para o Claude Code neste repositório.
   - Dados brutos (arquivos `.gdb`, `.zip` da BDGD, extrações completas).
   - Senhas, tokens, chaves de API ou qualquer credencial.
 
-## Contexto do projeto
+## Produto
 
-O projeto usa a **BDGD (Base de Dados Geográfica da Distribuidora)** da ANEEL, regulada pelo **Módulo 10 do PRODIST**. A BDGD é publicada como File Geodatabase (`.gdb`), com camadas geográficas (rede, transformadores, subestações) e tabelas (unidades consumidoras etc.).
+Uma **plataforma web interativa que é ao mesmo tempo tutorial e explorador da BDGD**. Ela explica o que é a BDGD, onde baixar os arquivos, o que significa cada parte do nome do arquivo e o que cada camada e coluna guarda. E mostra, com os dados de uma distribuidora real, a rede, os consumidores (agregados) e a GD.
+
+**Princípio central: rastreabilidade.** Todo número, tabela ou mapa mostra de onde veio: arquivo, camada, coluna(s) e o cálculo feito.
+
+Seções planejadas:
+1. O que é a BDGD (regulação, portal da ANEEL, concessionária × permissionária).
+2. Decifrando o arquivo (o nome do arquivo baixado, parte por parte, e a procedência: link, tamanho, SHA-256, data do download).
+3. Explorador de camadas (o que é, registros, colunas com significado, ligações).
+4. Como as camadas se conectam (chaves `SUB` → `CTMT` → `UNI_TR_MT` → consumidores e GD).
+5. Raio-x da rede (Fase 1).
+6. GD × capacidade (Fase 2).
+7. Mapa (subestações, rede, transformadores; consumidores nunca como pontos).
 
 ### Fase 1: raio-x da rede de uma distribuidora pequena
-- Subestações
-- Alimentadores
-- Km de rede
-- Transformadores
-- Consumidores por alimentador
+Subestações, alimentadores, km de rede, transformadores e consumidores por alimentador.
 
 ### Fase 2: geração distribuída (GD)
-- GD conectada por transformador e por alimentador
-- Comparação com a capacidade (ex.: potência instalada do transformador)
+GD conectada por transformador e por alimentador, comparada com a capacidade (ex.: potência do transformador).
+
+## Arquitetura
+
+```
+dados brutos (dados/brutos/, fora do Git)
+   → pipeline Python (geopandas + pyogrio)
+   → dados processados pequenos e agregados (JSON/GeoJSON, versionados no Git)
+   → site React (TypeScript + Vite), mapas com MapLibre GL
+   → publicado como site estático (GitHub Pages)
+```
+
+- O site só lê dados processados; nunca lê o `.gdb`.
+- Hoje o `.gitignore` ignora `dados/` inteiro. Quando o pipeline existir, ajustar para versionar só a pasta de processados.
+
+## Distribuidora de estudo
+
+- **Nova Palma (UHENPAL)**, código ANEEL 400, concessionária (RS).
+- Arquivo: `Nova_Palma_400_2025-12-31_V11_20260823-1836.gdb.zip` (6.293.535 bytes, SHA-256 `1742CD48698F01A040AEEC50117E365D294876D9D689CB69247D555636321025`).
+- Origem: portal de dados abertos da ANEEL no ArcGIS (item `e3a518b754ff42fcaf0232003c0b1e9d`).
+
+## Referências
+
+As explicações do produto sobre entidades, campos e códigos devem vir destes documentos, com citação, e não de memória:
+
+- **Módulo 10 do PRODIST** (Anexo X da REN ANEEL nº 956/2021): o que a BDGD deve conter, prazos, sistema de coordenadas.
+- **Manual de Instruções da BDGD** (Revisão 5, vigência 01/03/2026), disponível em https://www.gov.br/aneel/pt-br/centrais-de-conteudos/manuais-modelos-e-instrucoes/distribuicao:
+  - Anexo I (p. 41–160): modelo de dados V1.1, cada entidade campo a campo.
+  - Anexo II (p. 161–212): Dicionário de Dados ANEEL do SIG-R (DDA), com os códigos.
+  - Anexo III (p. 213): lista de distribuidoras.
+
+Os PDFs não vão para o repositório.
+
+### Fatos já confirmados nos dados e nas referências
+
+- Sufixo de modelo no nome do arquivo: `M6` = Modelo Antigo (Módulo 6), `M10` = Modelo Novo (Módulo 10, Rev. 0), `V10` = Modelo V1.0, `V11` = Modelo V1.1 (atual). A última parte (ex.: `20260823-1836`) parece ser data e hora de geração; ainda não confirmado.
+- Coordenadas em SIRGAS 2000 geográfico (EPSG:4674), conforme o item 45 do Módulo 10. `Shape_Length` está em graus: para comprimentos, usar `COMP` ou reprojetar.
+- No Manual, unidades consumidoras e geradoras são entidades com geometria (ponto). No arquivo publicado, elas vêm como tabelas sem geometria (`UCBT_tab`, `UGBT_tab` etc.).
+- `POT_NOM` muda de tipo conforme a entidade: em umas é Decimal, em outras é código DDA (`TPOTAPRT`, kVA). Sempre conferir o tipo do campo no Anexo I antes de usar.
 
 ## Privacidade
 
-Dados de unidades consumidoras **só podem aparecer agregados**: por alimentador, transformador ou município. **Nunca por consumidor individual**, em tabelas, mapas, gráficos, logs ou arquivos commitados.
+- Dados de unidades consumidoras e geradoras **só podem aparecer agregados**: por alimentador, transformador ou município. **Nunca por consumidor individual**, em tabelas, mapas, gráficos, logs ou arquivos commitados.
+- **Grupos com menos de 3 unidades** não mostram o valor: aparecem como "menos de 3" ou são omitidos. Isso evita que um transformador com um único consumidor exponha um dado individual.
+- Colunas que identificam a unidade (`COD_ID`, `PAC`, `PN_CON`, `CEP`, `BRR`, `RAMAL`) servem só para agrupar e ligar camadas. Nunca vão para os dados processados.
+- Nunca ligar unidades consumidoras ou geradoras à camada `PONNOT` para obter localização em saídas.
 
 ## Licença dos dados
 
-Os dados da BDGD são licenciados sob **ODbL (Open Database License)**. Todo produto derivado (tabelas, mapas, relatórios) deve **citar a ANEEL como fonte**.
+Os dados da BDGD são licenciados sob **ODbL (Open Database License)**. Todo produto derivado (tabelas, mapas, relatórios, o site) deve **citar a ANEEL como fonte**.

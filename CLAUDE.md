@@ -10,8 +10,9 @@ Instruções para o Claude Code neste repositório.
 - **Não adicione funcionalidades que não pedi.** Se achar que algo seria útil, proponha e espere minha aprovação antes de implementar.
 - **Fluxo de Git:**
   - Todo trabalho é feito num branch ligado a uma issue (ex.: branch `explorar-bdgd` ↔ issue #1).
-  - Nada é commitado direto no `main`. Mudanças entram no `main` só por Pull Request, que eu reviso.
+  - Nada é commitado direto no `main`. Mudanças entram no `main` só por Pull Request, para ficarem registradas.
   - A descrição do PR deve referenciar a issue (ex.: `Closes #1`).
+  - **O Claude faz o merge sozinho** depois de rodar as verificações: trava de privacidade, testes e, quando existir, o build do site. Se tudo passar, usa `gh pr merge --merge --delete-branch` e atualiza o `main` local. Se algo falhar, não faz o merge e me avisa. Eu posso revisar os PRs depois, no histórico do GitHub.
 - **Nunca coloque no repositório:**
   - Dados brutos (arquivos `.gdb`, `.zip` da BDGD, extrações completas).
   - Senhas, tokens, chaves de API ou qualquer credencial.
@@ -51,6 +52,15 @@ dados brutos (dados/brutos/, fora do Git)
 - O site só lê dados processados; nunca lê o `.gdb`.
 - O `.gitignore` ignora `dados/brutos/`; `dados/processados/` é versionado.
 - Scripts do pipeline usam caminhos relativos à pasta do projeto e terminam com erro (código diferente de zero) quando algo falha.
+
+## Ambiente (Windows)
+
+- **Python:** o do Anaconda (3.13.9), fora do PATH. O projeto usa o `.venv` criado a partir dele; rodar sempre com `.venv\Scripts\python.exe` (dependências em `requirements.txt`).
+- **GitHub CLI:** `C:\Program Files\GitHub CLI\gh.exe`, logado como `joaoviktorino`. O `gh issue develop --checkout` precisa rodar de dentro da pasta do repositório.
+- **PowerShell 5.1** quebra texto passado a outros programas:
+  - mensagens de commit sempre por arquivo UTF-8: `git commit -F arquivo` (aspas duplas e acentos na linha de comando dão erro);
+  - títulos e textos com acento para o `gh` passam por um script Python (`subprocess`), não direto pelo PowerShell;
+  - a exibição de acentos no terminal sai quebrada; para conferir textos, gravar em arquivo UTF-8 e ler.
 
 ## Distribuidora de estudo
 

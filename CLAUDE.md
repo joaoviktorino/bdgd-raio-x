@@ -13,7 +13,7 @@ Instruções para o Claude Code neste repositório.
   - Todo trabalho é feito num branch ligado a uma issue (ex.: branch `explorar-bdgd` ↔ issue #1).
   - Nada é commitado direto no `main`. Mudanças entram no `main` só por Pull Request, para ficarem registradas.
   - A descrição do PR deve referenciar a issue (ex.: `Closes #1`).
-  - **O Claude faz o merge sozinho** depois de rodar as verificações: trava de privacidade, testes e, quando existir, o build do site. Se tudo passar, usa `gh pr merge --merge --delete-branch` e atualiza o `main` local. Se algo falhar, não faz o merge e me avisa. Eu posso revisar os PRs depois, no histórico do GitHub.
+  - **O Claude faz o merge sozinho** depois de rodar as verificações: trava de privacidade, testes do pipeline e `npm run build` do site. Se tudo passar, usa `gh pr merge --merge --delete-branch` e atualiza o `main` local. Se algo falhar, não faz o merge e me avisa. Eu posso revisar os PRs depois, no histórico do GitHub.
 - **Nunca coloque no repositório:**
   - Dados brutos (arquivos `.gdb`, `.zip` da BDGD, extrações completas).
   - Senhas, tokens, chaves de API ou qualquer credencial.
@@ -55,12 +55,18 @@ dados brutos (dados/brutos/, fora do Git)
   2. `pipeline/extrair_dicionario.py` → `dicionario.json` (entidades, campos e domínios do Manual, comparados com o catálogo);
   3. `pipeline/checar_privacidade.py` (trava) e `python -m unittest discover -s pipeline\testes`.
 - O site só lê dados processados; nunca lê o `.gdb`.
+- **Site** em `site/`, publicado em https://joaoviktorino.github.io/bdgd-raio-x/ pelo workflow `.github/workflows/publicar-site.yml` a cada push no `main`.
+  - A lista de seções (menu, página inicial e páginas provisórias) fica em `site/src/secoes.ts`.
+  - Os JSON de `dados/processados/` são importados em `site/src/dados.ts`.
+  - Endereços próprios por página (`/camadas/UNTRMT`); o `404.html` é cópia do `index.html` para o GitHub Pages abrir esses endereços diretamente.
+  - Comandos (em `site/`): `npm ci`, `npm run dev`, `npm run build`, `npm run preview`.
 - O `.gitignore` ignora `dados/brutos/`; `dados/processados/` é versionado.
 - Scripts do pipeline usam caminhos relativos à pasta do projeto e terminam com erro (código diferente de zero) quando algo falha.
 
 ## Ambiente (Windows)
 
 - **Python:** o do Anaconda (3.13.9), fora do PATH. O projeto usa o `.venv` criado a partir dele; rodar sempre com `.venv\Scripts\python.exe` (dependências em `requirements.txt`).
+- **Node.js** 24 LTS e npm em `C:\Program Files\nodejs\`. Em terminais abertos antes da instalação, acrescentar essa pasta ao `PATH` da sessão.
 - **GitHub CLI:** `C:\Program Files\GitHub CLI\gh.exe`, logado como `joaoviktorino`. O `gh issue develop --checkout` precisa rodar de dentro da pasta do repositório.
 - **PowerShell 5.1** quebra texto passado a outros programas:
   - mensagens de commit sempre por arquivo UTF-8: `git commit -F arquivo` (aspas duplas e acentos na linha de comando dão erro);

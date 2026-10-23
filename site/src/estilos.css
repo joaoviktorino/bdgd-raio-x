@@ -1,0 +1,179 @@
+/* Cores e medidas do site. O modo escuro troca só as variáveis. */
+:root {
+  --fundo: #f7f7f4;
+  --superficie: #ffffff;
+  --texto: #1f2328;
+  --texto-suave: #57606a;
+  --borda: #d8dee4;
+  --destaque: #0b6e4f;
+  --destaque-suave: #e3f1ec;
+  --aviso: #fff4d6;
+  --largura: 72rem;
+  color-scheme: light dark;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.55;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #14171a;
+    --superficie: #1c2126;
+    --texto: #e6e8ea;
+    --texto-suave: #a3abb3;
+    --borda: #2f363d;
+    --destaque: #4fc39a;
+    --destaque-suave: #183229;
+    --aviso: #3a3216;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+}
+
+a {
+  color: var(--destaque);
+}
+
+code {
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+}
+
+.moldura {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.cabecalho {
+  background: var(--superficie);
+  border-bottom: 1px solid var(--borda);
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+}
+
+.marca {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--texto);
+  text-decoration: none;
+}
+
+.marca span {
+  color: var(--destaque);
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+.menu a {
+  color: var(--texto-suave);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.menu a:hover,
+.menu a.active {
+  color: var(--texto);
+  border-bottom-color: var(--destaque);
+}
+
+.conteudo {
+  flex: 1;
+  width: 100%;
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.abertura {
+  max-width: 48rem;
+}
+
+.abertura h1 {
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+.destaque {
+  background: var(--destaque-suave);
+  border-left: 4px solid var(--destaque);
+  padding: 0.75rem 1rem;
+}
+
+.cartoes {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1rem;
+}
+
+.cartao {
+  display: block;
+  height: 100%;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  color: var(--texto);
+  text-decoration: none;
+}
+
+.cartao:hover {
+  border-color: var(--destaque);
+}
+
+.cartao h2 {
+  font-size: 1.1rem;
+  margin: 0 0 0.4rem;
+  color: var(--destaque);
+}
+
+.cartao p {
+  margin: 0;
+  color: var(--texto-suave);
+}
+
+.aviso {
+  background: var(--aviso);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+}
+
+.trilha {
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+.rodape {
+  border-top: 1px solid var(--borda);
+  background: var(--superficie);
+  color: var(--texto-suave);
+  font-size: 0.85rem;
+  padding: 1rem;
+}
+
+.rodape p {
+  max-width: var(--largura);
+  margin: 0.25rem auto;
+}

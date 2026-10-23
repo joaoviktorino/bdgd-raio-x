@@ -166,8 +166,8 @@ venv.bak/
 # Rope project settings
 .ropeproject
 
-# mkdocs/Zensical documentation
-/site
+# mkdocs/Zensical documentation: regra "/site" removida, porque site/ é o site
+# deste projeto (React), não documentação do mkdocs.
 
 # mypy
 .mypy_cache/
@@ -218,6 +218,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Site (Node.js): dependências instaladas pelo npm
+node_modules/
 
 # Dados da BDGD (nunca versionar dados brutos; dados/processados/ é versionado)
 dados/brutos/

@@ -65,6 +65,15 @@ class Dicionario(unittest.TestCase):
         self.assertEqual(valores["4"]["pot"], "15")
         self.assertEqual(valores["4"]["descricao"], "15 kVA")
 
+    def test_explorador_cobre_todas_as_camadas_com_grupo_e_descricao(self):
+        explorador = carregar("explorador.json")
+        nomes = {c["nome"] for c in explorador["camadas"]}
+        self.assertEqual(nomes, {c["nome"] for c in self.catalogo["camadas"]})
+        nos_grupos = [n for g in explorador["grupos"] for n in g["camadas"]]
+        self.assertEqual(sorted(nos_grupos), sorted(nomes))
+        for c in explorador["camadas"]:
+            self.assertTrue(c["descricao"], c["nome"])
+
     def test_todo_campo_dda_aponta_para_dominio_existente(self):
         for entidade in self.entidades.values():
             for campo in entidade["campos"]:

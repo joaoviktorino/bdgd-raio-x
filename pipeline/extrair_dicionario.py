@@ -93,8 +93,27 @@ def eh_cabecalho_de_pagina(linhas):
     return bool(linhas) and linhas[0] and linhas[0][0].startswith(("Seção", "Assunto"))
 
 
+def ler_lista_de_entidades(linhas, pagina, lista, grupo_anterior):
+    """Seção 2, item 2.4: tabela 'Tipo/ Nome do Conjunto de Informações | Nome | Sigla | … | Descrição'.
+    Quando várias entidades são do mesmo conjunto, a primeira célula vem vazia e vale a de cima."""
+    for linha in linhas[1:]:
+        if len(linha) != 5 or not linha[2]:
+            continue
+        tipo_conjunto = linha[0] or grupo_anterior
+        grupo_anterior = tipo_conjunto
+        grupo, _, conjunto = tipo_conjunto.partition("/")
+        lista[linha[2]] = {
+            "grupo": limpar(grupo),
+            "conjunto": limpar(conjunto) or limpar(grupo),
+            "descricao_curta": linha[4],
+            "pagina_lista": pagina,
+        }
+    return grupo_anterior
+
+
 def ler_manual(pdf):
     entidades, dominios = [], []
+    lista, grupo_anterior = {}, ""
     anexo = None
     tipo_entidade = "geografica"
     entidade = dominio = None
@@ -146,10 +165,16 @@ def ler_manual(pdf):
             linhas = conteudo
             if eh_cabecalho_de_pagina(linhas) or not linhas:
                 continue
-            if anexo == "I" and entidade:
+            # A lista da Seção 2 se reconhece pelo cabeçalho (o sumário já cita "ANEXO I", então não dá
+            # para depender do anexo atual aqui).
+            if linhas[0] and (linhas[0][0] or "").startswith("Tipo/"):
+                grupo_anterior = ler_lista_de_entidades(linhas, numero, lista, grupo_anterior)
+            elif anexo == "I" and entidade:
                 ler_campos(entidade, linhas, numero)
             elif anexo == "II" and dominio:
                 colunas_dominio = ler_dominio(dominio, linhas, colunas_dominio)
+    for e in entidades:
+        e.update(lista.get(e["sigla"], {}))
     return entidades, dominios
 
 
@@ -245,6 +270,9 @@ def conferir(entidades, dominios, comparacao):
     sem_campos = [e["sigla"] for e in entidades if not e["campos"]]
     if sem_campos:
         falhar(f"entidades sem campos: {sem_campos}")
+    sem_grupo = [e["sigla"] for e in entidades if not e.get("grupo") or not e.get("descricao_curta")]
+    if sem_grupo:
+        falhar(f"entidades sem grupo ou descrição na lista da Seção 2: {sem_grupo}")
     sem_entidade = [c["camada"] for c in comparacao if not c["entidade"]]
     if sem_entidade:
         falhar(f"camadas do arquivo sem entidade no Manual: {sem_entidade}")

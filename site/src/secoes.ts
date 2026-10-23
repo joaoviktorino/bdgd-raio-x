@@ -35,6 +35,8 @@ export const SECOES: Secao[] = [
     resumo: "Todas as camadas do arquivo: o que cada uma guarda, suas colunas e ligações.",
     issue: 9,
     icone: "camadas",
+    pronta: true,
+    teste: true,
   },
   {
     caminho: "raio-x",

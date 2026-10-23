@@ -99,7 +99,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 42
         }
-      ]
+      ],
+      "grupo": "Áreas de Interesse",
+      "conjunto": "Subestação",
+      "descricao_curta": "Cada feição desta entidade representa a área geográfica que delimita o espaço físico ocupado por uma determinada subestação de interesse.",
+      "pagina_lista": 8
     },
     {
       "nome": "Unidade Consumidora de Baixa Tensão",
@@ -854,7 +858,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 46
         }
-      ]
+      ],
+      "grupo": "Usuário",
+      "conjunto": "Unidade Consumidora",
+      "descricao_curta": "Cada feição desta entidade representa a localização da unidade consumidora ou ponto de conexão com tensão de fornecimento em baixa tensão existente no sistema de distribuição.",
+      "pagina_lista": 8
     },
     {
       "nome": "Unidade Consumidora de Média Tensão",
@@ -1728,7 +1736,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 52
         }
-      ]
+      ],
+      "grupo": "Usuário",
+      "conjunto": "Unidade Consumidora",
+      "descricao_curta": "Cada feição desta entidade representa a localização da unidade consumidora ou ponto de conexão com tensão de fornecimento em média tensão existente no sistema de distribuição.",
+      "pagina_lista": 9
     },
     {
       "nome": "Unidade Consumidora de Alta Tensão",
@@ -2843,7 +2855,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 59
         }
-      ]
+      ],
+      "grupo": "Usuário",
+      "conjunto": "Unidade Consumidora",
+      "descricao_curta": "Cada feição desta entidade representa a localização da unidade consumidora ou ponto de conexão com tensão de fornecimento em alta tensão existente no sistema de distribuição.",
+      "pagina_lista": 9
     },
     {
       "nome": "Unidade Geradora de Baixa Tensão",
@@ -3527,7 +3543,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 63
         }
-      ]
+      ],
+      "grupo": "Usuário",
+      "conjunto": "Unidade Geradora",
+      "descricao_curta": "Cada feição desta entidade representa a localização da unidade geradora ou ponto de conexão com tensão de conexão em baixa tensão existente no sistema de distribuição.",
+      "pagina_lista": 9
     },
     {
       "nome": "Unidade Geradora de Média Tensão",
@@ -4331,7 +4351,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 69
         }
-      ]
+      ],
+      "grupo": "Usuário",
+      "conjunto": "Unidade Geradora",
+      "descricao_curta": "Cada feição desta entidade representa a localização da unidade geradora ou ponto de conexão com tensão de conexão em média tensão existente no sistema de distribuição.",
+      "pagina_lista": 9
     },
     {
       "nome": "Unidade Geradora de Alta Tensão",
@@ -5387,7 +5411,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 75
         }
-      ]
+      ],
+      "grupo": "Usuário",
+      "conjunto": "Unidade Geradora",
+      "descricao_curta": "Cada feição desta entidade representa a localização da unidade geradora ou ponto de conexão com tensão de conexão em alta tensão existente no sistema de distribuição.",
+      "pagina_lista": 9
     },
     {
       "nome": "Ponto Notável",
@@ -5695,7 +5723,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 77
         }
-      ]
+      ],
+      "grupo": "Rede",
+      "conjunto": "Estrutura de Suporte da Rede",
+      "descricao_curta": "Cada feição desta entidade representa a localização das estruturas de suporte das redes e dos equipamentos de distribuição de energia elétrica.",
+      "pagina_lista": 9
     },
     {
       "nome": "Segmento de Rede de Baixa Tensão",
@@ -5982,7 +6014,11 @@
           "descricao": "Comprimento gerado automaticamente pelo sistema de informação geográfico",
           "pagina": 80
         }
-      ]
+      ],
+      "grupo": "Rede",
+      "conjunto": "Segmento de Rede",
+      "descricao_curta": "Cada feição desta entidade representa o traçado de um segmento de rede de distribuição em nível de baixa tensão entre duas estruturas de suporte da rede.",
+      "pagina_lista": 9
     },
     {
       "nome": "Segmento de Rede Média Tensão",
@@ -6257,7 +6293,11 @@
           "descricao": "Comprimento gerado automaticamente pelo sistema de informação geográfico",
           "pagina": 82
         }
-      ]
+      ],
+      "grupo": "Rede",
+      "conjunto": "Segmento de Rede",
+      "descricao_curta": "Cada feição desta entidade representa o traçado de um segmento de rede de distribuição em nível de média tensão entre duas estruturas de suporte da rede.",
+      "pagina_lista": 9
     },
     {
       "nome": "Segmento de Rede Alta Tensão",
@@ -6508,7 +6548,11 @@
           "descricao": "Comprimento gerado automaticamente pelo sistema de informação geográfico",
           "pagina": 84
         }
-      ]
+      ],
+      "grupo": "Rede",
+      "conjunto": "Segmento de Rede",
+      "descricao_curta": "Cada feição desta entidade representa o traçado de um segmento de rede de distribuição em nível de alta tensão entre duas estruturas de suporte da rede.",
+      "pagina_lista": 9
     },
     {
       "nome": "Unidade Compensadora de Reativo de Baixa Tensão",
@@ -6740,7 +6784,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 86
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Compensador de Reativos",
+      "descricao_curta": "Cada feição desta entidade representa a localização de uma unidade compensadora de reativo instalada na rede de distribuição em nível de baixa tensão.",
+      "pagina_lista": 9
     },
     {
       "nome": "Unidade Compensadora de Reativo Média Tensão",
@@ -6960,7 +7008,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 87
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Compensador de Reativos",
+      "descricao_curta": "Cada feição desta entidade representa a localização de uma unidade compensadora de reativo instalada na rede de distribuição em nível de média tensão.",
+      "pagina_lista": 9
     },
     {
       "nome": "Unidade Compensadora de Reativo Alta Tensão",
@@ -7156,7 +7208,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 89
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Compensador de Reativos",
+      "descricao_curta": "Cada feição desta entidade representa a localização de uma unidade compensadora de reativo instalada na rede de distribuição em nível de alta tensão.",
+      "pagina_lista": 9
     },
     {
       "nome": "Unidade Reguladora de Média Tensão",
@@ -7364,7 +7420,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 91
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Regulador",
+      "descricao_curta": "Cada feição desta entidade representa a localização de uma unidade reguladora instalada na rede de distribuição em nível de média tensão.",
+      "pagina_lista": 10
     },
     {
       "nome": "Unidade Reguladora de Alta Tensão",
@@ -7548,7 +7608,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 92
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Regulador",
+      "descricao_curta": "Cada feição desta entidade representa a localização de uma unidade reguladora instalada na rede de distribuição em nível de alta tensão.",
+      "pagina_lista": 10
     },
     {
       "nome": "Unidade Seccionadora de Baixa Tensão",
@@ -7804,7 +7868,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 94
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Seccionador de Rede",
+      "descricao_curta": "Cada feição desta entidade representa a localização de uma unidade seccionadora instalada na rede de distribuição em nível de baixa tensão.",
+      "pagina_lista": 10
     },
     {
       "nome": "Unidade Seccionadora de Média Tensão",
@@ -8048,7 +8116,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 96
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Seccionador de Rede",
+      "descricao_curta": "Cada feição desta entidade representa a localização de uma unidade seccionadora instalada na rede de distribuição em nível de média tensão.",
+      "pagina_lista": 10
     },
     {
       "nome": "Unidade Seccionadora de Alta Tensão",
@@ -8256,7 +8328,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 97
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Seccionador de Rede",
+      "descricao_curta": "Cada feição desta entidade representa a localização de uma unidade seccionadora instalada na rede de distribuição em nível de alta tensão.",
+      "pagina_lista": 10
     },
     {
       "nome": "Unidade Transformadora de Alta Tensão",
@@ -9133,7 +9209,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 102
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Transformador",
+      "descricao_curta": "Cada feição desta entidade representa a localização de uma unidade de transformação em alta tensão instalada no sistema de distribuição.",
+      "pagina_lista": 10
     },
     {
       "nome": "Unidade Transformadora de Média Tensão",
@@ -9520,7 +9600,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 104
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Transformador",
+      "descricao_curta": "Cada feição desta entidade representa a localização de uma unidade de transformação em média tensão instalada no sistema de distribuição.",
+      "pagina_lista": 10
     },
     {
       "nome": "Conjunto de Unidades Consumidoras",
@@ -9641,7 +9725,11 @@
           "descricao": "Área gerada automaticamente pelo sistema de informação geográfico",
           "pagina": 106
         }
-      ]
+      ],
+      "grupo": "Áreas de Interesse",
+      "conjunto": "Conjunto de Unidades Consumidoras",
+      "descricao_curta": "Cada feição desta entidade representa a área de um conjunto de unidades consumidoras abrangendo a área de atuação e eventuais áreas de atendimento precário da distribuidora.",
+      "pagina_lista": 8
     },
     {
       "nome": "Área de Atuação",
@@ -9728,7 +9816,11 @@
           "descricao": "Comprimento gerado automaticamente pelo sistema de informação geográfico",
           "pagina": 107
         }
-      ]
+      ],
+      "grupo": "Áreas de Interesse",
+      "conjunto": "Área de Atuação",
+      "descricao_curta": "Cada feição desta entidade representa a área de atuação oficial estabelecida pelo contrato da distribuidora.",
+      "pagina_lista": 8
     },
     {
       "nome": "Ramal de Ligação",
@@ -9995,7 +10087,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 109
         }
-      ]
+      ],
+      "grupo": "Rede",
+      "conjunto": "Ramal de Ligação",
+      "descricao_curta": "Cada registro desta entidade representa um ramal de ligação de um usuário.",
+      "pagina_lista": 10
     },
     {
       "nome": "Barramento",
@@ -10256,7 +10352,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 111
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Barramento",
+      "descricao_curta": "Cada registro desta entidade representa um barramento existente no sistema de distribuição.",
+      "pagina_lista": 10
     },
     {
       "nome": "Circuito de Alta Tensão",
@@ -10337,7 +10437,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 112
         }
-      ]
+      ],
+      "grupo": "Rede",
+      "conjunto": "Circuito de Rede",
+      "descricao_curta": "Cada registro desta entidade representa um circuito de alta tensão existente no sistema de distribuição.",
+      "pagina_lista": 10
     },
     {
       "nome": "Circuito de Média Tensão",
@@ -11004,7 +11108,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 115
         }
-      ]
+      ],
+      "grupo": "Rede",
+      "conjunto": "Circuito de Rede",
+      "descricao_curta": "Cada registro desta entidade representa um circuito de média tensão existente no sistema de distribuição.",
+      "pagina_lista": 10
     },
     {
       "nome": "Equipamento Medidor",
@@ -11273,7 +11381,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 118
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Medidor",
+      "descricao_curta": "Cada registro desta entidade representa um equipamento medidor instalado no sistema de distribuição.",
+      "pagina_lista": 10
     },
     {
       "nome": "Equipamento Regulador",
@@ -11634,7 +11746,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 120
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Regulador",
+      "descricao_curta": "Cada registro desta entidade representa um equipamento regulador instalado no sistema de distribuição e compõe a entidade unidade reguladora.",
+      "pagina_lista": 11
     },
     {
       "nome": "Equipamento Seccionador",
@@ -11939,7 +12055,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 122
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Seccionador de rede",
+      "descricao_curta": "Cada registro desta entidade representa um equipamento seccionador instalado no sistema de distribuição e compõe a entidade unidade seccionadora.",
+      "pagina_lista": 11
     },
     {
       "nome": "Equipamento Transformador de Alta Tensão",
@@ -12289,7 +12409,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 125
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Transformador",
+      "descricao_curta": "Cada registro desta entidade representa um equipamento transformador de alta tensão instalado no sistema de distribuição e compõe a entidade unidade transformadora de alta tensão.",
+      "pagina_lista": 11
     },
     {
       "nome": "Equipamento Transformador de Média Tensão",
@@ -12698,7 +12822,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 127
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Transformador",
+      "descricao_curta": "Cada registro desta entidade representa um equipamento transformador de média tensão instalado no sistema de distribuição e compõe a entidade unidade transformadora de média tensão.",
+      "pagina_lista": 11
     },
     {
       "nome": "Equipamento Transformador de Medida",
@@ -12967,7 +13095,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 129
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Transformador",
+      "descricao_curta": "Cada registro desta entidade representa um equipamento de transformação para medida instalado no sistema de distribuição.",
+      "pagina_lista": 11
     },
     {
       "nome": "Equipamento Compensador de Reativo",
@@ -13201,7 +13333,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 131
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Compensador de Reativos",
+      "descricao_curta": "Cada registro desta entidade representa um equipamento compensador de reativo instalado no sistema de distribuição e compõe a entidade unidade compensadora de reativo.",
+      "pagina_lista": 11
     },
     {
       "nome": "Segmento Condutor",
@@ -13661,7 +13797,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 134
         }
-      ]
+      ],
+      "grupo": "Rede",
+      "conjunto": "Segmento de Rede/ Ramal de Ligação",
+      "descricao_curta": "Cada registro desta entidade representa um arranjo de condutores de um trecho de rede existente no sistema de distribuição.",
+      "pagina_lista": 11
     },
     {
       "nome": "Base",
@@ -13726,7 +13866,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 134
         }
-      ]
+      ],
+      "grupo": "Metadado BDGD",
+      "conjunto": "Informações de envio da BDGD",
+      "descricao_curta": "Cada registro desta entidade representa as informações com as datas de referência do conjunto de dados da BDGD.",
+      "pagina_lista": 11
     },
     {
       "nome": "Bay",
@@ -13816,7 +13960,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 135
         }
-      ]
+      ],
+      "grupo": "Equipamento",
+      "conjunto": "Bay",
+      "descricao_curta": "Cada registro desta entidade representa as informações dos bays de uma subestação.",
+      "pagina_lista": 11
     },
     {
       "nome": "Ponto de Iluminação Pública",
@@ -14336,7 +14484,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 138
         }
-      ]
+      ],
+      "grupo": "Usuário",
+      "conjunto": "Usuário",
+      "descricao_curta": "Cada registro desta entidade representa a informação de um ponto de iluminação pública existente no sistema de distribuição.",
+      "pagina_lista": 11
     },
     {
       "nome": "Balanço de Energia",
@@ -14535,7 +14687,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 141
         }
-      ]
+      ],
+      "grupo": "Energia",
+      "conjunto": "Balanço de Energia",
+      "descricao_curta": "Cada registro desta entidade representa a informação das energias registradas nos níveis de tensão do sistema da distribuidora.",
+      "pagina_lista": 11
     },
     {
       "nome": "Energia Passante",
@@ -14734,7 +14890,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 143
         }
-      ]
+      ],
+      "grupo": "Energia",
+      "conjunto": "Energia Passante",
+      "descricao_curta": "Cada registro desta entidade representa a informação das energias registras nos segmentos de transformação do sistema da distribuidora.",
+      "pagina_lista": 11
     },
     {
       "nome": "Perda Técnica",
@@ -14921,7 +15081,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 144
         }
-      ]
+      ],
+      "grupo": "Energia",
+      "conjunto": "Perda Técnica",
+      "descricao_curta": "Cada registro desta entidade representa a informação das perdas técnicas medidas ou estimadas pela distribuidora.",
+      "pagina_lista": 12
     },
     {
       "nome": "Perda Não Técnica",
@@ -15108,7 +15272,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 146
         }
-      ]
+      ],
+      "grupo": "Energia",
+      "conjunto": "Perda Não Técnica",
+      "descricao_curta": "Cada registro desta entidade representa a informação das perdas não técnicas estimadas pela distribuidora.",
+      "pagina_lista": 12
     },
     {
       "nome": "Curva de Carga",
@@ -16235,7 +16403,11 @@
           "descricao": "Descrição livre do registro",
           "pagina": 152
         }
-      ]
+      ],
+      "grupo": "Energia",
+      "conjunto": "Curva de Carga",
+      "descricao_curta": "Cada registro desta entidade representa um perfil da curva de carga de uma determinada tipologia de consumo.",
+      "pagina_lista": 12
     }
   ],
   "dominios": [

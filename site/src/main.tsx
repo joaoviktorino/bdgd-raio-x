@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 
 import App from "./App";
 import Camada from "./paginas/Camada";
+import Camadas from "./paginas/Camadas";
 import EmConstrucao from "./paginas/EmConstrucao";
 import Inicio from "./paginas/Inicio";
 import DecifrandoArquivo from "./paginas/DecifrandoArquivo";
@@ -17,6 +18,7 @@ import "./visual.css";
 const PAGINAS_PRONTAS: Record<string, ReactNode> = {
   "o-que-e-bdgd": <OQueEBdgd />,
   "decifrando-o-arquivo": <DecifrandoArquivo />,
+  camadas: <Camadas />,
 };
 
 createRoot(document.getElementById("raiz")!).render(

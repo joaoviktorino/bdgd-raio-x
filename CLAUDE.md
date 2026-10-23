@@ -42,13 +42,15 @@ GD conectada por transformador e por alimentador, comparada com a capacidade (ex
 ```
 dados brutos (dados/brutos/, fora do Git)
    → pipeline Python (geopandas + pyogrio)
+   → trava de privacidade (pipeline/checar_privacidade.py)
    → dados processados pequenos e agregados (JSON/GeoJSON, versionados no Git)
    → site React (TypeScript + Vite), mapas com MapLibre GL
    → publicado como site estático (GitHub Pages)
 ```
 
 - O site só lê dados processados; nunca lê o `.gdb`.
-- Hoje o `.gitignore` ignora `dados/` inteiro. Quando o pipeline existir, ajustar para versionar só a pasta de processados.
+- O `.gitignore` ignora `dados/brutos/`; `dados/processados/` é versionado.
+- Scripts do pipeline usam caminhos relativos à pasta do projeto e terminam com erro (código diferente de zero) quando algo falha.
 
 ## Distribuidora de estudo
 
@@ -81,6 +83,17 @@ Os PDFs não vão para o repositório.
 - **Grupos com menos de 3 unidades** não mostram o valor: aparecem como "menos de 3" ou são omitidos. Isso evita que um transformador com um único consumidor exponha um dado individual.
 - Colunas que identificam a unidade (`COD_ID`, `PAC`, `PN_CON`, `CEP`, `BRR`, `RAMAL`) servem só para agrupar e ligar camadas. Nunca vão para os dados processados.
 - Nunca ligar unidades consumidoras ou geradoras à camada `PONNOT` para obter localização em saídas.
+
+### Convenções dos dados processados
+
+Todo arquivo em `dados/processados/` segue estas convenções, conferidas por `pipeline/checar_privacidade.py` (termina com erro se alguma for quebrada):
+
+1. **Sem colunas que identificam unidade:** `PAC`, `PN_CON`, `CEP`, `BRR`, `RAMAL` e também o genérico `COD_ID`. Códigos de elementos da rede ganham nomes explícitos (`alimentador`, `transformador`, `subestacao`…).
+2. **Contagens de unidades** sempre em `qtd_uc` (consumidoras) e `qtd_ug` (geradoras). Valores derivados dessas unidades usam o prefixo `uc_` ou `ug_` (ex.: `ug_potencia_kw`). Se a contagem for 1 ou 2, ela vira `"menos de 3"` e os campos `uc_*`/`ug_*` da mesma linha ficam vazios (`null`). Zero é permitido.
+3. **GeoJSON:** toda feição tem a propriedade `camada` (a camada da BDGD de origem). Feições de camadas de unidades consumidoras ou geradoras (`UCBT`, `UGMT_tab` etc.) são proibidas.
+4. **Sem coordenadas soltas** (`lat`, `lon`, `latitude`, `longitude`…). Geometria só dentro de GeoJSON.
+
+Testes da trava: `.venv\Scripts\python.exe -m unittest discover -s pipeline\testes -v`.
 
 ## Licença dos dados
 

@@ -1,0 +1,34 @@
+// Cadastro das fontes citadas no site. Toda afirmação sobre a BDGD aponta para
+// uma destas fontes, com o item ou a página (componente <Fonte />).
+
+export type Referencia = {
+  curto: string;
+  titulo: string;
+  url: string;
+};
+
+export const REFERENCIAS = {
+  modulo10: {
+    curto: "Módulo 10",
+    titulo:
+      "PRODIST, Módulo 10 – Sistema de Informação Geográfica Regulatório (Anexo X da Resolução Normativa ANEEL nº 956, de 7 de dezembro de 2021)",
+    url: "https://www.gov.br/aneel/pt-br/centrais-de-conteudos/procedimentos-regulatorios/prodist",
+  },
+  manual: {
+    curto: "Manual da BDGD",
+    titulo: "Manual de Instruções da Base de Dados Geográfica da Distribuidora – BDGD, Revisão 5 (vigência 01/03/2026)",
+    url: "https://www.gov.br/aneel/pt-br/centrais-de-conteudos/manuais-modelos-e-instrucoes/distribuicao",
+  },
+  lei8987: {
+    curto: "Lei 8.987/1995",
+    titulo: "Lei nº 8.987, de 13 de fevereiro de 1995 (Lei das Concessões), texto compilado",
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l8987cons.htm",
+  },
+  arquivo: {
+    curto: "Arquivo da Nova Palma",
+    titulo: "BDGD da Nova Palma (UHENPAL), data de referência 31/12/2025, portal de dados abertos da ANEEL",
+    url: "https://dadosabertos-aneel.opendata.arcgis.com/search?tags=distribuicao",
+  },
+} satisfies Record<string, Referencia>;
+
+export type ChaveReferencia = keyof typeof REFERENCIAS;

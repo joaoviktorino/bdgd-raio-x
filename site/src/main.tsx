@@ -11,6 +11,7 @@ import NaoEncontrada from "./paginas/NaoEncontrada";
 import OQueEBdgd from "./paginas/OQueEBdgd";
 import { SECOES } from "./secoes";
 import "./estilos.css";
+import "./visual.css";
 
 // Seções que já têm página própria; as demais mostram "Em construção".
 const PAGINAS_PRONTAS: Record<string, ReactNode> = {

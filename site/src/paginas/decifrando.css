@@ -1,49 +1,5 @@
-/* Página "Decifrando o arquivo": peças do nome, pacote animado e certidão. */
-
-.pagina-visual {
-  --cor-nome: #2563eb;
-  --cor-codigo: #7c3aed;
-  --cor-referencia: #d97706;
-  --cor-modelo: #059669;
-  --cor-geracao: #db2777;
-  --cor-formato: #475569;
-
-  --forma-ponto: #2563eb;
-  --forma-linha: #d97706;
-  --forma-poligono: #059669;
-  --forma-tabela: #7c3aed;
-
-  --ext-gdbtable: #2563eb;
-  --ext-gdbtablx: #93c5fd;
-  --ext-gdbindexes: #a78bfa;
-  --ext-outra: #cbd5e1;
-
-  --codigo-fundo: #0f172a;
-  --codigo-texto: #e2e8f0;
-}
-
-@media (prefers-color-scheme: dark) {
-  .pagina-visual {
-    --cor-nome: #60a5fa;
-    --cor-codigo: #a78bfa;
-    --cor-referencia: #fbbf24;
-    --cor-modelo: #34d399;
-    --cor-geracao: #f472b6;
-    --cor-formato: #94a3b8;
-
-    --forma-ponto: #60a5fa;
-    --forma-linha: #fbbf24;
-    --forma-poligono: #34d399;
-    --forma-tabela: #a78bfa;
-
-    --ext-gdbtable: #60a5fa;
-    --ext-gdbtablx: #1e40af;
-    --ext-gdbindexes: #7c3aed;
-    --ext-outra: #475569;
-
-    --codigo-fundo: #0b1220;
-  }
-}
+/* Página "Decifrando o arquivo": peças do nome, pacote animado e certidão.
+   Cores, formas, selos e código vêm de ../visual.css. */
 
 .peca-nome { --cor: var(--cor-nome); }
 .peca-codigo { --cor: var(--cor-codigo); }
@@ -52,50 +8,12 @@
 .peca-geracao { --cor: var(--cor-geracao); }
 .peca-formato { --cor: var(--cor-formato); }
 
-@keyframes surgir {
-  from { opacity: 0; transform: translateY(14px); }
-}
-
-@keyframes desenhar {
-  from { transform: scaleX(0); }
-}
-
 @keyframes cair {
   from { opacity: 0; transform: translateY(-40px) rotate(-20deg); }
 }
 
 @keyframes montar {
   from { opacity: 0; transform: scale(0.2); }
-}
-
-/* --- topo --- */
-
-.pagina-visual-topo h1 {
-  font-size: clamp(1.7rem, 4.5vw, 2.6rem);
-  line-height: 1.15;
-  margin: 0.2rem 0 0.4rem;
-}
-
-.sobretitulo {
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--destaque);
-}
-
-.pagina-visual .lide {
-  color: var(--texto-suave);
-  max-width: 44rem;
-}
-
-.bloco-visual {
-  margin-top: 3.5rem;
-}
-
-.bloco-visual h2 {
-  margin-bottom: 0.2rem;
 }
 
 /* --- nome do arquivo em peças --- */
@@ -206,30 +124,6 @@
   font-size: 1.2rem;
 }
 
-.selo {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.15rem 0.6rem;
-  border-radius: 999px;
-}
-
-.selo-ok {
-  background: color-mix(in srgb, #16a34a 18%, transparent);
-  color: #15803d;
-}
-
-.selo-talvez {
-  background: color-mix(in srgb, #d97706 20%, transparent);
-  color: #b45309;
-}
-
-@media (prefers-color-scheme: dark) {
-  .selo-ok { color: #4ade80; }
-  .selo-talvez { color: #fbbf24; }
-}
-
 .linha-do-tempo {
   list-style: none;
   padding: 0;
@@ -299,6 +193,10 @@
   grid-template-columns: 1fr 1.4fr 1.6fr;
   gap: 2.5rem;
   align-items: start;
+}
+
+.pacote-etapas > * {
+  min-width: 0;
 }
 
 .pacote-etapa {
@@ -462,12 +360,6 @@
   animation-delay: calc(var(--i) * 35ms);
 }
 
-.forma-ponto { background: var(--forma-ponto); }
-.forma-linha { background: var(--forma-linha); }
-.forma-poligono { background: var(--forma-poligono); }
-.forma-tabela { background: var(--forma-tabela); }
-.forma-vazia { background: transparent; box-shadow: inset 0 0 0 1.5px var(--texto-suave); }
-
 .legenda-ext,
 .legenda-formas {
   list-style: none;
@@ -481,45 +373,7 @@
   color: var(--texto-suave);
 }
 
-.marcador {
-  display: inline-block;
-  width: 0.7rem;
-  height: 0.7rem;
-  border-radius: 2px;
-  margin-right: 0.3rem;
-  vertical-align: -0.05rem;
-}
-
-.botao-secundario {
-  font: inherit;
-  font-size: 0.9rem;
-  margin-top: 0.75rem;
-  padding: 0.4rem 0.9rem;
-  border-radius: 999px;
-  border: 1px solid var(--borda);
-  background: var(--superficie);
-  color: var(--texto);
-  cursor: pointer;
-}
-
-.botao-secundario:hover {
-  border-color: var(--destaque);
-}
-
-/* --- certidão e código --- */
-
-.duas-colunas {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 2.5rem;
-  align-items: start;
-}
-
-/* Colunas de grade podem encolher abaixo do conteúdo; o código rola dentro do próprio bloco. */
-.duas-colunas > *,
-.pacote-etapas > * {
-  min-width: 0;
-}
+/* --- certidão --- */
 
 .certidao {
   margin-top: 1rem;
@@ -608,60 +462,10 @@
   font-size: 0.92rem;
 }
 
-.codigo {
-  margin-top: 0.75rem;
-  background: var(--codigo-fundo);
-  color: var(--codigo-texto);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.codigo-barra {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.4rem 0.6rem 0.4rem 1.1rem;
-  border-bottom: 1px solid rgb(255 255 255 / 0.1);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: rgb(226 232 240 / 0.65);
-}
-
-.codigo pre {
-  margin: 0;
-  padding: 0.9rem 1.1rem 1rem;
-  overflow-x: auto;
-  font-size: 0.85rem;
-  line-height: 1.6;
-}
-
-.codigo code {
-  overflow-wrap: normal;
-}
-
-.botao-copiar {
-  font: inherit;
-  text-transform: none;
-  letter-spacing: normal;
-  font-size: 0.78rem;
-  padding: 0.25rem 0.65rem;
-  border-radius: 6px;
-  border: 1px solid rgb(255 255 255 / 0.25);
-  background: rgb(255 255 255 / 0.08);
-  color: var(--codigo-texto);
-  cursor: pointer;
-}
-
-.botao-copiar:hover {
-  background: rgb(255 255 255 / 0.18);
-}
-
 /* --- telas estreitas --- */
 
 @media (max-width: 900px) {
-  .pacote-etapas,
-  .duas-colunas {
+  .pacote-etapas {
     grid-template-columns: 1fr;
   }
 
@@ -690,15 +494,5 @@
 
   .linha-do-tempo small {
     display: none;
-  }
-}
-
-/* --- menos movimento: mostra o estado final, sem animar --- */
-
-@media (prefers-reduced-motion: reduce) {
-  .pagina-visual *,
-  .pagina-visual *::before {
-    animation: none !important;
-    transition: none !important;
   }
 }

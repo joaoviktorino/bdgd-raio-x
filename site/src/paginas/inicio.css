@@ -1,0 +1,192 @@
+/* Página inicial: topo com rede animada, contadores e jornada. */
+
+@keyframes correr {
+  to { stroke-dashoffset: -1000; }
+}
+
+.heroi {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: clamp(1.75rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 3rem);
+  background:
+    radial-gradient(ellipse at 85% 0%, color-mix(in srgb, var(--destaque) 22%, transparent), transparent 60%),
+    radial-gradient(ellipse at 0% 100%, color-mix(in srgb, var(--forma-ponto) 16%, transparent), transparent 55%),
+    var(--superficie);
+  border: 1px solid var(--borda);
+}
+
+.heroi-fundo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.55;
+}
+
+.fio {
+  fill: none;
+  stroke: color-mix(in srgb, var(--texto-suave) 30%, transparent);
+  stroke-width: 1.5;
+}
+
+/* Cada linha tem pathLength=1000: um brilho de 60 unidades percorre a linha em laço. */
+.energia {
+  fill: none;
+  stroke: var(--destaque);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 60 940;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .energia {
+    animation: correr 7s linear infinite;
+    animation-delay: calc(var(--i) * -2.3s);
+  }
+}
+
+.heroi-texto {
+  position: relative;
+  max-width: 40rem;
+}
+
+.heroi h1 {
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  line-height: 1.08;
+  margin: 0.35rem 0 0.8rem;
+  letter-spacing: -0.01em;
+}
+
+.heroi-botao {
+  display: inline-block;
+  margin-top: 0.6rem;
+  text-decoration: none;
+}
+
+/* contadores */
+
+.numeros {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.numeros li {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.numeros strong {
+  font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  color: var(--destaque);
+}
+
+.numeros li > span {
+  color: var(--texto);
+  font-size: 0.92rem;
+}
+
+/* jornada */
+
+.jornada {
+  margin-top: 3rem;
+}
+
+.etapas {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 1rem;
+}
+
+.etapa {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.1rem 1.2rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--borda);
+  background: var(--superficie);
+  color: var(--texto);
+  text-decoration: none;
+  transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+}
+
+.etapa:hover {
+  transform: translateY(-3px);
+  border-color: var(--destaque);
+  box-shadow: 0 14px 30px -20px rgb(0 0 0 / 0.45);
+}
+
+.etapa.futura {
+  border-style: dashed;
+}
+
+.etapa-indice {
+  position: absolute;
+  right: 1rem;
+  top: 0.7rem;
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: color-mix(in srgb, var(--texto-suave) 35%, transparent);
+  font-variant-numeric: tabular-nums;
+}
+
+.icone {
+  width: 2.1rem;
+  height: 2.1rem;
+  fill: none;
+  stroke: var(--destaque);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.etapa.futura .icone {
+  stroke: var(--texto-suave);
+}
+
+.etapa h3 {
+  margin: 0.6rem 0 0.3rem;
+  font-size: 1.1rem;
+}
+
+.etapa p {
+  margin: 0 0 0.8rem;
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+  flex: 1;
+}
+
+.etapa-selos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .etapas li {
+    animation: surgir 0.45s ease backwards;
+    animation-delay: calc(0.2s + var(--i) * 80ms);
+  }
+}
+
+@media (max-width: 800px) {
+  .numeros {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

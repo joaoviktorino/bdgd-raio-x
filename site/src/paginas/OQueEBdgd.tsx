@@ -1,195 +1,203 @@
-import { Link } from "react-router";
-
+import CenaRede from "../componentes/CenaRede";
+import ConcessaoPermissao from "../componentes/ConcessaoPermissao";
+import DiagramaSigr from "../componentes/DiagramaSigr";
 import { Fonte, ListaDeFontes } from "../componentes/Fonte";
-import { acharCamada, arquivo, dataBR } from "../dados";
+import LinhaPrazos from "../componentes/LinhaPrazos";
+import Quiz, { type Pergunta } from "../componentes/Quiz";
+import { acharCamada, arquivo } from "../dados";
+import { inteiro } from "../formatos";
 import { REFERENCIAS } from "../referencias";
+import "./oque.css";
 
-// Camadas da Nova Palma usadas como exemplo dos dois tipos de entidade.
-const EXEMPLOS = [
-  { sigla: "SSDMT", oQueE: "Segmentos da rede de média tensão", forma: "linhas" },
-  { sigla: "UNTRMT", oQueE: "Transformadores de média para baixa tensão", forma: "pontos" },
-  { sigla: "SUB", oQueE: "Subestações", forma: "polígonos" },
-  { sigla: "CTMT", oQueE: "Circuitos de média tensão (alimentadores)", forma: "tabela" },
-  { sigla: "UCBT", oQueE: "Unidades consumidoras de baixa tensão", forma: "tabela" },
+const registros = (sigla: string) => acharCamada(sigla)?.registros ?? 0;
+
+const PERGUNTAS: Pergunta[] = [
+  {
+    id: "classificar-entidades",
+    tipo: "classificar",
+    enunciado: "No modelo da BDGD, quais destas camadas são geográficas?",
+    grupos: ["Geográfica", "Não geográfica"],
+    itens: [
+      { rotulo: "SSDMT", grupo: 0 },
+      { rotulo: "CTMT", grupo: 1 },
+      { rotulo: "UNTRMT", grupo: 0 },
+      { rotulo: "EQTRMT", grupo: 1 },
+      { rotulo: "SUB", grupo: 0 },
+      { rotulo: "UCBT", grupo: 0 },
+      { rotulo: "RAMLIG", grupo: 1 },
+    ],
+    explicacao: (
+      <p>
+        Duas pegadinhas: a <code>UCBT</code> é geográfica no modelo (um ponto), mesmo vindo sem localização no
+        arquivo publicado; e o <code>RAMLIG</code>, o ramal de ligação, é um fio de verdade, mas é modelado sem
+        desenho próprio <Fonte de="modulo10" onde="Tabelas 1 e 7" /> <Fonte de="manual" onde="Anexo I, p. 42 e 107" />.
+      </p>
+    ),
+  },
+  {
+    id: "estimar-trechos-mt",
+    tipo: "estimativa",
+    enunciado: "Chute: quantos trechos de rede de média tensão a Nova Palma tem?",
+    valor: registros("SSDMT"),
+    min: 10,
+    max: 1_000_000,
+    unidade: "trechos",
+    explicacao: (
+      <p>
+        São {inteiro(registros("SSDMT"))} trechos <Fonte de="arquivo" onde="camada SSDMT" />. Parece muito para uma
+        distribuidora pequena, mas cada trecho vai só de uma estrutura de suporte à seguinte, o vão{" "}
+        <Fonte de="modulo10" onde="Tabela 3" />.
+      </p>
+    ),
+  },
+  {
+    id: "prazo-envio",
+    tipo: "escolha",
+    enunciado: "Uma BDGD com data de referência 31/12/2025 deve chegar à ANEEL até quando?",
+    opcoes: ["31 de dezembro de 2025", "1º de março de 2026", "30 de junho de 2026", "31 de dezembro de 2026"],
+    certa: 1,
+    explicacao: (
+      <p>
+        O envio ordinário vai até 1º de março, com dados de 31 de dezembro do ano anterior{" "}
+        <Fonte de="modulo10" onde="item 41.2" />.
+      </p>
+    ),
+  },
+  {
+    id: "estimar-ucbt",
+    tipo: "estimativa",
+    enunciado: "Chute: quantas unidades consumidoras de baixa tensão a Nova Palma atende?",
+    valor: registros("UCBT"),
+    min: 100,
+    max: 10_000_000,
+    unidade: "unidades",
+    explicacao: (
+      <p>
+        São {inteiro(registros("UCBT"))} registros na <code>UCBT_tab</code>{" "}
+        <Fonte de="arquivo" onde="camada UCBT_tab" />. É o total: unidade por unidade, este site nunca mostra.
+      </p>
+    ),
+  },
+  {
+    id: "titulo-precario",
+    tipo: "escolha",
+    enunciado: "Qual forma de delegação de serviço público é feita “a título precário”?",
+    opcoes: ["Concessão", "Permissão", "As duas"],
+    certa: 1,
+    explicacao: (
+      <p>
+        A permissão <Fonte de="lei8987" onde="art. 2º, IV" />. A concessão é por prazo determinado{" "}
+        <Fonte de="lei8987" onde="art. 2º, II" />.
+      </p>
+    ),
+  },
+  {
+    id: "coordenadas",
+    tipo: "escolha",
+    enunciado: "Em que sistema de coordenadas vêm os dados cartográficos da BDGD?",
+    opcoes: [
+      "SIRGAS 2000, em UTM (metros)",
+      "SIRGAS 2000, em latitude e longitude (graus)",
+      "WGS 84, em latitude e longitude (graus)",
+    ],
+    certa: 1,
+    explicacao: (
+      <p>
+        Latitude e longitude em graus decimais, no datum SIRGAS 2000 <Fonte de="modulo10" onde="item 45" />. No
+        arquivo, isso aparece como <code>{acharCamada("SSDMT")?.crs}</code>{" "}
+        <Fonte de="arquivo" onde="camada SSDMT" />.
+      </p>
+    ),
+  },
 ];
 
 export default function OQueEBdgd() {
-  const dataReferencia = dataBR(arquivo.partes_do_nome.data_referencia);
-  const crs = acharCamada("SSDMT")?.crs;
-
   return (
-    <article className="texto">
-      <h1>O que é a BDGD</h1>
+    <article className="pagina-visual">
+      <header className="pagina-visual-topo">
+        <p className="sobretitulo">O que é a BDGD</p>
+        <h1>Um retrato da rede elétrica, entregue todo ano</h1>
+        <p className="lide">
+          A BDGD é o conjunto de informações que cada distribuidora envia à ANEEL: a rede, os equipamentos, os
+          consumidores e a geração, num modelo geográfico <Fonte de="modulo10" onde="itens 10, 11 e 16" />. Toque nos
+          elementos do desenho.
+        </p>
+      </header>
 
-      <p className="lide">
-        A <strong>BDGD (Base de Dados Geográfica da Distribuidora)</strong> é o conjunto de informações
-        que cada distribuidora de energia elétrica envia à ANEEL, seguindo uma estrutura e um conteúdo
-        definidos na regulação <Fonte de="modulo10" onde="item 16" />.
-      </p>
+      <section className="bloco-visual">
+        <h2>Cada pedaço da rede vira uma camada</h2>
+        <p className="lide">
+          As camadas geográficas têm desenho (ponto, linha ou polígono); as não geográficas são fichas ligadas a
+          elas <Fonte de="modulo10" onde="itens 18, 22 e 32" />. São 23 geográficas e 20 não geográficas{" "}
+          <Fonte de="manual" onde="Seção 2, item 2.4, p. 8" />.
+        </p>
+        <CenaRede />
+      </section>
 
-      <h2>O que ela descreve</h2>
-      <p>
-        A BDGD reúne <strong>dados técnicos</strong> do sistema de distribuição,{" "}
-        <strong>informações comerciais</strong> e <strong>dados físico-contábeis</strong> da base de
-        ativos <Fonte de="modulo10" onde="item 11" />. É um modelo geográfico: uma simplificação do
-        sistema elétrico real, para um período, que contém <Fonte de="modulo10" onde="itens 10 e 10.1" />:
-      </p>
-      <ul>
-        <li>o traçado dos segmentos de rede de alta, média e baixa tensão entre as estruturas de suporte;</li>
-        <li>a localização das estruturas de suporte da rede;</li>
-        <li>a localização dos usuários e dos equipamentos;</li>
-        <li>a delimitação das subestações e de outras áreas de interesse.</li>
-      </ul>
+      <section className="bloco-visual">
+        <h2>Um retrato por ano</h2>
+        <p className="lide">As datas reais do arquivo usado neste site.</p>
+        <LinhaPrazos />
+      </section>
 
-      <h2>A regulação: Módulo 10 do PRODIST</h2>
-      <p>
-        As regras da BDGD estão no <strong>Módulo 10 do PRODIST</strong> (Procedimentos de Distribuição
-        de Energia Elétrica no Sistema Elétrico Nacional), que é o Anexo X da Resolução Normativa ANEEL
-        nº 956/2021 <Fonte de="modulo10" />. O Módulo 10 diz <em>o que</em> a base deve conter; a lista
-        completa de entidades, campos e códigos fica no Manual de Instruções da BDGD{" "}
-        <Fonte de="modulo10" onde="itens 15, 20.1 e 21" />.
-      </p>
+      <section className="bloco-visual duas-colunas">
+        <div>
+          <h2>Onde a BDGD mora</h2>
+          <p className="lide">
+            No SIG-R, o sistema de informação geográfica da ANEEL. As regras estão no Módulo 10 do PRODIST{" "}
+            <Fonte de="modulo10" />; os detalhes de cada campo, no Manual de Instruções da BDGD{" "}
+            <Fonte de="modulo10" onde="itens 15, 20.1 e 21" />.
+          </p>
+          <DiagramaSigr />
+        </div>
+        <div>
+          <h2>Quem entrega</h2>
+          <p className="lide">
+            Concessionárias e permissionárias. O Manual lista todas, inclusive as permissionárias com contrato de
+            2010 a 2020 <Fonte de="manual" onde="Anexo III, item 3.1, p. 213" />.
+          </p>
+          <ConcessaoPermissao />
+          <p className="nota">
+            Códigos de área de atuação do Anexo III <Fonte de="manual" onde="p. 214" />. A letra inicial acompanha a
+            forma de outorga, mas isso é uma leitura nossa do código: o Manual não explica o formato.
+          </p>
+        </div>
+      </section>
 
-      <h2>BDGD e SIG-R</h2>
-      <p>
-        O <strong>SIG-R (Sistema de Informação Geográfica Regulatório)</strong> é o conjunto de sistemas
-        e bases de dados reunidos pela ANEEL para obter informações do sistema de distribuição e dos
-        usuários <Fonte de="modulo10" onde="item 7" />. A BDGD de cada distribuidora é uma parte do
-        SIG-R, que também se apoia em outras bases, como as do IBGE, a classificação de atividades
-        econômicas (CNAE) e os manuais de contabilidade e de controle patrimonial do setor elétrico{" "}
-        <Fonte de="modulo10" onde="item 8 e Diagrama 1" />.
-      </p>
+      <section className="bloco-visual">
+        <h2>Onde baixar</h2>
+        <div className="atalhos">
+          <a className="atalho" href={REFERENCIAS.arquivo.url}>
+            <span className="atalho-icone" aria-hidden="true">
+              ⬇
+            </span>
+            <strong>Os arquivos da BDGD</strong>
+            <span>
+              Portal de dados abertos da ANEEL: um <code>.gdb.zip</code> por distribuidora e data de referência{" "}
+              <Fonte de="arquivo" />
+            </span>
+          </a>
+          <a className="atalho" href={REFERENCIAS.manual.url}>
+            <span className="atalho-icone" aria-hidden="true">
+              📘
+            </span>
+            <strong>O Manual de Instruções</strong>
+            <span>
+              Página de manuais de distribuição da ANEEL <Fonte de="manual" onde="Seção 1, item 2.1, p. 7" />
+            </span>
+          </a>
+        </div>
+        <p className="nota">
+          O arquivo usado aqui é o <code>{arquivo.arquivo}</code>. As informações do SIG-R são públicas, respeitado o
+          direito de privacidade dos usuários <Fonte de="modulo10" onde="item 47" />.
+        </p>
+      </section>
 
-      <h2>Dois tipos de entidade</h2>
-      <p>
-        A BDGD é organizada em <strong>entidades</strong>: modelos de dados que representam redes,
-        estruturas, equipamentos, usuários e outras informações. Elas são de dois tipos{" "}
-        <Fonte de="modulo10" onde="itens 18 e 18.1" />:
-      </p>
-      <ul>
-        <li>
-          <strong>Entidades geográficas</strong> têm representação no mapa (ponto, linha ou polígono).
-          Exemplos: segmento de rede (linha), transformador (ponto), subestação (polígono) e unidade
-          consumidora (ponto) <Fonte de="modulo10" onde="item 22 e Tabelas 1 a 4" />.
-        </li>
-        <li>
-          <strong>Entidades não geográficas</strong> são tabelas que se ligam às demais, sem
-          representação no mapa. Exemplos: circuito de rede (os alimentadores), medidor e balanço de
-          energia <Fonte de="modulo10" onde="item 32 e Tabelas 6 a 8" />.
-        </li>
-      </ul>
-      <p>
-        Na versão atual do modelo de dados (V1.1) são <strong>23 entidades geográficas e 20 não
-        geográficas</strong> <Fonte de="manual" onde="Seção 2, item 2.4, p. 8" />.
-      </p>
-
-      <h3>Na Nova Palma</h3>
-      <div className="tabela-rolavel">
-        <table>
-          <thead>
-            <tr>
-              <th>Camada</th>
-              <th>O que é</th>
-              <th className="numero">Registros</th>
-            </tr>
-          </thead>
-          <tbody>
-            {EXEMPLOS.map(({ sigla, oQueE, forma }) => {
-              const camada = acharCamada(sigla);
-              return (
-                <tr key={sigla}>
-                  <td>
-                    <Link to={`/camadas/${sigla}`}>
-                      <code>{camada?.nome ?? sigla}</code>
-                    </Link>
-                    <span className="detalhe">{forma}</span>
-                  </td>
-                  <td>{oQueE}</td>
-                  <td className="numero">{camada?.registros.toLocaleString("pt-BR")}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-      <p className="nota">
-        Contagens lidas do arquivo <Fonte de="arquivo" onde="catálogo de camadas" />. Repare na{" "}
-        <code>UCBT_tab</code>: no Manual, a unidade consumidora é um ponto com endereço{" "}
-        <Fonte de="manual" onde="Anexo I, p. 42–43" />, mas no arquivo publicado ela vem como tabela, sem
-        localização e sem logradouro. As informações do SIG-R são públicas, respeitado o direito de
-        privacidade dos usuários <Fonte de="modulo10" onde="item 47" />.
-      </p>
-
-      <h2>Prazos</h2>
-      <ul>
-        <li>
-          O envio <strong>ordinário</strong> é anual <Fonte de="modulo10" onde="item 41.1" />: até{" "}
-          <strong>1º de março</strong> de cada ano, com dados referenciados em{" "}
-          <strong>31 de dezembro do ano anterior</strong> <Fonte de="modulo10" onde="item 41.2" />. O
-          arquivo da Nova Palma usado aqui tem data de referência {dataReferencia}{" "}
-          <Fonte de="arquivo" />.
-        </li>
-        <li>
-          O envio <strong>extraordinário</strong> acontece sob demanda da ANEEL, que define a data de
-          referência, pede o envio com pelo menos 30 dias de antecedência e dá até 60 dias, a contar da
-          data de referência, para a entrega <Fonte de="modulo10" onde="itens 42 a 42.4" />.
-        </li>
-        <li>
-          Só é publicada a BDGD que foi validada e aceita pela ANEEL{" "}
-          <Fonte de="modulo10" onde="item 48" />.
-        </li>
-      </ul>
-
-      <h2>Coordenadas</h2>
-      <p>
-        Todos os dados cartográficos vêm em latitude e longitude, em graus decimais, no datum{" "}
-        <strong>SIRGAS 2000</strong> <Fonte de="modulo10" onde="item 45" />. No arquivo da Nova Palma,
-        isso aparece como <code>{crs}</code> <Fonte de="arquivo" onde="camada SSDMT" />. Por estar em
-        graus, o comprimento de uma linha não pode ser lido direto em metros: o raio-x da rede vai usar
-        o comprimento declarado em cada segmento.
-      </p>
-
-      <h2>Onde baixar</h2>
-      <ul>
-        <li>
-          <strong>Os arquivos da BDGD</strong> estão no{" "}
-          <a href={REFERENCIAS.arquivo.url}>portal de dados abertos da ANEEL</a>, um arquivo{" "}
-          <code>.gdb.zip</code> por distribuidora e data de referência. O usado aqui é o{" "}
-          <code>{arquivo.arquivo}</code>, baixado em {dataBR(arquivo.data_download)}{" "}
-          <Fonte de="arquivo" />.
-        </li>
-        <li>
-          <strong>O Manual de Instruções da BDGD</strong> e os arquivos acessórios estão na página de
-          manuais de distribuição da ANEEL <Fonte de="manual" onde="Seção 1, item 2.1, p. 7" />.
-        </li>
-      </ul>
-
-      <h2>Concessionária × permissionária</h2>
-      <p>A Lei das Concessões define duas formas de delegar a prestação de um serviço público:</p>
-      <ul>
-        <li>
-          <strong>Concessão</strong> é a delegação feita mediante licitação, a pessoa jurídica ou
-          consórcio de empresas, por sua conta e risco e <strong>por prazo determinado</strong>{" "}
-          <Fonte de="lei8987" onde="art. 2º, II" />.
-        </li>
-        <li>
-          <strong>Permissão</strong> é a delegação feita <strong>a título precário</strong>, mediante
-          licitação, a pessoa física ou jurídica <Fonte de="lei8987" onde="art. 2º, IV" />, formalizada
-          por contrato de adesão que pode ser revogado unilateralmente pelo poder concedente{" "}
-          <Fonte de="lei8987" onde="art. 40" />.
-        </li>
-      </ul>
-      <p>
-        O Manual da BDGD lista todas as distribuidoras, inclusive as permissionárias que assinaram contrato
-        entre 2010 e 2020 <Fonte de="manual" onde="Anexo III, item 3.1, p. 213" />. Cada uma tem um
-        código de área de atuação: o da Nova Palma (UHENPAL) é <code>C.062.RS.2001</code>; o de
-        cooperativas como a CERAL é <code>P.025.SC.2008</code>{" "}
-        <Fonte de="manual" onde="Anexo III, p. 214" />.
-      </p>
-      <p className="nota">
-        A letra inicial acompanha a forma de outorga (C de concessão, P de permissão), mas isso é uma
-        leitura do código: o Manual não explica o formato dele.
-      </p>
+      <section className="bloco-visual">
+        <h2>Teste você mesmo</h2>
+        <p className="lide">Seis perguntas. Nas de chute, arrisque antes de saber: o número real aparece depois.</p>
+        <Quiz titulo="Teste: o que é a BDGD" perguntas={PERGUNTAS} />
+      </section>
 
       <ListaDeFontes fontes={["modulo10", "manual", "lei8987", "arquivo"]} />
     </article>

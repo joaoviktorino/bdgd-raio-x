@@ -219,8 +219,8 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Dados da BDGD (nunca versionar dados brutos)
-dados/
+# Dados da BDGD (nunca versionar dados brutos; dados/processados/ é versionado)
+dados/brutos/
 *.gdb/
 *.gdb.zip
 *.zip

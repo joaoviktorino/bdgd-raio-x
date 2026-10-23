@@ -1,0 +1,24 @@
+{
+  "arquivo": "Nova_Palma_400_2025-12-31_V11_20260823-1836.gdb.zip",
+  "distribuidora": "Nova Palma (UHENPAL)",
+  "partes_do_nome": {
+    "nome": "Nova_Palma",
+    "codigo_aneel": 400,
+    "data_referencia": "2025-12-31",
+    "modelo": "V11",
+    "modelo_descricao": "Modelo V1.1 (versão atual do Manual de Instruções da BDGD)",
+    "geracao": "20260823-1836",
+    "geracao_interpretada": "2026-08-23 18:36",
+    "geracao_confirmada": false
+  },
+  "tamanho_bytes": 6293535,
+  "sha256": "1742CD48698F01A040AEEC50117E365D294876D9D689CB69247D555636321025",
+  "origem": {
+    "portal": "Dados Abertos ANEEL (ArcGIS Hub)",
+    "item_arcgis": "e3a518b754ff42fcaf0232003c0b1e9d",
+    "url_download": "https://www.arcgis.com/sharing/rest/content/items/e3a518b754ff42fcaf0232003c0b1e9d/data"
+  },
+  "data_download": "2026-10-23",
+  "fonte": "ANEEL - Base de Dados Geográfica da Distribuidora (BDGD)",
+  "licenca": "ODbL"
+}

@@ -1,0 +1,5898 @@
+{
+  "arquivo": "Nova_Palma_400_2025-12-31_V11_20260823-1836.gdb",
+  "total_camadas": 43,
+  "camadas_geograficas": 17,
+  "tabelas": 26,
+  "camadas": [
+    {
+      "nome": "ARAT",
+      "geometria": "MultiPolygon",
+      "registros": 1,
+      "crs": "EPSG:4674",
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "FUN_PR",
+          "tipo": "int32"
+        },
+        {
+          "nome": "FUN_TE",
+          "tipo": "int32"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        },
+        {
+          "nome": "Shape_Length",
+          "tipo": "float64"
+        },
+        {
+          "nome": "Shape_Area",
+          "tipo": "float64"
+        }
+      ]
+    },
+    {
+      "nome": "BAR",
+      "geometria": "tabela",
+      "registros": 26,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "TIP_INST",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_NOM",
+          "tipo": "object"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC",
+          "tipo": "object"
+        },
+        {
+          "nome": "ODI",
+          "tipo": "object"
+        },
+        {
+          "nome": "TI",
+          "tipo": "object"
+        },
+        {
+          "nome": "CM",
+          "tipo": "object"
+        },
+        {
+          "nome": "TUC",
+          "tipo": "object"
+        },
+        {
+          "nome": "A1",
+          "tipo": "object"
+        },
+        {
+          "nome": "A2",
+          "tipo": "object"
+        },
+        {
+          "nome": "A3",
+          "tipo": "object"
+        },
+        {
+          "nome": "A4",
+          "tipo": "object"
+        },
+        {
+          "nome": "A5",
+          "tipo": "object"
+        },
+        {
+          "nome": "A6",
+          "tipo": "object"
+        },
+        {
+          "nome": "UAR",
+          "tipo": "object"
+        },
+        {
+          "nome": "IDUC",
+          "tipo": "object"
+        },
+        {
+          "nome": "SITCONT",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_IMO",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "BASE",
+      "geometria": "tabela",
+      "registros": 1,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "DAT_INC",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_FNL",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_EXT",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "BAY",
+      "geometria": "tabela",
+      "registros": 5,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "SUB_GRP",
+          "tipo": "object"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_BAY",
+          "tipo": "int32"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "BE",
+      "geometria": "tabela",
+      "registros": 9,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "SUB_GRP",
+          "tipo": "object"
+        },
+        {
+          "nome": "ORG_ENER",
+          "tipo": "object"
+        },
+        {
+          "nome": "ENE_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "CONJ",
+      "geometria": "MultiPolygon",
+      "registros": 1,
+      "crs": "EPSG:4674",
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "int32"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "NOME",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIST_INTE",
+          "tipo": "int32"
+        },
+        {
+          "nome": "SIST_SUBT",
+          "tipo": "int32"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        },
+        {
+          "nome": "Shape_Length",
+          "tipo": "float64"
+        },
+        {
+          "nome": "Shape_Area",
+          "tipo": "float64"
+        }
+      ]
+    },
+    {
+      "nome": "CRVCRG",
+      "geometria": "tabela",
+      "registros": 87,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "TIP_DIA",
+          "tipo": "object"
+        },
+        {
+          "nome": "POT_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_13",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_14",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_15",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_16",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_17",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_18",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_19",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_20",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_21",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_22",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_23",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_24",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_25",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_26",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_27",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_28",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_29",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_30",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_31",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_32",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_33",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_34",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_35",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_36",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_37",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_38",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_39",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_40",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_41",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_42",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_43",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_44",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_45",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_46",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_47",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_48",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_49",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_50",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_51",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_52",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_53",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_54",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_55",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_56",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_57",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_58",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_59",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_60",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_61",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_62",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_63",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_64",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_65",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_66",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_67",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_68",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_69",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_70",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_71",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_72",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_73",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_74",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_75",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_76",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_77",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_78",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_79",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_80",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_81",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_82",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_83",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_84",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_85",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_86",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_87",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_88",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_89",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_90",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_91",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_92",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_93",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_94",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_95",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_96",
+          "tipo": "float64"
+        },
+        {
+          "nome": "GRU_TEN",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "CTAT",
+      "geometria": "tabela",
+      "registros": 0,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "NOME",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_NOM",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_INI",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "CTMT",
+      "geometria": "tabela",
+      "registros": 5,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "NOME",
+          "tipo": "object"
+        },
+        {
+          "nome": "BARR",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_INI",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_NOM",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_OPE",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ATIP",
+          "tipo": "int32"
+        },
+        {
+          "nome": "RECONFIG",
+          "tipo": "int32"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "UNI_TR_AT",
+          "tipo": "object"
+        },
+        {
+          "nome": "ENE_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PERD_A3a",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PERD_A4",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PERD_B",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PERD_MED",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PERD_A3aA4",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PERD_A3a_B",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PERD_A4A3a",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PERD_A4_B",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PERD_B_A3a",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PERD_B_A4",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTMT_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTMT_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTMT_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTMT_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTMT_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTMT_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTMT_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTMT_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTMT_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTMT_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTMT_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTMT_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTBT_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTBT_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTBT_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTBT_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTBT_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTBT_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTBT_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTBT_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTBT_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTBT_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTBT_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PNTBT_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "EP",
+      "geometria": "tabela",
+      "registros": 5,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "SUB_GRP_PR",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB_GRP_SE",
+          "tipo": "object"
+        },
+        {
+          "nome": "ENE_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "EQCR",
+      "geometria": "tabela",
+      "registros": 37,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "TIP_INST",
+          "tipo": "object"
+        },
+        {
+          "nome": "UN_CR",
+          "tipo": "object"
+        },
+        {
+          "nome": "ODI",
+          "tipo": "object"
+        },
+        {
+          "nome": "TI",
+          "tipo": "object"
+        },
+        {
+          "nome": "CM",
+          "tipo": "object"
+        },
+        {
+          "nome": "TUC",
+          "tipo": "object"
+        },
+        {
+          "nome": "A1",
+          "tipo": "object"
+        },
+        {
+          "nome": "A2",
+          "tipo": "object"
+        },
+        {
+          "nome": "A3",
+          "tipo": "object"
+        },
+        {
+          "nome": "A4",
+          "tipo": "object"
+        },
+        {
+          "nome": "A5",
+          "tipo": "object"
+        },
+        {
+          "nome": "A6",
+          "tipo": "object"
+        },
+        {
+          "nome": "UAR",
+          "tipo": "object"
+        },
+        {
+          "nome": "IDUC",
+          "tipo": "object"
+        },
+        {
+          "nome": "SITCONT",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_IMO",
+          "tipo": "object"
+        },
+        {
+          "nome": "GRU_TEN",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "EQME",
+      "geometria": "tabela",
+      "registros": 17435,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "TIP_INST",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_UNID",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIPMED",
+          "tipo": "int32"
+        },
+        {
+          "nome": "ODI",
+          "tipo": "object"
+        },
+        {
+          "nome": "TI",
+          "tipo": "object"
+        },
+        {
+          "nome": "CM",
+          "tipo": "object"
+        },
+        {
+          "nome": "TUC",
+          "tipo": "object"
+        },
+        {
+          "nome": "A1",
+          "tipo": "object"
+        },
+        {
+          "nome": "A2",
+          "tipo": "object"
+        },
+        {
+          "nome": "A3",
+          "tipo": "object"
+        },
+        {
+          "nome": "A4",
+          "tipo": "object"
+        },
+        {
+          "nome": "A5",
+          "tipo": "object"
+        },
+        {
+          "nome": "A6",
+          "tipo": "object"
+        },
+        {
+          "nome": "UAR",
+          "tipo": "object"
+        },
+        {
+          "nome": "SITCONT",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_IMO",
+          "tipo": "object"
+        },
+        {
+          "nome": "GRU_TEN",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        },
+        {
+          "nome": "UC_UG",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "EQRE",
+      "geometria": "tabela",
+      "registros": 16,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "TIP_INST",
+          "tipo": "object"
+        },
+        {
+          "nome": "UN_RE",
+          "tipo": "object"
+        },
+        {
+          "nome": "POT_NOM",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_REG",
+          "tipo": "float64"
+        },
+        {
+          "nome": "LIG_FAS_P",
+          "tipo": "object"
+        },
+        {
+          "nome": "LIG_FAS_S",
+          "tipo": "object"
+        },
+        {
+          "nome": "COR_NOM",
+          "tipo": "object"
+        },
+        {
+          "nome": "REL_TP",
+          "tipo": "object"
+        },
+        {
+          "nome": "REL_TC",
+          "tipo": "object"
+        },
+        {
+          "nome": "ODI",
+          "tipo": "object"
+        },
+        {
+          "nome": "TI",
+          "tipo": "object"
+        },
+        {
+          "nome": "CM",
+          "tipo": "object"
+        },
+        {
+          "nome": "TUC",
+          "tipo": "object"
+        },
+        {
+          "nome": "A1",
+          "tipo": "object"
+        },
+        {
+          "nome": "A2",
+          "tipo": "object"
+        },
+        {
+          "nome": "A3",
+          "tipo": "object"
+        },
+        {
+          "nome": "A4",
+          "tipo": "object"
+        },
+        {
+          "nome": "A5",
+          "tipo": "object"
+        },
+        {
+          "nome": "A6",
+          "tipo": "object"
+        },
+        {
+          "nome": "UAR",
+          "tipo": "object"
+        },
+        {
+          "nome": "IDUC",
+          "tipo": "object"
+        },
+        {
+          "nome": "SITCONT",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_IMO",
+          "tipo": "object"
+        },
+        {
+          "nome": "PER_FER",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PER_TOT",
+          "tipo": "float64"
+        },
+        {
+          "nome": "R",
+          "tipo": "float64"
+        },
+        {
+          "nome": "XHL",
+          "tipo": "float64"
+        },
+        {
+          "nome": "GRU_TEN",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "EQSE",
+      "geometria": "tabela",
+      "registros": 2853,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "TIP_INST",
+          "tipo": "object"
+        },
+        {
+          "nome": "UN_SE",
+          "tipo": "object"
+        },
+        {
+          "nome": "CLAS_TEN",
+          "tipo": "object"
+        },
+        {
+          "nome": "ELO_FSV",
+          "tipo": "object"
+        },
+        {
+          "nome": "MEI_ISO",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "COR_NOM",
+          "tipo": "object"
+        },
+        {
+          "nome": "ODI",
+          "tipo": "object"
+        },
+        {
+          "nome": "TI",
+          "tipo": "object"
+        },
+        {
+          "nome": "CM",
+          "tipo": "object"
+        },
+        {
+          "nome": "TUC",
+          "tipo": "object"
+        },
+        {
+          "nome": "A1",
+          "tipo": "object"
+        },
+        {
+          "nome": "A2",
+          "tipo": "object"
+        },
+        {
+          "nome": "A3",
+          "tipo": "object"
+        },
+        {
+          "nome": "A4",
+          "tipo": "object"
+        },
+        {
+          "nome": "A5",
+          "tipo": "object"
+        },
+        {
+          "nome": "A6",
+          "tipo": "object"
+        },
+        {
+          "nome": "UAR",
+          "tipo": "object"
+        },
+        {
+          "nome": "IDUC",
+          "tipo": "object"
+        },
+        {
+          "nome": "SITCONT",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_IMO",
+          "tipo": "object"
+        },
+        {
+          "nome": "ABER_CRG",
+          "tipo": "int32"
+        },
+        {
+          "nome": "GRU_TEN",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "EQTRAT",
+      "geometria": "tabela",
+      "registros": 5,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "TIP_INST",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_AT",
+          "tipo": "object"
+        },
+        {
+          "nome": "CLAS_TEN",
+          "tipo": "object"
+        },
+        {
+          "nome": "POT_NOM",
+          "tipo": "object"
+        },
+        {
+          "nome": "LIG",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_PRI",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_SEC",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_TER",
+          "tipo": "object"
+        },
+        {
+          "nome": "ODI",
+          "tipo": "object"
+        },
+        {
+          "nome": "TI",
+          "tipo": "object"
+        },
+        {
+          "nome": "CM",
+          "tipo": "object"
+        },
+        {
+          "nome": "TUC",
+          "tipo": "object"
+        },
+        {
+          "nome": "A1",
+          "tipo": "object"
+        },
+        {
+          "nome": "A2",
+          "tipo": "object"
+        },
+        {
+          "nome": "A3",
+          "tipo": "object"
+        },
+        {
+          "nome": "A4",
+          "tipo": "object"
+        },
+        {
+          "nome": "A5",
+          "tipo": "object"
+        },
+        {
+          "nome": "A6",
+          "tipo": "object"
+        },
+        {
+          "nome": "UAR",
+          "tipo": "object"
+        },
+        {
+          "nome": "IDUC",
+          "tipo": "object"
+        },
+        {
+          "nome": "SITCONT",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_IMO",
+          "tipo": "object"
+        },
+        {
+          "nome": "PER_FER",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PER_TOT",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_F01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_F02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "EQTRM",
+      "geometria": "tabela",
+      "registros": 164,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "PAC",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_INST",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_UNID",
+          "tipo": "object"
+        },
+        {
+          "nome": "ODI",
+          "tipo": "object"
+        },
+        {
+          "nome": "TI",
+          "tipo": "object"
+        },
+        {
+          "nome": "CM",
+          "tipo": "object"
+        },
+        {
+          "nome": "TUC",
+          "tipo": "object"
+        },
+        {
+          "nome": "A1",
+          "tipo": "object"
+        },
+        {
+          "nome": "A2",
+          "tipo": "object"
+        },
+        {
+          "nome": "A3",
+          "tipo": "object"
+        },
+        {
+          "nome": "A4",
+          "tipo": "object"
+        },
+        {
+          "nome": "A5",
+          "tipo": "object"
+        },
+        {
+          "nome": "A6",
+          "tipo": "object"
+        },
+        {
+          "nome": "UAR",
+          "tipo": "object"
+        },
+        {
+          "nome": "IDUC",
+          "tipo": "object"
+        },
+        {
+          "nome": "SITCONT",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_IMO",
+          "tipo": "object"
+        },
+        {
+          "nome": "GRU_TEN",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        },
+        {
+          "nome": "UC_UG",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "EQTRMT",
+      "geometria": "tabela",
+      "registros": 2085,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "TIP_INST",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_MT",
+          "tipo": "object"
+        },
+        {
+          "nome": "CLAS_TEN",
+          "tipo": "object"
+        },
+        {
+          "nome": "POT_NOM",
+          "tipo": "object"
+        },
+        {
+          "nome": "LIG",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_PRI",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_SEC",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_TER",
+          "tipo": "object"
+        },
+        {
+          "nome": "LIG_FAS_P",
+          "tipo": "object"
+        },
+        {
+          "nome": "LIG_FAS_S",
+          "tipo": "object"
+        },
+        {
+          "nome": "LIG_FAS_T",
+          "tipo": "object"
+        },
+        {
+          "nome": "ODI",
+          "tipo": "object"
+        },
+        {
+          "nome": "TI",
+          "tipo": "object"
+        },
+        {
+          "nome": "CM",
+          "tipo": "object"
+        },
+        {
+          "nome": "TUC",
+          "tipo": "object"
+        },
+        {
+          "nome": "A1",
+          "tipo": "object"
+        },
+        {
+          "nome": "A2",
+          "tipo": "object"
+        },
+        {
+          "nome": "A3",
+          "tipo": "object"
+        },
+        {
+          "nome": "A4",
+          "tipo": "object"
+        },
+        {
+          "nome": "A5",
+          "tipo": "object"
+        },
+        {
+          "nome": "A6",
+          "tipo": "object"
+        },
+        {
+          "nome": "UAR",
+          "tipo": "object"
+        },
+        {
+          "nome": "IDUC",
+          "tipo": "object"
+        },
+        {
+          "nome": "SITCONT",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_IMO",
+          "tipo": "object"
+        },
+        {
+          "nome": "PER_FER",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PER_TOT",
+          "tipo": "float64"
+        },
+        {
+          "nome": "R",
+          "tipo": "float64"
+        },
+        {
+          "nome": "XHL",
+          "tipo": "float64"
+        },
+        {
+          "nome": "XHT",
+          "tipo": "float64"
+        },
+        {
+          "nome": "XLT",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "PIP",
+      "geometria": "tabela",
+      "registros": 7191,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "UC_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_AT",
+          "tipo": "object"
+        },
+        {
+          "nome": "CTMT",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_MT",
+          "tipo": "object"
+        },
+        {
+          "nome": "PN_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "CLAS_SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "GRU_TEN",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_FORN",
+          "tipo": "object"
+        },
+        {
+          "nome": "GRU_TAR",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIT_ATIV",
+          "tipo": "object"
+        },
+        {
+          "nome": "ARE_LOC",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_CC",
+          "tipo": "object"
+        },
+        {
+          "nome": "CAR_INST",
+          "tipo": "float64"
+        },
+        {
+          "nome": "TIPO_LAMP",
+          "tipo": "object"
+        },
+        {
+          "nome": "POT_LAMP",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PERDA_REAT",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PERDA_RELE",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PERDA_OUTR",
+          "tipo": "float64"
+        },
+        {
+          "nome": "CONTROLE",
+          "tipo": "int32"
+        },
+        {
+          "nome": "TIP_SIST",
+          "tipo": "object"
+        },
+        {
+          "nome": "ENE_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC",
+          "tipo": "float64"
+        },
+        {
+          "nome": "LIV",
+          "tipo": "int32"
+        },
+        {
+          "nome": "SEMRED",
+          "tipo": "int32"
+        },
+        {
+          "nome": "DAT_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "PNT",
+      "geometria": "tabela",
+      "registros": 1,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "SUB_GRP",
+          "tipo": "object"
+        },
+        {
+          "nome": "ENE_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "PONNOT",
+      "geometria": "Point",
+      "registros": 23512,
+      "crs": "EPSG:4674",
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "TIP_PN",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_INST",
+          "tipo": "object"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "ESTR",
+          "tipo": "object"
+        },
+        {
+          "nome": "MAT",
+          "tipo": "object"
+        },
+        {
+          "nome": "ESF",
+          "tipo": "object"
+        },
+        {
+          "nome": "ALT",
+          "tipo": "object"
+        },
+        {
+          "nome": "ARE_LOC",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "ODI",
+          "tipo": "object"
+        },
+        {
+          "nome": "TI",
+          "tipo": "object"
+        },
+        {
+          "nome": "CM",
+          "tipo": "object"
+        },
+        {
+          "nome": "TUC",
+          "tipo": "object"
+        },
+        {
+          "nome": "A1",
+          "tipo": "object"
+        },
+        {
+          "nome": "A2",
+          "tipo": "object"
+        },
+        {
+          "nome": "A3",
+          "tipo": "object"
+        },
+        {
+          "nome": "A4",
+          "tipo": "object"
+        },
+        {
+          "nome": "A5",
+          "tipo": "object"
+        },
+        {
+          "nome": "A6",
+          "tipo": "object"
+        },
+        {
+          "nome": "UAR",
+          "tipo": "object"
+        },
+        {
+          "nome": "SITCONT",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "PT",
+      "geometria": "tabela",
+      "registros": 9,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "CATEG",
+          "tipo": "object"
+        },
+        {
+          "nome": "ENE_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "RAMLIG",
+      "geometria": "tabela",
+      "registros": 14929,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "PN_CON_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PN_CON_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "PAC_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_MT",
+          "tipo": "object"
+        },
+        {
+          "nome": "CTMT",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_AT",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "ARE_LOC",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_INST",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_CND",
+          "tipo": "object"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "ODI",
+          "tipo": "object"
+        },
+        {
+          "nome": "TI",
+          "tipo": "object"
+        },
+        {
+          "nome": "CM",
+          "tipo": "object"
+        },
+        {
+          "nome": "SITCONT",
+          "tipo": "object"
+        },
+        {
+          "nome": "COMP",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "SEGCON",
+      "geometria": "tabela",
+      "registros": 246,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "GEOM_CAB",
+          "tipo": "object"
+        },
+        {
+          "nome": "FORM_CAB",
+          "tipo": "object"
+        },
+        {
+          "nome": "BIT_FAS_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "BIT_FAS_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "BIT_FAS_3",
+          "tipo": "object"
+        },
+        {
+          "nome": "BIT_NEU",
+          "tipo": "object"
+        },
+        {
+          "nome": "MAT_FAS_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "MAT_FAS_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "MAT_FAS_3",
+          "tipo": "object"
+        },
+        {
+          "nome": "MAT_NEU",
+          "tipo": "object"
+        },
+        {
+          "nome": "ISO_FAS_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "ISO_FAS_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "ISO_FAS_3",
+          "tipo": "object"
+        },
+        {
+          "nome": "ISO_NEU",
+          "tipo": "object"
+        },
+        {
+          "nome": "CND_FAS",
+          "tipo": "int32"
+        },
+        {
+          "nome": "R1",
+          "tipo": "float64"
+        },
+        {
+          "nome": "X1",
+          "tipo": "float64"
+        },
+        {
+          "nome": "R_REGUL",
+          "tipo": "object"
+        },
+        {
+          "nome": "FTRCNV",
+          "tipo": "float64"
+        },
+        {
+          "nome": "CNOM",
+          "tipo": "float64"
+        },
+        {
+          "nome": "CMAX",
+          "tipo": "float64"
+        },
+        {
+          "nome": "TUC_FAS",
+          "tipo": "object"
+        },
+        {
+          "nome": "A1_FAS",
+          "tipo": "object"
+        },
+        {
+          "nome": "A2_FAS",
+          "tipo": "object"
+        },
+        {
+          "nome": "A3_FAS",
+          "tipo": "object"
+        },
+        {
+          "nome": "A4_FAS",
+          "tipo": "object"
+        },
+        {
+          "nome": "A5_FAS",
+          "tipo": "object"
+        },
+        {
+          "nome": "A6_FAS",
+          "tipo": "object"
+        },
+        {
+          "nome": "TUC_NEU",
+          "tipo": "object"
+        },
+        {
+          "nome": "A1_NEU",
+          "tipo": "object"
+        },
+        {
+          "nome": "A2_NEU",
+          "tipo": "object"
+        },
+        {
+          "nome": "A3_NEU",
+          "tipo": "object"
+        },
+        {
+          "nome": "A4_NEU",
+          "tipo": "object"
+        },
+        {
+          "nome": "A5_NEU",
+          "tipo": "object"
+        },
+        {
+          "nome": "A6_NEU",
+          "tipo": "object"
+        },
+        {
+          "nome": "UAR",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "SSDAT",
+      "geometria": "MultiLineString",
+      "registros": 0,
+      "crs": "EPSG:4674",
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "PN_CON_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PN_CON_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "CTAT",
+          "tipo": "object"
+        },
+        {
+          "nome": "CT_COD_OP",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "ARE_LOC",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "PAC_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_INST",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_CND",
+          "tipo": "object"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "ODI",
+          "tipo": "object"
+        },
+        {
+          "nome": "TI",
+          "tipo": "object"
+        },
+        {
+          "nome": "CM",
+          "tipo": "object"
+        },
+        {
+          "nome": "SITCONT",
+          "tipo": "object"
+        },
+        {
+          "nome": "COMP",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        },
+        {
+          "nome": "Shape_Length",
+          "tipo": "float64"
+        }
+      ]
+    },
+    {
+      "nome": "SSDBT",
+      "geometria": "MultiLineString",
+      "registros": 13463,
+      "crs": "EPSG:4674",
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "PN_CON_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PN_CON_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_MT",
+          "tipo": "object"
+        },
+        {
+          "nome": "CTMT",
+          "tipo": "object"
+        },
+        {
+          "nome": "CT_COD_OP",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_AT",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "ARE_LOC",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "PAC_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_INST",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_CND",
+          "tipo": "object"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "ODI",
+          "tipo": "object"
+        },
+        {
+          "nome": "TI",
+          "tipo": "object"
+        },
+        {
+          "nome": "CM",
+          "tipo": "object"
+        },
+        {
+          "nome": "SITCONT",
+          "tipo": "object"
+        },
+        {
+          "nome": "COMP",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        },
+        {
+          "nome": "Shape_Length",
+          "tipo": "float64"
+        }
+      ]
+    },
+    {
+      "nome": "SSDMT",
+      "geometria": "MultiLineString",
+      "registros": 14825,
+      "crs": "EPSG:4674",
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "PN_CON_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PN_CON_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "CTMT",
+          "tipo": "object"
+        },
+        {
+          "nome": "CT_COD_OP",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_AT",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "ARE_LOC",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "PAC_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_INST",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_CND",
+          "tipo": "object"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "ODI",
+          "tipo": "object"
+        },
+        {
+          "nome": "TI",
+          "tipo": "object"
+        },
+        {
+          "nome": "CM",
+          "tipo": "object"
+        },
+        {
+          "nome": "SITCONT",
+          "tipo": "object"
+        },
+        {
+          "nome": "COMP",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        },
+        {
+          "nome": "Shape_Length",
+          "tipo": "float64"
+        }
+      ]
+    },
+    {
+      "nome": "SUB",
+      "geometria": "MultiPolygon",
+      "registros": 2,
+      "crs": "EPSG:4674",
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "NOME",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        },
+        {
+          "nome": "Shape_Length",
+          "tipo": "float64"
+        },
+        {
+          "nome": "Shape_Area",
+          "tipo": "float64"
+        }
+      ]
+    },
+    {
+      "nome": "UCAT_tab",
+      "geometria": "tabela",
+      "registros": 0,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "PN_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "PAC",
+          "tipo": "object"
+        },
+        {
+          "nome": "CTAT",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "CEG_GD",
+          "tipo": "object"
+        },
+        {
+          "nome": "BRR",
+          "tipo": "object"
+        },
+        {
+          "nome": "CEP",
+          "tipo": "object"
+        },
+        {
+          "nome": "CLAS_SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CNAE",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_CC",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "GRU_TEN",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_FORN",
+          "tipo": "object"
+        },
+        {
+          "nome": "GRU_TAR",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIT_ATIV",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "CAR_INST",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_CONT",
+          "tipo": "float64"
+        },
+        {
+          "nome": "LIV",
+          "tipo": "int32"
+        },
+        {
+          "nome": "ARE_LOC",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_SIST",
+          "tipo": "object"
+        },
+        {
+          "nome": "DEM_P_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        },
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "UCBT_tab",
+      "geometria": "tabela",
+      "registros": 17715,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "PAC",
+          "tipo": "object"
+        },
+        {
+          "nome": "RAMAL",
+          "tipo": "object"
+        },
+        {
+          "nome": "PN_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_MT",
+          "tipo": "object"
+        },
+        {
+          "nome": "CTMT",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_AT",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "CEG_GD",
+          "tipo": "object"
+        },
+        {
+          "nome": "BRR",
+          "tipo": "object"
+        },
+        {
+          "nome": "CEP",
+          "tipo": "object"
+        },
+        {
+          "nome": "CLAS_SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CNAE",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_CC",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "GRU_TEN",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_FORN",
+          "tipo": "object"
+        },
+        {
+          "nome": "GRU_TAR",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIT_ATIV",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "CAR_INST",
+          "tipo": "float64"
+        },
+        {
+          "nome": "LIV",
+          "tipo": "int32"
+        },
+        {
+          "nome": "ARE_LOC",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_SIST",
+          "tipo": "object"
+        },
+        {
+          "nome": "ENE_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "SEMRED",
+          "tipo": "int32"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        },
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "UCMT_tab",
+      "geometria": "tabela",
+      "registros": 177,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "PN_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "PAC",
+          "tipo": "object"
+        },
+        {
+          "nome": "CTMT",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_AT",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "CEG_GD",
+          "tipo": "object"
+        },
+        {
+          "nome": "BRR",
+          "tipo": "object"
+        },
+        {
+          "nome": "CEP",
+          "tipo": "object"
+        },
+        {
+          "nome": "CLAS_SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CNAE",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_CC",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "GRU_TEN",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_FORN",
+          "tipo": "object"
+        },
+        {
+          "nome": "GRU_TAR",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIT_ATIV",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "CAR_INST",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_CONT",
+          "tipo": "float64"
+        },
+        {
+          "nome": "LIV",
+          "tipo": "int32"
+        },
+        {
+          "nome": "ARE_LOC",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_SIST",
+          "tipo": "object"
+        },
+        {
+          "nome": "DEM_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "SEMRED",
+          "tipo": "int32"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        },
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "UGAT_tab",
+      "geometria": "tabela",
+      "registros": 0,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "PN_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "PAC",
+          "tipo": "object"
+        },
+        {
+          "nome": "CTAT",
+          "tipo": "object"
+        },
+        {
+          "nome": "CEG_GD",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "BRR",
+          "tipo": "object"
+        },
+        {
+          "nome": "CEP",
+          "tipo": "object"
+        },
+        {
+          "nome": "CNAE",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "GRU_TEN",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIT_ATIV",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "POT_INST",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_CONT",
+          "tipo": "float64"
+        },
+        {
+          "nome": "TIP_SIST",
+          "tipo": "object"
+        },
+        {
+          "nome": "DEM_P_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_P_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_F_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_P_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_F_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        },
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "UGBT_tab",
+      "geometria": "tabela",
+      "registros": 1073,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "PN_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "PAC",
+          "tipo": "object"
+        },
+        {
+          "nome": "CEG_GD",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_MT",
+          "tipo": "object"
+        },
+        {
+          "nome": "CTMT",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_AT",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "BRR",
+          "tipo": "object"
+        },
+        {
+          "nome": "CEP",
+          "tipo": "object"
+        },
+        {
+          "nome": "CNAE",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "GRU_TEN",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIT_ATIV",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "POT_INST",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_CONT",
+          "tipo": "float64"
+        },
+        {
+          "nome": "TIP_SIST",
+          "tipo": "object"
+        },
+        {
+          "nome": "ENE_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        },
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "UGMT_tab",
+      "geometria": "tabela",
+      "registros": 26,
+      "crs": null,
+      "colunas": [
+        {
+          "nome": "PN_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "PAC",
+          "tipo": "object"
+        },
+        {
+          "nome": "CEG_GD",
+          "tipo": "object"
+        },
+        {
+          "nome": "CTMT",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_AT",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "BRR",
+          "tipo": "object"
+        },
+        {
+          "nome": "CEP",
+          "tipo": "object"
+        },
+        {
+          "nome": "CNAE",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "GRU_TEN",
+          "tipo": "object"
+        },
+        {
+          "nome": "TEN_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIT_ATIV",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "POT_INST",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_CONT",
+          "tipo": "float64"
+        },
+        {
+          "nome": "TIP_SIST",
+          "tipo": "object"
+        },
+        {
+          "nome": "DEM_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DEM_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENE_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DIC_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "FIC_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        },
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "UNCRAT",
+      "geometria": "Point",
+      "registros": 0,
+      "crs": "EPSG:4674",
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIT_ATIV",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_UNID",
+          "tipo": "object"
+        },
+        {
+          "nome": "POT_NOM",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "ARE_LOC",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "BANC",
+          "tipo": "int32"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "UNCRBT",
+      "geometria": "Point",
+      "registros": 0,
+      "crs": "EPSG:4674",
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIT_ATIV",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_UNID",
+          "tipo": "object"
+        },
+        {
+          "nome": "POT_NOM",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_MT",
+          "tipo": "object"
+        },
+        {
+          "nome": "CTMT",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_AT",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "ARE_LOC",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "BANC",
+          "tipo": "int32"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "UNCRMT",
+      "geometria": "Point",
+      "registros": 26,
+      "crs": "EPSG:4674",
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIT_ATIV",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_UNID",
+          "tipo": "object"
+        },
+        {
+          "nome": "POT_NOM",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "CTMT",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_AT",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "ARE_LOC",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "BANC",
+          "tipo": "int32"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "UNREAT",
+      "geometria": "Point",
+      "registros": 0,
+      "crs": "EPSG:4674",
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIT_ATIV",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_UNID",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_REGU",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "BANC",
+          "tipo": "int32"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "UNREMT",
+      "geometria": "Point",
+      "registros": 6,
+      "crs": "EPSG:4674",
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIT_ATIV",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_UNID",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_REGU",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "CTMT",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_AT",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "DAT_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "BANC",
+          "tipo": "int32"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "UNSEAT",
+      "geometria": "Point",
+      "registros": 0,
+      "crs": "EPSG:4674",
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "PAC_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIT_ATIV",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_UNID",
+          "tipo": "object"
+        },
+        {
+          "nome": "P_N_OPE",
+          "tipo": "object"
+        },
+        {
+          "nome": "CAP_ELO",
+          "tipo": "object"
+        },
+        {
+          "nome": "COR_NOM",
+          "tipo": "object"
+        },
+        {
+          "nome": "TLCD",
+          "tipo": "int32"
+        },
+        {
+          "nome": "DAT_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "UNSEBT",
+      "geometria": "Point",
+      "registros": 0,
+      "crs": "EPSG:4674",
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "PAC_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIT_ATIV",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_UNID",
+          "tipo": "object"
+        },
+        {
+          "nome": "P_N_OPE",
+          "tipo": "object"
+        },
+        {
+          "nome": "CAP_ELO",
+          "tipo": "object"
+        },
+        {
+          "nome": "COR_NOM",
+          "tipo": "object"
+        },
+        {
+          "nome": "TLCD",
+          "tipo": "int32"
+        },
+        {
+          "nome": "DAT_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_MT",
+          "tipo": "object"
+        },
+        {
+          "nome": "CTMT",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_AT",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "ARE_LOC",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "UNSEMT",
+      "geometria": "Point",
+      "registros": 1092,
+      "crs": "EPSG:4674",
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "PAC_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIT_ATIV",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_UNID",
+          "tipo": "object"
+        },
+        {
+          "nome": "P_N_OPE",
+          "tipo": "object"
+        },
+        {
+          "nome": "CAP_ELO",
+          "tipo": "object"
+        },
+        {
+          "nome": "COR_NOM",
+          "tipo": "object"
+        },
+        {
+          "nome": "TLCD",
+          "tipo": "int32"
+        },
+        {
+          "nome": "DAT_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "CTMT",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_AT",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "ARE_LOC",
+          "tipo": "object"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "UNTRAT",
+      "geometria": "Point",
+      "registros": 5,
+      "crs": "EPSG:4674",
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "BARR_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "BARR_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "BARR_3",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_3",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "FAS_CON_P",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON_S",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON_T",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIT_ATIV",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_UNID",
+          "tipo": "object"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "ARE_LOC",
+          "tipo": "object"
+        },
+        {
+          "nome": "POT_NOM",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_F01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "POT_F02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PER_FER",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PER_TOT",
+          "tipo": "float64"
+        },
+        {
+          "nome": "BANC",
+          "tipo": "int32"
+        },
+        {
+          "nome": "DAT_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_TRAFO",
+          "tipo": "object"
+        },
+        {
+          "nome": "ALOC_PERD",
+          "tipo": "object"
+        },
+        {
+          "nome": "ENES_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_01",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_02",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_03",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_04",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_05",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_06",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_07",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_08",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_09",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_10",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_11",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_12",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_01_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_02_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_03_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_04_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_05_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_06_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_07_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_08_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_09_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_10_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_11_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENES_12_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_01_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_02_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_03_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_04_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_05_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_06_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_07_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_08_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_09_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_10_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_11_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ENET_12_IN",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    },
+    {
+      "nome": "UNTRMT",
+      "geometria": "Point",
+      "registros": 2086,
+      "crs": "EPSG:4674",
+      "colunas": [
+        {
+          "nome": "COD_ID",
+          "tipo": "object"
+        },
+        {
+          "nome": "DIST",
+          "tipo": "int32"
+        },
+        {
+          "nome": "PAC_1",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_2",
+          "tipo": "object"
+        },
+        {
+          "nome": "PAC_3",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON_P",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON_S",
+          "tipo": "object"
+        },
+        {
+          "nome": "FAS_CON_T",
+          "tipo": "object"
+        },
+        {
+          "nome": "SIT_ATIV",
+          "tipo": "object"
+        },
+        {
+          "nome": "TIP_UNID",
+          "tipo": "object"
+        },
+        {
+          "nome": "POS",
+          "tipo": "object"
+        },
+        {
+          "nome": "ATRB_PER",
+          "tipo": "int32"
+        },
+        {
+          "nome": "TEN_LIN_SE",
+          "tipo": "float64"
+        },
+        {
+          "nome": "CAP_ELO",
+          "tipo": "object"
+        },
+        {
+          "nome": "CAP_CHA",
+          "tipo": "object"
+        },
+        {
+          "nome": "TAP",
+          "tipo": "float64"
+        },
+        {
+          "nome": "ARE_LOC",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONF",
+          "tipo": "object"
+        },
+        {
+          "nome": "POSTO",
+          "tipo": "object"
+        },
+        {
+          "nome": "POT_NOM",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PER_FER",
+          "tipo": "float64"
+        },
+        {
+          "nome": "PER_TOT",
+          "tipo": "float64"
+        },
+        {
+          "nome": "DAT_CON",
+          "tipo": "object"
+        },
+        {
+          "nome": "CTMT",
+          "tipo": "object"
+        },
+        {
+          "nome": "UNI_TR_AT",
+          "tipo": "object"
+        },
+        {
+          "nome": "SUB",
+          "tipo": "object"
+        },
+        {
+          "nome": "CONJ",
+          "tipo": "int32"
+        },
+        {
+          "nome": "MUN",
+          "tipo": "object"
+        },
+        {
+          "nome": "BANC",
+          "tipo": "int32"
+        },
+        {
+          "nome": "TIP_TRAFO",
+          "tipo": "object"
+        },
+        {
+          "nome": "MRT",
+          "tipo": "int32"
+        },
+        {
+          "nome": "DESCR",
+          "tipo": "object"
+        }
+      ]
+    }
+  ],
+  "fonte": "ANEEL - Base de Dados Geográfica da Distribuidora (BDGD)",
+  "licenca": "ODbL"
+}

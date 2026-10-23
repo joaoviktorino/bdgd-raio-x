@@ -12,9 +12,10 @@
   --aviso: #f3e9ff;
   --largura: 72rem;
 
-  /* Styrene A só aparece onde já estiver instalada (ex.: máquinas Norven); o site não distribui o arquivo. */
-  --font-titulo: "Styrene A Bold", "Styrene A", "Mulish", system-ui, sans-serif;
-  --font-texto: "Mulish", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Fontes livres (licença OFL, Google Fonts): Sora nos títulos, Plus Jakarta Sans no texto.
+     A Styrene A da Norven não é usada: a licença é da empresa, e este é um projeto pessoal. */
+  --font-titulo: "Sora", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-texto: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   color-scheme: light dark;
   font-family: var(--font-texto);

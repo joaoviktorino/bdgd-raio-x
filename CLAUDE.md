@@ -30,7 +30,7 @@ Uma **plataforma web interativa que é ao mesmo tempo tutorial e explorador da B
 
 **Identidade visual: Norven.** O site segue o design system "Norven" (artifact no claude.ai da conta do usuário):
 - cores da marca: roxo `#550899` (destaque no modo claro) e lilás `#AC4DFF` (destaque no escuro); preto Norven `#1B1B1B` para texto e fundo escuro, nunca `#000`; dados e formas com as cores de apoio da paleta (azul, verde, marrom, laranja, roxo-médio; ciano e verde-lima só em formas ou sobre fundo escuro);
-- fonte de texto **Mulish** (a Muli oficial, livre, via Google Fonts). Títulos com a pilha `"Styrene A Bold", …, Mulish`: a Styrene A só aparece onde já estiver instalada. **Não publicar os arquivos da Styrene A** no repositório nem no site sem confirmação de que a licença da Norven cobre este domínio;
+- fontes **livres** (licença OFL, Google Fonts): **Sora** nos títulos e **Plus Jakarta Sans** no texto. **Não usar a Styrene A** da Norven: a licença é da empresa e este é um projeto pessoal do usuário;
 - grafismo de faixas diagonais (subindo para a direita) só em aberturas e cantos, nunca atrás de texto; ícones de traço em roxo/lilás, nunca emoji; tom factual, especialista e sucinto;
 - **sem logotipo** no repositório público (mesma decisão do painel-gd-aneel).
 
@@ -63,8 +63,9 @@ dados brutos (dados/brutos/, fora do Git)
 - **A distribuidora de estudo é configurada em `pipeline/distribuidora.json`** (arquivo, tamanho, SHA-256, item do ArcGIS, nome, códigos do Anexo III). Trocar de distribuidora é mudar esse arquivo, baixar o zip para `dados/brutos/<pasta_brutos>/`, extrair e rodar o pipeline; o site lê tudo do `arquivo.json`.
 - Ordem do pipeline:
   1. `pipeline/catalogar_gdb.py` → `arquivo.json` e `catalogo.json` (estrutura do `.gdb`);
-  2. `pipeline/extrair_dicionario.py` → `dicionario.json` (entidades, campos e domínios do Manual, comparados com o catálogo);
-  3. `pipeline/checar_privacidade.py` (trava) e `python -m unittest discover -s pipeline\testes`.
+  2. `pipeline/extrair_dicionario.py` → `dicionario.json` (entidades com grupo e descrição da Seção 2, campos e domínios do Manual, comparados com o catálogo);
+  3. `pipeline/montar_explorador.py` → `explorador.json` (catálogo + dicionário por camada: grupo, descrição, colunas e ligações; carregado sob demanda pelas páginas de camadas);
+  4. `pipeline/checar_privacidade.py` (trava) e `python -m unittest discover -s pipeline\testes`.
 - O site só lê dados processados; nunca lê o `.gdb`.
 - **Site** em `site/`, publicado em https://joaoviktorino.github.io/bdgd-raio-x/ pelo workflow `.github/workflows/publicar-site.yml` a cada push no `main`.
   - A lista de seções (menu, página inicial e páginas provisórias) fica em `site/src/secoes.ts`; a seção que ganha página própria entra em `PAGINAS_PRONTAS`, no `site/src/main.tsx`.

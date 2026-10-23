@@ -15,5 +15,7 @@
     "dist_sari": 51,
     "pagina": 214
   },
-  "escolha": "Entre 8 concessionárias com BDGD 2025 no modelo V11 (Nova Palma, Chesp, Cocel, Dcelt, DMED, Eletrocar, Santa Maria e Sulgipe), a DMED teve menos camadas vazias (4) e tem rede de alta tensão. Ver a issue #24."
+  "escolha": "Entre 8 concessionárias com BDGD 2025 no modelo V11 (Nova Palma, Chesp, Cocel, Dcelt, DMED, Eletrocar, Santa Maria e Sulgipe), a DMED teve menos camadas vazias (4) e tem rede de alta tensão. Ver a issue #24.",
+  "distribuidoras_comparadas": 8,
+  "vazias_em_todas_as_comparadas": ["UNCRAT", "UNCRBT", "UNREAT", "UNSEBT"]
 }

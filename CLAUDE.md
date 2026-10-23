@@ -56,7 +56,9 @@ dados brutos (dados/brutos/, fora do Git)
   3. `pipeline/checar_privacidade.py` (trava) e `python -m unittest discover -s pipeline\testes`.
 - O site só lê dados processados; nunca lê o `.gdb`.
 - **Site** em `site/`, publicado em https://joaoviktorino.github.io/bdgd-raio-x/ pelo workflow `.github/workflows/publicar-site.yml` a cada push no `main`.
-  - A lista de seções (menu, página inicial e páginas provisórias) fica em `site/src/secoes.ts`.
+  - A lista de seções (menu, página inicial e páginas provisórias) fica em `site/src/secoes.ts`; a seção que ganha página própria entra em `PAGINAS_PRONTAS`, no `site/src/main.tsx`.
+  - **Toda afirmação sobre a BDGD leva fonte**: `<Fonte de="modulo10" onde="item 41.2" />` (componente em `site/src/componentes/Fonte.tsx`), com as fontes cadastradas em `site/src/referencias.ts`, e `<ListaDeFontes />` no fim da página. O que for leitura nossa, e não do documento, é dito como observação.
+  - Números sobre a Nova Palma são lidos dos JSON, nunca digitados no texto.
   - Os JSON de `dados/processados/` são importados em `site/src/dados.ts`.
   - Endereços próprios por página (`/camadas/UNTRMT`); o `404.html` é cópia do `index.html` para o GitHub Pages abrir esses endereços diretamente.
   - Comandos (em `site/`): `npm ci`, `npm run dev`, `npm run build`, `npm run preview`.
@@ -88,6 +90,8 @@ As explicações do produto sobre entidades, campos e códigos devem vir destes 
   - Anexo I (p. 41–160): modelo de dados V1.1, cada entidade campo a campo.
   - Anexo II (p. 161–212): Dicionário de Dados ANEEL do SIG-R (DDA), com os códigos.
   - Anexo III (p. 213): lista de distribuidoras.
+
+- **Lei nº 8.987/1995** (Lei das Concessões), texto compilado em https://www.planalto.gov.br/ccivil_03/leis/l8987cons.htm: definições de concessão (art. 2º, II) e permissão (art. 2º, IV; art. 40).
 
 Os PDFs não vão para o repositório. A cópia do Manual usada pelo pipeline fica em `dados/brutos/referencias/Manual_Instrucoes_BDGD_Rev5.pdf` (SHA-256 `93D22D64D41865452CA4A95D4F6124E2029E09D2367670694F04A350C4A13459`); o `extrair_dicionario.py` para se o PDF for outro, porque as páginas citadas dependem da revisão.
 

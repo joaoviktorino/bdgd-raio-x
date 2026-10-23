@@ -13,6 +13,21 @@
   },
   "tamanho_bytes": 6293535,
   "sha256": "1742CD48698F01A040AEEC50117E365D294876D9D689CB69247D555636321025",
+  "conteudo_zip": {
+    "pasta": "Nova_Palma_400_2025-12-31_V11_20260823-1836.gdb",
+    "arquivos": 209,
+    "tamanho_descompactado_bytes": 30142022,
+    "arquivos_por_extensao": {
+      ".gdbtable": 50,
+      ".gdbtablx": 50,
+      ".gdbindexes": 49,
+      ".horizon": 18,
+      ".spx": 18,
+      ".atx": 17,
+      ".freelist": 5,
+      "(sem extensão)": 2
+    }
+  },
   "origem": {
     "portal": "Dados Abertos ANEEL (ArcGIS Hub)",
     "item_arcgis": "e3a518b754ff42fcaf0232003c0b1e9d",

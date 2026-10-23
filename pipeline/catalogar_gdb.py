@@ -2,7 +2,8 @@
 
 Lê só metadados (nomes de camadas, contagens, colunas e tipos); nenhuma linha
 de dado é carregada. Grava em dados/processados/:
-  - arquivo.json:  procedência do arquivo baixado (nome decifrado, tamanho, SHA-256, origem)
+  - arquivo.json:  procedência do arquivo baixado (nome decifrado, tamanho, SHA-256,
+                   conteúdo do zip, origem)
   - catalogo.json: cada camada com geometria, número de registros, CRS e colunas
 
 Uso:  .venv\\Scripts\\python.exe pipeline\\catalogar_gdb.py
@@ -11,6 +12,8 @@ import hashlib
 import json
 import re
 import sys
+import zipfile
+from collections import Counter
 from pathlib import Path
 
 import pyogrio
@@ -56,6 +59,20 @@ def sha256(caminho):
     return h.hexdigest().upper()
 
 
+def conteudo_do_zip(zip_path):
+    """Lê a lista interna do zip (sem extrair): pasta raiz, arquivos e tamanho descompactado."""
+    with zipfile.ZipFile(zip_path) as z:
+        arquivos = [i for i in z.infolist() if not i.is_dir()]
+    raizes = sorted({i.filename.split("/")[0] for i in arquivos})
+    extensoes = Counter(Path(i.filename).suffix.lower() or "(sem extensão)" for i in arquivos)
+    return {
+        "pasta": raizes[0] if len(raizes) == 1 else raizes,
+        "arquivos": len(arquivos),
+        "tamanho_descompactado_bytes": sum(i.file_size for i in arquivos),
+        "arquivos_por_extensao": dict(sorted(extensoes.items(), key=lambda e: (-e[1], e[0]))),
+    }
+
+
 def descrever_arquivo(zip_path):
     partes = PADRAO_NOME.match(zip_path.name)
     if not partes:
@@ -84,6 +101,7 @@ def descrever_arquivo(zip_path):
         },
         "tamanho_bytes": tamanho,
         "sha256": hash_atual,
+        "conteudo_zip": conteudo_do_zip(zip_path),
         "origem": {
             "portal": "Dados Abertos ANEEL (ArcGIS Hub)",
             "item_arcgis": ITEM_ARCGIS,

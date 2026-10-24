@@ -5,6 +5,7 @@ import { Fonte, ListaDeFontes } from "../componentes/Fonte";
 import Quiz, { type Pergunta } from "../componentes/Quiz";
 import {
   Colunas,
+  corVar,
   DoisJeitos,
   EstrelaAlimentadores,
   LegendaSubestacoes,
@@ -192,10 +193,19 @@ export default function RaioX() {
         </p>
         <EstrelaAlimentadores escolhido={escolhido.alimentador} aoEscolher={setEscolhido} />
         <LegendaSubestacoes />
-        <div className="rx-ficha" aria-live="polite">
-          <p className="rx-ficha-titulo">
-            <strong>{escolhido.nome}</strong> <span>{nomeCurto(subDoEscolhido)}</span>
-          </p>
+        <div
+          key={escolhido.alimentador}
+          className="rx-ficha"
+          aria-live="polite"
+          style={{ "--cor": corVar(escolhido.subestacao) } as React.CSSProperties}
+        >
+          <div className="rx-ficha-topo">
+            <span className="rx-ficha-selo">{nomeCurto(subDoEscolhido)}</span>
+            <p className="rx-ficha-titulo">{escolhido.nome}</p>
+            <p className="rx-ficha-codigo">
+              alimentador <code>{escolhido.alimentador}</code> · {escolhido.tensao}
+            </p>
+          </div>
           <dl>
             <div>
               <dt>Rede MT</dt>

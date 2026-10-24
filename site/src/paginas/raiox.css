@@ -110,6 +110,10 @@
   width: max-content;
 }
 
+.rx-dica.abaixo {
+  transform: translate(-50%, 18px);
+}
+
 /* --- legenda --- */
 
 .rx-legenda {
@@ -228,42 +232,82 @@
 
 /* --- ficha do alimentador escolhido --- */
 
+/* Cartão com a cor da subestação: faixa colorida no topo, nome em destaque e
+   cada medida num bloco próprio. Reaparece com animação quando o alimentador muda. */
 .rx-ficha {
-  margin-top: 0.5rem;
-  padding: 0.9rem 1.1rem;
-  border-radius: 14px;
-  border: 1px solid var(--borda);
-  background: color-mix(in srgb, var(--destaque) 4%, var(--superficie));
+  margin-top: 0.75rem;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--superficie);
+  box-shadow: 0 10px 30px -12px color-mix(in srgb, var(--cor) 45%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cor) 35%, var(--borda));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rx-ficha {
+    animation: surgir 0.35s ease-out;
+  }
+}
+
+.rx-ficha-topo {
+  position: relative;
+  padding: 1rem 1.2rem 0.9rem;
+  background:
+    repeating-linear-gradient(
+      -60deg,
+      transparent 0 14px,
+      color-mix(in srgb, var(--cor) 10%, transparent) 14px 16px
+    ),
+    linear-gradient(120deg, color-mix(in srgb, var(--cor) 22%, var(--superficie)), var(--superficie) 75%);
+  border-bottom: 3px solid var(--cor);
+}
+
+.rx-ficha-selo {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: var(--cor);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .rx-ficha-titulo {
-  margin: 0 0 0.6rem;
+  margin: 0.45rem 0 0.1rem;
+  font: 700 clamp(1.05rem, 2.6vw, 1.35rem) / 1.2 var(--font-titulo);
 }
 
-.rx-ficha-titulo span {
+.rx-ficha-codigo {
+  margin: 0;
+  font-size: 0.82rem;
   color: var(--texto-suave);
-  font-size: 0.9rem;
-  margin-left: 0.4rem;
 }
 
 .rx-ficha dl {
   margin: 0;
+  padding: 0.9rem 1.2rem 1.1rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
   gap: 0.6rem;
 }
 
+.rx-ficha dl > div {
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--cor) 7%, var(--superficie));
+}
+
 .rx-ficha dt {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: var(--texto-suave);
 }
 
 .rx-ficha dd {
-  margin: 0;
-  font: 600 1.15rem var(--font-titulo);
+  margin: 0.1rem 0 0;
+  font: 700 1.25rem var(--font-titulo);
   font-variant-numeric: tabular-nums;
 }
-
 /* --- ranking --- */
 
 .rx-medidas {

@@ -28,6 +28,7 @@ export const SECOES: Secao[] = [
     issue: 8,
     icone: "quebra-cabeca",
     pronta: true,
+    teste: true,
   },
   {
     caminho: "camadas",

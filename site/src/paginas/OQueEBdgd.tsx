@@ -194,7 +194,7 @@ export default function OQueEBdgd() {
       <section className="bloco-visual">
         <h2>Teste você mesmo</h2>
         <p className="lide">Seis perguntas. Nas de chute, arrisque antes de saber: o número real aparece depois.</p>
-        <Quiz titulo="Teste: o que é a BDGD" perguntas={PERGUNTAS} />
+        <Quiz id="o-que-e-bdgd" titulo="Teste: o que é a BDGD" perguntas={PERGUNTAS} />
       </section>
 
       <ListaDeFontes fontes={["modulo10", "manual", "lei8987", "arquivo"]} />

@@ -273,7 +273,7 @@ export default function Camadas() {
       <section className="bloco-visual">
         <h2>Teste você mesmo</h2>
         <p className="lide">Onde está cada informação, e quem se liga a quem.</p>
-        <Quiz titulo="Teste: camadas" perguntas={PERGUNTAS} />
+        <Quiz id="camadas" titulo="Teste: camadas" perguntas={PERGUNTAS} />
       </section>
 
       <ListaDeFontes fontes={["manual", "arquivo"]} />

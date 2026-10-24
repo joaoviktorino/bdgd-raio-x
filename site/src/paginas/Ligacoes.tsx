@@ -111,7 +111,7 @@ export default function Ligacoes() {
         <section className="bloco-visual">
           <h2>Teste você mesmo</h2>
           <p className="lide">Quem se liga a quem, e onde cada coisa fica.</p>
-          <Quiz titulo="Teste: ligações" perguntas={PERGUNTAS} />
+          <Quiz id="ligacoes" titulo="Teste: ligações" perguntas={PERGUNTAS} />
         </section>
       )}
 

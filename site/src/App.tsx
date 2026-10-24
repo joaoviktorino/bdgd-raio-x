@@ -19,6 +19,9 @@ export default function App() {
                 <NavLink to={`/${secao.caminho}`}>{secao.titulo}</NavLink>
               </li>
             ))}
+            <li>
+              <NavLink to="/desafios">Desafios</NavLink>
+            </li>
           </ul>
         </nav>
         <BotaoTema />

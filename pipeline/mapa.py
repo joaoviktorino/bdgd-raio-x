@@ -5,7 +5,9 @@ Grava em dados/processados/:
     tensão (SSDAT) e rede de média tensão (SSDMT), esta juntada por alimentador;
   - mapa_bt.geojson: rede de baixa tensão (SSDBT), juntada por alimentador;
   - mapa_transformadores.geojson: transformadores de distribuição (UNTRMT), com
-    potência em kVA e alimentador.
+    potência em kVA e alimentador;
+  - mapa_resumo.json (área e tamanhos) e mapa_esquema.json (desenho bem
+    simplificado para o teste "apontar no mapa").
 
 Os trechos de rede de um mesmo alimentador viram uma só feição, simplificada
 (tolerância de TOLERANCIA graus, cerca de 5 m) e com coordenadas arredondadas a
@@ -24,7 +26,7 @@ from pathlib import Path
 import pyogrio
 import shapely
 from pyproj import Geod
-from shapely.geometry import mapping
+from shapely.geometry import mapping, shape
 from shapely.ops import linemerge
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -34,6 +36,9 @@ PASTA_PROCESSADOS = RAIZ / "dados" / "processados"
 TOLERANCIA = 0.00005  # graus; cerca de 5 m
 TOLERANCIA_AREA = 0.0002  # contornos de área de atuação e subestação; cerca de 20 m
 CASAS = 5  # cerca de 1 m
+TOLERANCIA_ESQUEMA = 0.0015  # esquema do teste "apontar no mapa"; cerca de 170 m
+RAMAL_MINIMO = 0.004  # graus (~450 m): ramais menores somem do esquema
+CASAS_ESQUEMA = 4
 CRS_ESPERADO = "EPSG:4674"
 GEOD = Geod(ellps="GRS80")  # elipsoide do SIRGAS 2000
 
@@ -125,7 +130,32 @@ def montar(gdb):
         })
         for t in trafos.itertuples() if t.geometry is not None
     ]
-    return {"mapa_rede": rede, "mapa_bt": bt, "mapa_transformadores": transformadores}, trafos
+    esquema = montar_esquema(rede)
+    return {"mapa_rede": rede, "mapa_bt": bt, "mapa_transformadores": transformadores}, trafos, esquema
+
+
+def montar_esquema(rede):
+    """Desenho bem simplificado para o teste "apontar no mapa": contorno da área,
+    linhas de MT de cada alimentador e o centro de cada subestação."""
+    def coords(g):
+        g = shapely.simplify(g, TOLERANCIA_ESQUEMA)
+        partes = [p for p in (g.geoms if hasattr(g, "geoms") else [g]) if p.length >= RAMAL_MINIMO or p.geom_type == "LinearRing"]
+        return [[[round(x, CASAS_ESQUEMA), round(y, CASAS_ESQUEMA)] for x, y in p.coords] for p in partes]
+
+    esquema = {"area": [], "alimentadores": [], "subestacoes": []}
+    for f in rede:
+        p, g = f["properties"], shape(f["geometry"])
+        if p["camada"] == "ARAT":
+            maior = max(g.geoms, key=lambda x: x.area) if hasattr(g, "geoms") else g
+            esquema["area"] = coords(maior.exterior)[0]
+        elif p["camada"] == "SSDMT":
+            esquema["alimentadores"].append({"alimentador": p["alimentador"], "subestacao": p["subestacao"],
+                                             "linhas": coords(g)})
+        elif p["camada"] == "SUB":
+            c = g.centroid
+            esquema["subestacoes"].append({"subestacao": p["subestacao"], "nome": p["nome"],
+                                           "centro": [round(c.x, CASAS_ESQUEMA), round(c.y, CASAS_ESQUEMA)]})
+    return esquema
 
 
 def conferir(arquivos, trafos):
@@ -147,7 +177,7 @@ def conferir(arquivos, trafos):
 
 def main():
     gdb = caminho_do_gdb()
-    arquivos, trafos = montar(gdb)
+    arquivos, trafos, esquema = montar(gdb)
     conferir(arquivos, trafos)
     resumo = {"tolerancia_graus": TOLERANCIA, "casas_decimais": CASAS, "arquivos": []}
     for nome, feicoes in arquivos.items():
@@ -162,6 +192,9 @@ def main():
                               if f["properties"]["camada"] == "ARAT")
     (PASTA_PROCESSADOS / "mapa_resumo.json").write_text(
         json.dumps(resumo, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    destino = PASTA_PROCESSADOS / "mapa_esquema.json"
+    destino.write_text(json.dumps(esquema, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+    print(f"{destino.name}: esquema do teste ({destino.stat().st_size // 1024} KB)")
 
 
 if __name__ == "__main__":

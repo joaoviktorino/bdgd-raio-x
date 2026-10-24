@@ -8,6 +8,7 @@ import Camadas from "./paginas/Camadas";
 import EmConstrucao from "./paginas/EmConstrucao";
 import Inicio from "./paginas/Inicio";
 import DecifrandoArquivo from "./paginas/DecifrandoArquivo";
+import Desafios from "./paginas/Desafios";
 import Gd from "./paginas/Gd";
 import Ligacoes from "./paginas/Ligacoes";
 import NaoEncontrada from "./paginas/NaoEncontrada";
@@ -50,6 +51,7 @@ createRoot(document.getElementById("raiz")!).render(
             />
           ))}
           <Route path="camadas/:sigla" element={<Camada />} />
+          <Route path="desafios" element={<Desafios />} />
           <Route path="*" element={<NaoEncontrada />} />
         </Route>
       </Routes>

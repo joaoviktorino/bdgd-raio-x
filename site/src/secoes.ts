@@ -6,7 +6,7 @@ export type Secao = {
   titulo: string;
   resumo: string;
   issue: number;
-  icone: "documento" | "quebra-cabeca" | "camadas" | "rede" | "mapa" | "sol";
+  icone: "documento" | "quebra-cabeca" | "camadas" | "ligacoes" | "rede" | "mapa" | "sol";
   pronta?: boolean;
   teste?: boolean;
 };
@@ -35,6 +35,15 @@ export const SECOES: Secao[] = [
     resumo: "Todas as camadas do arquivo: o que cada uma guarda, suas colunas e ligações.",
     issue: 9,
     icone: "camadas",
+    pronta: true,
+    teste: true,
+  },
+  {
+    caminho: "ligacoes",
+    titulo: "Mapa de ligações",
+    resumo: "Todas as entidades sobre um desenho da rede, da transmissão às casas, e quem se liga a quem.",
+    issue: 29,
+    icone: "ligacoes",
     pronta: true,
     teste: true,
   },

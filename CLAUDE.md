@@ -37,8 +37,8 @@ Uma **plataforma web interativa que é ao mesmo tempo tutorial e explorador da B
 Seções planejadas:
 1. O que é a BDGD (regulação, portal da ANEEL, concessionária × permissionária).
 2. Decifrando o arquivo (o nome do arquivo baixado, parte por parte, e a procedência: link, tamanho, SHA-256, data do download).
-3. Explorador de camadas (o que é, registros, colunas com significado, ligações).
-4. Como as camadas se conectam (chaves `SUB` → `CTMT` → `UNI_TR_MT` → consumidores e GD).
+3. Explorador de camadas (o que é, registros, colunas com significado, ligações), com o diagrama "o fio que liga tudo" (`SUB` → `CTMT` → `UNI_TR_MT` → consumidores e GD).
+4. Mapa de ligações (`/ligacoes`): as 43 entidades e todas as ligações sobre um desenho do sistema elétrico (transmissão → AT → subestação → MT → transformador → BT). As posições das entidades no desenho ficam em `POSICOES`, no `site/src/componentes/MapaLigacoes.tsx` (ilustração, sem coordenadas reais); as ligações vêm do `explorador.json`.
 5. Raio-x da rede (Fase 1).
 6. GD × capacidade (Fase 2).
 7. Mapa (subestações, rede, transformadores; consumidores nunca como pontos).

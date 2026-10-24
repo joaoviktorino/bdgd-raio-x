@@ -41,13 +41,17 @@ def main():
     camada_da_sigla = {s: n for n, s in sigla_da_camada.items()}
     vazias_em_todas = set(cfg.get("vazias_em_todas_as_comparadas", []))
 
-    # Ligações: campo "Vinculado" de uma entidade aponta para outra entidade.
+    def alvos(campo):
+        """Entidades para onde um campo "Vinculado" aponta (pode ser mais de uma)."""
+        return campo.get("entidades_vinculadas") or ([campo["entidade_vinculada"]] if campo.get("entidade_vinculada") else [])
+
+    # Ligações: campo "Vinculado" de uma entidade aponta para outra(s) entidade(s).
     ligada_por = {s: [] for s in entidades}
     for e in entidades.values():
         for c in e["campos"]:
-            alvo = c.get("entidade_vinculada")
-            if alvo in ligada_por and alvo != e["sigla"]:
-                ligada_por[alvo].append({"camada": camada_da_sigla.get(e["sigla"], e["sigla"]), "campo": c["campo"]})
+            for alvo in alvos(c):
+                if alvo in ligada_por and alvo != e["sigla"]:
+                    ligada_por[alvo].append({"camada": camada_da_sigla.get(e["sigla"], e["sigla"]), "campo": c["campo"]})
 
     camadas = []
     for c in catalogo["camadas"]:
@@ -68,8 +72,8 @@ def main():
             }
             if campo.get("dominio"):
                 item["dominio"] = campo["dominio"]
-            if campo.get("entidade_vinculada"):
-                item["liga_a"] = camada_da_sigla.get(campo["entidade_vinculada"], campo["entidade_vinculada"])
+            if alvos(campo):
+                item["liga_a"] = [camada_da_sigla.get(a, a) for a in alvos(campo)]
             colunas.append(item)
         campos_manual = {x["campo"] for x in e["campos"]}
         camadas.append({
@@ -87,7 +91,7 @@ def main():
             "descricao": e["descricao_curta"],
             "pagina_lista": e["pagina_lista"],
             "pagina_entidade": e["pagina"],
-            "liga_a": sorted({x["liga_a"] for x in colunas if "liga_a" in x and x["liga_a"] != c["nome"]}),
+            "liga_a": sorted({a for x in colunas for a in x.get("liga_a", []) if a != c["nome"]}),
             "ligada_por": sorted(ligada_por[sigla], key=lambda x: (x["camada"], x["campo"])),
             "colunas": colunas,
             "colunas_so_no_arquivo": sorted(no_arquivo - campos_manual - COLUNAS_DO_GDB),

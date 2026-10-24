@@ -60,6 +60,7 @@ RE_RELACIONADAS = re.compile(r"^(?:[\d.]+\s+)?Entidades relacionad[ao]s:\s*(.*)$
 RE_CONTINUA_LISTA = re.compile(r"^[A-Z0-9_]+(\s*;\s*[A-Z0-9_]+)*\s*;?$")
 RE_DOMINIO = re.compile(r"^(?:[\d.]+\s+)?(.+?)\s*\((T[A-Z0-9_]+)\)\s*$")
 RE_REFERENCIA = re.compile(r"^(\w+)\s*\(COD_ID\)")
+RE_TODAS_REFERENCIAS = re.compile(r"(\w+)\s*\(COD_ID\)")
 
 
 def falhar(mensagem):
@@ -205,7 +206,11 @@ def ler_campos(entidade, linhas, pagina):
         if (m := RE_REFERENCIA.match(padrao)) and tipo.lower().startswith("código dda"):
             item["dominio"] = m.group(1)
         elif m and tipo.lower() == "vinculado":
-            item["entidade_vinculada"] = m.group(1)
+            # Alguns campos aceitam várias entidades, ex.: "UNSEAT (COD_ID), UNSEMT (COD_ID), UNSEBT (COD_ID)".
+            todas = RE_TODAS_REFERENCIAS.findall(padrao)
+            item["entidade_vinculada"] = todas[0]
+            if len(todas) > 1:
+                item["entidades_vinculadas"] = todas
         entidade["campos"].append(item)
 
 

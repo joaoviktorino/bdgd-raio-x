@@ -1,0 +1,337 @@
+/* Mapa de ligações: desenho de fundo, etiquetas das entidades e ligações. */
+
+@keyframes energia-mapa {
+  to { stroke-dashoffset: -1000; }
+}
+
+/* O mapa sai da coluna central e usa quase a largura toda da tela (até 1700px), centralizado. */
+.mapa {
+  margin-top: 1.25rem;
+  width: min(calc(100vw - 3rem), 1700px);
+  margin-left: calc(50% - min(calc(50vw - 1.5rem), 850px));
+}
+
+.mapa-controles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.6rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.mapa-controles button {
+  font: inherit;
+  min-width: 2.2rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid var(--borda);
+  background: var(--superficie);
+  color: var(--texto);
+  cursor: pointer;
+}
+
+.mapa-controles button:hover {
+  border-color: var(--destaque);
+}
+
+.mapa-dica {
+  color: var(--texto-suave);
+  font-size: 0.82rem;
+}
+
+.mapa-caixa {
+  overflow: auto;
+  max-height: 78vh;
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+  background: var(--superficie);
+  cursor: grab;
+  touch-action: pan-x pan-y;
+}
+
+.mapa-caixa:active {
+  cursor: grabbing;
+}
+
+.mapa-caixa svg {
+  display: block;
+}
+
+/* --- desenho de fundo --- */
+
+.mf-zona {
+  fill: transparent;
+}
+
+.mf-zona.par {
+  fill: color-mix(in srgb, var(--destaque) 4%, transparent);
+}
+
+.mf-zona-nome {
+  font: 600 22px var(--font-titulo);
+  fill: color-mix(in srgb, var(--texto-suave) 80%, transparent);
+  text-anchor: middle;
+}
+
+.mf-zona-sub {
+  font-size: 14px;
+  fill: var(--texto-suave);
+  text-anchor: middle;
+}
+
+.mf-contorno {
+  fill: none;
+  stroke: color-mix(in srgb, var(--forma-poligono) 55%, transparent);
+  stroke-width: 2;
+  stroke-dasharray: 10 8;
+}
+
+.mf-conj {
+  stroke: color-mix(in srgb, var(--forma-poligono) 35%, transparent);
+}
+
+.mapa-fundo path,
+.mapa-fundo rect,
+.mapa-fundo circle {
+  vector-effect: non-scaling-stroke;
+}
+
+.mf-torre,
+.mf-simbolo,
+.mf-bay {
+  fill: none;
+  stroke: color-mix(in srgb, var(--texto-suave) 70%, transparent);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.mf-simbolo circle {
+  fill: var(--superficie);
+}
+
+.mf-trafo circle {
+  stroke: color-mix(in srgb, var(--forma-ponto) 70%, transparent);
+  stroke-width: 2.5;
+}
+
+.mf-at,
+.mf-mt,
+.mf-bt,
+.mf-ramal {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mf-at {
+  stroke: color-mix(in srgb, var(--forma-linha-at) 55%, transparent);
+  stroke-width: 6;
+}
+
+.mf-mt {
+  stroke: color-mix(in srgb, var(--forma-linha) 50%, transparent);
+  stroke-width: 4;
+}
+
+.mf-bt {
+  stroke: color-mix(in srgb, var(--forma-linha) 35%, transparent);
+  stroke-width: 2.5;
+}
+
+.mf-ramal {
+  stroke: color-mix(in srgb, var(--forma-linha) 30%, transparent);
+  stroke-width: 1.6;
+  stroke-dasharray: 4 4;
+}
+
+.mf-barra {
+  stroke: color-mix(in srgb, var(--texto-suave) 80%, transparent);
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+
+.mf-sub {
+  fill: color-mix(in srgb, var(--forma-poligono) 7%, transparent);
+  stroke: color-mix(in srgb, var(--forma-poligono) 50%, transparent);
+  stroke-width: 2;
+  stroke-dasharray: 3 5;
+}
+
+.mf-poste {
+  fill: color-mix(in srgb, var(--texto-suave) 70%, transparent);
+}
+
+.mf-casa,
+.mf-industria,
+.mf-usina {
+  fill: color-mix(in srgb, var(--forma-ponto) 10%, var(--superficie));
+  stroke: color-mix(in srgb, var(--forma-ponto) 55%, transparent);
+  stroke-width: 2;
+}
+
+.mf-janela {
+  fill: color-mix(in srgb, var(--forma-ponto) 25%, transparent);
+}
+
+.mf-solar,
+.mf-fazenda-solar path {
+  fill: color-mix(in srgb, var(--forma-ponto) 55%, transparent);
+  stroke: color-mix(in srgb, var(--forma-ponto) 80%, transparent);
+  stroke-width: 1;
+}
+
+.mf-medidor {
+  fill: var(--superficie);
+  stroke: color-mix(in srgb, var(--forma-tabela) 70%, transparent);
+  stroke-width: 1.5;
+}
+
+.mf-poste-luz {
+  fill: none;
+  stroke: color-mix(in srgb, var(--texto-suave) 70%, transparent);
+  stroke-width: 2;
+}
+
+.mf-luz {
+  fill: #ff6a00;
+  opacity: 0.7;
+}
+
+.mf-energia {
+  fill: none;
+  stroke: var(--destaque);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 18 982;
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mf-energia {
+    animation: energia-mapa 9s linear infinite;
+  }
+}
+
+.mf-faixa {
+  fill: color-mix(in srgb, var(--forma-tabela) 5%, transparent);
+  stroke: color-mix(in srgb, var(--forma-tabela) 30%, transparent);
+  stroke-dasharray: 6 6;
+}
+
+.mf-faixa-nome {
+  font-size: 15px;
+  fill: var(--texto-suave);
+}
+
+/* --- ligações --- */
+
+.mapa-aresta {
+  fill: none;
+  stroke: var(--destaque);
+  stroke-width: 1.4;
+  opacity: 0.13;
+  transition: opacity 0.2s, stroke-width 0.2s;
+}
+
+.mapa-seta {
+  fill: var(--destaque);
+}
+
+.com-foco .mapa-aresta {
+  opacity: 0.03;
+}
+
+.com-foco .mapa-aresta.ativa {
+  opacity: 0.95;
+  stroke-width: 2.6;
+}
+
+/* --- etiquetas das entidades --- */
+
+.mapa-no {
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.2s;
+}
+
+.mapa-no rect {
+  fill: var(--superficie);
+  stroke: var(--cor-no, var(--destaque));
+  stroke-width: 2.2;
+  filter: drop-shadow(0 3px 6px rgb(0 0 0 / 0.12));
+}
+
+.mapa-no.forma-ponto { --cor-no: var(--forma-ponto); }
+.mapa-no.forma-linha { --cor-no: var(--forma-linha); }
+.mapa-no.forma-poligono { --cor-no: var(--forma-poligono); }
+.mapa-no.forma-tabela { --cor-no: var(--forma-tabela); }
+.mapa-no.forma-vazia { --cor-no: var(--texto-suave); }
+
+.mapa-no.ficha rect {
+  stroke-dasharray: 5 3;
+}
+
+.mapa-no.vazio {
+  opacity: 0.55;
+}
+
+.mapa-no-sigla {
+  font: 700 15px ui-monospace, Consolas, monospace;
+  fill: var(--texto);
+  text-anchor: middle;
+}
+
+.mapa-no-registros {
+  font-size: 11px;
+  fill: var(--texto-suave);
+  text-anchor: middle;
+  font-variant-numeric: tabular-nums;
+}
+
+.mapa-no:hover rect,
+.mapa-no:focus-visible rect,
+.mapa-no.focado rect {
+  stroke-width: 3.5;
+  fill: color-mix(in srgb, var(--cor-no) 14%, var(--superficie));
+}
+
+.com-foco .mapa-no.apagado {
+  opacity: 0.18;
+}
+
+.com-foco .mapa-no.vizinho rect {
+  stroke-width: 3;
+}
+
+/* --- painel e legenda --- */
+
+.mapa-painel {
+  margin-top: 0.75rem;
+  min-height: 4.5rem;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--borda);
+  background: var(--superficie);
+}
+
+.mapa-painel p {
+  margin: 0 0 0.25rem;
+}
+
+.mapa-legenda {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+  font-size: 0.82rem;
+  color: var(--texto-suave);
+}
+
+.mapa-legenda-ficha {
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px var(--forma-tabela);
+  border-radius: 3px;
+}

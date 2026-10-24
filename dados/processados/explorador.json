@@ -206,7 +206,9 @@
      "pagina": 110,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "DIST",
@@ -498,7 +500,9 @@
      "pagina": 135,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "TIP_BAY",
@@ -1884,7 +1888,9 @@
      "pagina": 113,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "BAR"
+     "liga_a": [
+      "BAR"
+     ]
     },
     {
      "campo": "SUB",
@@ -1893,7 +1899,9 @@
      "pagina": 113,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "PAC_INI",
@@ -1951,7 +1959,9 @@
      "pagina": 113,
      "obrigatorio": false,
      "no_arquivo": true,
-     "liga_a": "UNTRAT"
+     "liga_a": [
+      "UNTRAT"
+     ]
     },
     {
      "campo": "ENE_01",
@@ -2507,7 +2517,9 @@
    "pagina_lista": 11,
    "pagina_entidade": 130,
    "liga_a": [
-    "UNCRAT"
+    "UNCRAT",
+    "UNCRBT",
+    "UNCRMT"
    ],
    "ligada_por": [],
    "colunas": [
@@ -2543,7 +2555,11 @@
      "pagina": 130,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNCRAT"
+     "liga_a": [
+      "UNCRAT",
+      "UNCRMT",
+      "UNCRBT"
+     ]
     },
     {
      "campo": "ODI",
@@ -2694,7 +2710,12 @@
    "pagina_lista": 10,
    "pagina_entidade": 116,
    "liga_a": [
-    "UCAT_tab"
+    "UCAT_tab",
+    "UCBT_tab",
+    "UCMT_tab",
+    "UGAT_tab",
+    "UGBT_tab",
+    "UGMT_tab"
    ],
    "ligada_por": [],
    "colunas": [
@@ -2721,7 +2742,14 @@
      "pagina": 117,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UCAT_tab"
+     "liga_a": [
+      "UCAT_tab",
+      "UCMT_tab",
+      "UCBT_tab",
+      "UGAT_tab",
+      "UGMT_tab",
+      "UGBT_tab"
+     ]
     },
     {
      "campo": "DIST",
@@ -2907,7 +2935,8 @@
    "pagina_lista": 11,
    "pagina_entidade": 118,
    "liga_a": [
-    "UNREAT"
+    "UNREAT",
+    "UNREMT"
    ],
    "ligada_por": [],
    "colunas": [
@@ -2943,7 +2972,10 @@
      "pagina": 119,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNREAT"
+     "liga_a": [
+      "UNREAT",
+      "UNREMT"
+     ]
     },
     {
      "campo": "POT_NOM",
@@ -3188,7 +3220,9 @@
    "pagina_lista": 11,
    "pagina_entidade": 121,
    "liga_a": [
-    "UNSEAT"
+    "UNSEAT",
+    "UNSEBT",
+    "UNSEMT"
    ],
    "ligada_por": [],
    "colunas": [
@@ -3224,7 +3258,11 @@
      "pagina": 121,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNSEAT"
+     "liga_a": [
+      "UNSEAT",
+      "UNSEMT",
+      "UNSEBT"
+     ]
     },
     {
      "campo": "CLAS_TEN",
@@ -3464,7 +3502,9 @@
      "pagina": 123,
      "obrigatorio": true,
      "no_arquivo": false,
-     "liga_a": "UNTRAT"
+     "liga_a": [
+      "UNTRAT"
+     ]
     },
     {
      "campo": "CLAS_TEN",
@@ -3704,7 +3744,12 @@
    "pagina_entidade": 128,
    "liga_a": [
     "SUB",
-    "UCAT_tab"
+    "UCAT_tab",
+    "UCBT_tab",
+    "UCMT_tab",
+    "UGAT_tab",
+    "UGBT_tab",
+    "UGMT_tab"
    ],
    "ligada_por": [],
    "colunas": [
@@ -3723,7 +3768,9 @@
      "pagina": 128,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "DIST",
@@ -3757,7 +3804,14 @@
      "pagina": 128,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UCAT_tab"
+     "liga_a": [
+      "UCAT_tab",
+      "UCMT_tab",
+      "UCBT_tab",
+      "UGAT_tab",
+      "UGMT_tab",
+      "UGBT_tab"
+     ]
     },
     {
      "campo": "TIP_UNID",
@@ -3953,7 +4007,9 @@
      "pagina": 126,
      "obrigatorio": true,
      "no_arquivo": false,
-     "liga_a": "UNTRMT"
+     "liga_a": [
+      "UNTRMT"
+     ]
     },
     {
      "campo": "CLAS_TEN",
@@ -4285,7 +4341,9 @@
      "pagina": 136,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "SUB",
@@ -4294,7 +4352,9 @@
      "pagina": 136,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "UNI_TR_AT",
@@ -4303,7 +4363,9 @@
      "pagina": 136,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRAT"
+     "liga_a": [
+      "UNTRAT"
+     ]
     },
     {
      "campo": "CTMT",
@@ -4312,7 +4374,9 @@
      "pagina": 136,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CTMT"
+     "liga_a": [
+      "CTMT"
+     ]
     },
     {
      "campo": "UNI_TR_MT",
@@ -4321,7 +4385,9 @@
      "pagina": 136,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRMT"
+     "liga_a": [
+      "UNTRMT"
+     ]
     },
     {
      "campo": "PN_CON",
@@ -4330,7 +4396,9 @@
      "pagina": 136,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "PONNOT"
+     "liga_a": [
+      "PONNOT"
+     ]
     },
     {
      "campo": "CLAS_SUB",
@@ -4410,7 +4478,9 @@
      "pagina": 137,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CRVCRG"
+     "liga_a": [
+      "CRVCRG"
+     ]
     },
     {
      "campo": "CAR_INST",
@@ -4950,7 +5020,9 @@
      "pagina": 77,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "MUN",
@@ -5265,7 +5337,9 @@
      "pagina": 108,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "PONNOT"
+     "liga_a": [
+      "PONNOT"
+     ]
     },
     {
      "campo": "PN_CON_2",
@@ -5274,7 +5348,9 @@
      "pagina": 108,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "PONNOT"
+     "liga_a": [
+      "PONNOT"
+     ]
     },
     {
      "campo": "DIST",
@@ -5307,7 +5383,9 @@
      "pagina": 108,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRMT"
+     "liga_a": [
+      "UNTRMT"
+     ]
     },
     {
      "campo": "CTMT",
@@ -5316,7 +5394,9 @@
      "pagina": 108,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CTMT"
+     "liga_a": [
+      "CTMT"
+     ]
     },
     {
      "campo": "FAS_CON",
@@ -5334,7 +5414,9 @@
      "pagina": 108,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRAT"
+     "liga_a": [
+      "UNTRAT"
+     ]
     },
     {
      "campo": "SUB",
@@ -5343,7 +5425,9 @@
      "pagina": 108,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "CONJ",
@@ -5352,7 +5436,9 @@
      "pagina": 108,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "ARE_LOC",
@@ -5379,7 +5465,9 @@
      "pagina": 109,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SEGCON"
+     "liga_a": [
+      "SEGCON"
+     ]
     },
     {
      "campo": "POS",
@@ -5846,7 +5934,9 @@
      "pagina": 83,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "PONNOT"
+     "liga_a": [
+      "PONNOT"
+     ]
     },
     {
      "campo": "PN_CON_2",
@@ -5855,7 +5945,9 @@
      "pagina": 83,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "PONNOT"
+     "liga_a": [
+      "PONNOT"
+     ]
     },
     {
      "campo": "CTAT",
@@ -5864,7 +5956,9 @@
      "pagina": 83,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CTAT"
+     "liga_a": [
+      "CTAT"
+     ]
     },
     {
      "campo": "CT_COD_OP",
@@ -5881,7 +5975,9 @@
      "pagina": 83,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "ARE_LOC",
@@ -5941,7 +6037,9 @@
      "pagina": 83,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SEGCON"
+     "liga_a": [
+      "SEGCON"
+     ]
     },
     {
      "campo": "POS",
@@ -6053,7 +6151,9 @@
      "pagina": 78,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "PONNOT"
+     "liga_a": [
+      "PONNOT"
+     ]
     },
     {
      "campo": "PN_CON_2",
@@ -6062,7 +6162,9 @@
      "pagina": 78,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "PONNOT"
+     "liga_a": [
+      "PONNOT"
+     ]
     },
     {
      "campo": "UNI_TR_MT",
@@ -6071,7 +6173,9 @@
      "pagina": 78,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRMT"
+     "liga_a": [
+      "UNTRMT"
+     ]
     },
     {
      "campo": "CTMT",
@@ -6080,7 +6184,9 @@
      "pagina": 78,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CTMT"
+     "liga_a": [
+      "CTMT"
+     ]
     },
     {
      "campo": "CT_COD_OP",
@@ -6097,7 +6203,9 @@
      "pagina": 79,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRAT"
+     "liga_a": [
+      "UNTRAT"
+     ]
     },
     {
      "campo": "SUB",
@@ -6106,7 +6214,9 @@
      "pagina": 79,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "CONJ",
@@ -6115,7 +6225,9 @@
      "pagina": 79,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "ARE_LOC",
@@ -6175,7 +6287,9 @@
      "pagina": 79,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SEGCON"
+     "liga_a": [
+      "SEGCON"
+     ]
     },
     {
      "campo": "POS",
@@ -6286,7 +6400,9 @@
      "pagina": 81,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "PONNOT"
+     "liga_a": [
+      "PONNOT"
+     ]
     },
     {
      "campo": "PN_CON_2",
@@ -6295,7 +6411,9 @@
      "pagina": 81,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "PONNOT"
+     "liga_a": [
+      "PONNOT"
+     ]
     },
     {
      "campo": "CTMT",
@@ -6304,7 +6422,9 @@
      "pagina": 81,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CTMT"
+     "liga_a": [
+      "CTMT"
+     ]
     },
     {
      "campo": "CT_COD_OP",
@@ -6321,7 +6441,9 @@
      "pagina": 81,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRAT"
+     "liga_a": [
+      "UNTRAT"
+     ]
     },
     {
      "campo": "SUB",
@@ -6330,7 +6452,9 @@
      "pagina": 81,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "CONJ",
@@ -6339,7 +6463,9 @@
      "pagina": 81,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "ARE_LOC",
@@ -6399,7 +6525,9 @@
      "pagina": 81,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SEGCON"
+     "liga_a": [
+      "SEGCON"
+     ]
     },
     {
      "campo": "POS",
@@ -6677,7 +6805,9 @@
      "pagina": 54,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "PONNOT"
+     "liga_a": [
+      "PONNOT"
+     ]
     },
     {
      "campo": "DIST",
@@ -6702,7 +6832,9 @@
      "pagina": 54,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CTAT"
+     "liga_a": [
+      "CTAT"
+     ]
     },
     {
      "campo": "SUB",
@@ -6711,7 +6843,9 @@
      "pagina": 54,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "CONJ",
@@ -6720,7 +6854,9 @@
      "pagina": 54,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "MUN",
@@ -6786,7 +6922,9 @@
      "pagina": 54,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CRVCRG"
+     "liga_a": [
+      "CRVCRG"
+     ]
     },
     {
      "campo": "FAS_CON",
@@ -7495,7 +7633,16 @@
     "UNTRAT",
     "UNTRMT"
    ],
-   "ligada_por": [],
+   "ligada_por": [
+    {
+     "camada": "EQME",
+     "campo": "UC_UG"
+    },
+    {
+     "camada": "EQTRM",
+     "campo": "UC_UG"
+    }
+   ],
    "colunas": [
     {
      "campo": "COD_ID",
@@ -7528,7 +7675,9 @@
      "pagina": 43,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "RAMLIG"
+     "liga_a": [
+      "RAMLIG"
+     ]
     },
     {
      "campo": "PN_CON",
@@ -7537,7 +7686,9 @@
      "pagina": 43,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "PONNOT"
+     "liga_a": [
+      "PONNOT"
+     ]
     },
     {
      "campo": "UNI_TR_MT",
@@ -7546,7 +7697,9 @@
      "pagina": 43,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRMT"
+     "liga_a": [
+      "UNTRMT"
+     ]
     },
     {
      "campo": "CTMT",
@@ -7555,7 +7708,9 @@
      "pagina": 43,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CTMT"
+     "liga_a": [
+      "CTMT"
+     ]
     },
     {
      "campo": "UNI_TR_AT",
@@ -7564,7 +7719,9 @@
      "pagina": 43,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRAT"
+     "liga_a": [
+      "UNTRAT"
+     ]
     },
     {
      "campo": "SUB",
@@ -7573,7 +7730,9 @@
      "pagina": 43,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "CONJ",
@@ -7582,7 +7741,9 @@
      "pagina": 43,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "MUN",
@@ -7648,7 +7809,9 @@
      "pagina": 43,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CRVCRG"
+     "liga_a": [
+      "CRVCRG"
+     ]
     },
     {
      "campo": "FAS_CON",
@@ -8067,7 +8230,16 @@
     "SUB",
     "UNTRAT"
    ],
-   "ligada_por": [],
+   "ligada_por": [
+    {
+     "camada": "EQME",
+     "campo": "UC_UG"
+    },
+    {
+     "camada": "EQTRM",
+     "campo": "UC_UG"
+    }
+   ],
    "colunas": [
     {
      "campo": "COD_ID",
@@ -8084,7 +8256,9 @@
      "pagina": 48,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "PONNOT"
+     "liga_a": [
+      "PONNOT"
+     ]
     },
     {
      "campo": "DIST",
@@ -8109,7 +8283,9 @@
      "pagina": 48,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CTMT"
+     "liga_a": [
+      "CTMT"
+     ]
     },
     {
      "campo": "UNI_TR_AT",
@@ -8118,7 +8294,9 @@
      "pagina": 48,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRAT"
+     "liga_a": [
+      "UNTRAT"
+     ]
     },
     {
      "campo": "SUB",
@@ -8127,7 +8305,9 @@
      "pagina": 48,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "CONJ",
@@ -8136,7 +8316,9 @@
      "pagina": 48,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "MUN",
@@ -8202,7 +8384,9 @@
      "pagina": 49,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CRVCRG"
+     "liga_a": [
+      "CRVCRG"
+     ]
     },
     {
      "campo": "FAS_CON",
@@ -8723,7 +8907,16 @@
     "PONNOT",
     "SUB"
    ],
-   "ligada_por": [],
+   "ligada_por": [
+    {
+     "camada": "EQME",
+     "campo": "UC_UG"
+    },
+    {
+     "camada": "EQTRM",
+     "campo": "UC_UG"
+    }
+   ],
    "colunas": [
     {
      "campo": "COD_ID",
@@ -8740,7 +8933,9 @@
      "pagina": 70,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "PONNOT"
+     "liga_a": [
+      "PONNOT"
+     ]
     },
     {
      "campo": "DIST",
@@ -8765,7 +8960,9 @@
      "pagina": 70,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CTAT"
+     "liga_a": [
+      "CTAT"
+     ]
     },
     {
      "campo": "CEG_GD",
@@ -8782,7 +8979,9 @@
      "pagina": 70,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "MUN",
@@ -8799,7 +8998,9 @@
      "pagina": 71,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "LGRD",
@@ -9512,7 +9713,16 @@
     "UNTRAT",
     "UNTRMT"
    ],
-   "ligada_por": [],
+   "ligada_por": [
+    {
+     "camada": "EQME",
+     "campo": "UC_UG"
+    },
+    {
+     "camada": "EQTRM",
+     "campo": "UC_UG"
+    }
+   ],
    "colunas": [
     {
      "campo": "COD_ID",
@@ -9529,7 +9739,9 @@
      "pagina": 60,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "PONNOT"
+     "liga_a": [
+      "PONNOT"
+     ]
     },
     {
      "campo": "DIST",
@@ -9562,7 +9774,9 @@
      "pagina": 61,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRMT"
+     "liga_a": [
+      "UNTRMT"
+     ]
     },
     {
      "campo": "CTMT",
@@ -9571,7 +9785,9 @@
      "pagina": 61,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CTMT"
+     "liga_a": [
+      "CTMT"
+     ]
     },
     {
      "campo": "UNI_TR_AT",
@@ -9580,7 +9796,9 @@
      "pagina": 61,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRAT"
+     "liga_a": [
+      "UNTRAT"
+     ]
     },
     {
      "campo": "SUB",
@@ -9589,7 +9807,9 @@
      "pagina": 61,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "CONJ",
@@ -9598,7 +9818,9 @@
      "pagina": 61,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "MUN",
@@ -10030,7 +10252,16 @@
     "SUB",
     "UNTRAT"
    ],
-   "ligada_por": [],
+   "ligada_por": [
+    {
+     "camada": "EQME",
+     "campo": "UC_UG"
+    },
+    {
+     "camada": "EQTRM",
+     "campo": "UC_UG"
+    }
+   ],
    "colunas": [
     {
      "campo": "COD_ID",
@@ -10047,7 +10278,9 @@
      "pagina": 65,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "PONNOT"
+     "liga_a": [
+      "PONNOT"
+     ]
     },
     {
      "campo": "DIST",
@@ -10080,7 +10313,9 @@
      "pagina": 65,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CTMT"
+     "liga_a": [
+      "CTMT"
+     ]
     },
     {
      "campo": "UNI_TR_AT",
@@ -10089,7 +10324,9 @@
      "pagina": 65,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRAT"
+     "liga_a": [
+      "UNTRAT"
+     ]
     },
     {
      "campo": "SUB",
@@ -10098,7 +10335,9 @@
      "pagina": 66,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "CONJ",
@@ -10107,7 +10346,9 @@
      "pagina": 66,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "MUN",
@@ -10714,7 +10955,9 @@
      "pagina": 89,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "CONJ",
@@ -10723,7 +10966,9 @@
      "pagina": 89,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "MUN",
@@ -10800,7 +11045,12 @@
     "UNTRAT",
     "UNTRMT"
    ],
-   "ligada_por": [],
+   "ligada_por": [
+    {
+     "camada": "EQCR",
+     "campo": "UN_CR"
+    }
+   ],
    "colunas": [
     {
      "campo": "COD_ID",
@@ -10877,7 +11127,9 @@
      "pagina": 85,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRMT"
+     "liga_a": [
+      "UNTRMT"
+     ]
     },
     {
      "campo": "CTMT",
@@ -10886,7 +11138,9 @@
      "pagina": 85,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CTMT"
+     "liga_a": [
+      "CTMT"
+     ]
     },
     {
      "campo": "UNI_TR_AT",
@@ -10895,7 +11149,9 @@
      "pagina": 85,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRAT"
+     "liga_a": [
+      "UNTRAT"
+     ]
     },
     {
      "campo": "SUB",
@@ -10904,7 +11160,9 @@
      "pagina": 85,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "CONJ",
@@ -10913,7 +11171,9 @@
      "pagina": 85,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "MUN",
@@ -10989,7 +11249,12 @@
     "SUB",
     "UNTRAT"
    ],
-   "ligada_por": [],
+   "ligada_por": [
+    {
+     "camada": "EQCR",
+     "campo": "UN_CR"
+    }
+   ],
    "colunas": [
     {
      "campo": "COD_ID",
@@ -11066,7 +11331,9 @@
      "pagina": 87,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CTMT"
+     "liga_a": [
+      "CTMT"
+     ]
     },
     {
      "campo": "UNI_TR_AT",
@@ -11075,7 +11342,9 @@
      "pagina": 87,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRAT"
+     "liga_a": [
+      "UNTRAT"
+     ]
     },
     {
      "campo": "SUB",
@@ -11084,7 +11353,9 @@
      "pagina": 87,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "CONJ",
@@ -11093,7 +11364,9 @@
      "pagina": 87,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "MUN",
@@ -11249,7 +11522,9 @@
      "pagina": 92,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "CONJ",
@@ -11258,7 +11533,9 @@
      "pagina": 92,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "MUN",
@@ -11325,7 +11602,12 @@
     "SUB",
     "UNTRAT"
    ],
-   "ligada_por": [],
+   "ligada_por": [
+    {
+     "camada": "EQRE",
+     "campo": "UN_RE"
+    }
+   ],
    "colunas": [
     {
      "campo": "COD_ID",
@@ -11402,7 +11684,9 @@
      "pagina": 90,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CTMT"
+     "liga_a": [
+      "CTMT"
+     ]
     },
     {
      "campo": "UNI_TR_AT",
@@ -11411,7 +11695,9 @@
      "pagina": 90,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRAT"
+     "liga_a": [
+      "UNTRAT"
+     ]
     },
     {
      "campo": "SUB",
@@ -11420,7 +11706,9 @@
      "pagina": 91,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "CONJ",
@@ -11429,7 +11717,9 @@
      "pagina": 91,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "MUN",
@@ -11610,7 +11900,9 @@
      "pagina": 97,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "CONJ",
@@ -11619,7 +11911,9 @@
      "pagina": 97,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "MUN",
@@ -11671,7 +11965,12 @@
     "UNTRAT",
     "UNTRMT"
    ],
-   "ligada_por": [],
+   "ligada_por": [
+    {
+     "camada": "EQSE",
+     "campo": "UN_SE"
+    }
+   ],
    "colunas": [
     {
      "campo": "COD_ID",
@@ -11791,7 +12090,9 @@
      "pagina": 94,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRMT"
+     "liga_a": [
+      "UNTRMT"
+     ]
     },
     {
      "campo": "CTMT",
@@ -11800,7 +12101,9 @@
      "pagina": 94,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CTMT"
+     "liga_a": [
+      "CTMT"
+     ]
     },
     {
      "campo": "UNI_TR_AT",
@@ -11809,7 +12112,9 @@
      "pagina": 94,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRAT"
+     "liga_a": [
+      "UNTRAT"
+     ]
     },
     {
      "campo": "SUB",
@@ -11818,7 +12123,9 @@
      "pagina": 94,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "CONJ",
@@ -11827,7 +12134,9 @@
      "pagina": 94,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "MUN",
@@ -11878,7 +12187,12 @@
     "SUB",
     "UNTRAT"
    ],
-   "ligada_por": [],
+   "ligada_por": [
+    {
+     "camada": "EQSE",
+     "campo": "UN_SE"
+    }
+   ],
    "colunas": [
     {
      "campo": "COD_ID",
@@ -11998,7 +12312,9 @@
      "pagina": 95,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CTMT"
+     "liga_a": [
+      "CTMT"
+     ]
     },
     {
      "campo": "UNI_TR_AT",
@@ -12007,7 +12323,9 @@
      "pagina": 95,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRAT"
+     "liga_a": [
+      "UNTRAT"
+     ]
     },
     {
      "campo": "SUB",
@@ -12016,7 +12334,9 @@
      "pagina": 96,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "CONJ",
@@ -12025,7 +12345,9 @@
      "pagina": 96,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "MUN",
@@ -12157,7 +12479,9 @@
      "pagina": 98,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "BARR_1",
@@ -12166,7 +12490,9 @@
      "pagina": 98,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "BAR"
+     "liga_a": [
+      "BAR"
+     ]
     },
     {
      "campo": "BARR_2",
@@ -12175,7 +12501,9 @@
      "pagina": 98,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "BAR"
+     "liga_a": [
+      "BAR"
+     ]
     },
     {
      "campo": "BARR_3",
@@ -12184,7 +12512,9 @@
      "pagina": 98,
      "obrigatorio": false,
      "no_arquivo": true,
-     "liga_a": "BAR"
+     "liga_a": [
+      "BAR"
+     ]
     },
     {
      "campo": "PAC_1",
@@ -12344,7 +12674,9 @@
      "pagina": 99,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "MUN",
@@ -13025,7 +13357,9 @@
      "pagina": 104,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CTMT"
+     "liga_a": [
+      "CTMT"
+     ]
     },
     {
      "campo": "UNI_TR_AT",
@@ -13034,7 +13368,9 @@
      "pagina": 104,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "UNTRAT"
+     "liga_a": [
+      "UNTRAT"
+     ]
     },
     {
      "campo": "SUB",
@@ -13043,7 +13379,9 @@
      "pagina": 104,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "SUB"
+     "liga_a": [
+      "SUB"
+     ]
     },
     {
      "campo": "CONJ",
@@ -13052,7 +13390,9 @@
      "pagina": 104,
      "obrigatorio": true,
      "no_arquivo": true,
-     "liga_a": "CONJ"
+     "liga_a": [
+      "CONJ"
+     ]
     },
     {
      "campo": "MUN",

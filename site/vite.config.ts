@@ -5,6 +5,10 @@ import { defineConfig } from "vite";
 export default defineConfig({
   base: "/bdgd-raio-x/",
   plugins: [react()],
+  // O worker do MapLibre é um módulo ES.
+  worker: { format: "es" },
+  // O pedaço do mapa (MapLibre, ~290 kB comprimido) só carrega na página do mapa.
+  build: { chunkSizeWarningLimit: 1200 },
   server: {
     // Permite importar os JSON de ../dados/processados/ (fora da pasta do site).
     fs: { allow: [".."] },

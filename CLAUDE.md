@@ -41,7 +41,7 @@ Seções planejadas:
 4. Mapa de ligações (`/ligacoes`): as 43 entidades e todas as ligações sobre um desenho do sistema elétrico (transmissão → AT → subestação → MT → transformador → BT). As posições das entidades no desenho ficam em `POSICOES`, no `site/src/componentes/MapaLigacoes.tsx` (ilustração, sem coordenadas reais); as ligações vêm do `explorador.json`.
 5. Raio-x da rede (Fase 1).
 6. GD × capacidade (Fase 2).
-7. Mapa (subestações, rede, transformadores; consumidores nunca como pontos).
+7. Mapa da rede (`/mapa`): MapLibre GL com fundo do OpenFreeMap (livre, sem chave); área de atuação, subestações, redes AT/MT/BT e transformadores, cor por subestação e destaque de um alimentador. O MapLibre só carrega nessa página (`lazy` no `main.tsx`); BT e transformadores só são baixados quando o mapa é aproximado. Consumidores e geradores não entram no mapa, nem somados por transformador (a soma por transformador, subtraída do total do alimentador, revelaria grupos pequenos).
 
 ### Fase 1: raio-x da rede da distribuidora
 Subestações, alimentadores, km de rede, transformadores e consumidores por alimentador.
@@ -66,7 +66,8 @@ dados brutos (dados/brutos/, fora do Git)
   2. `pipeline/extrair_dicionario.py` → `dicionario.json` (entidades com grupo e descrição da Seção 2, campos e domínios do Manual, comparados com o catálogo);
   3. `pipeline/montar_explorador.py` → `explorador.json` (catálogo + dicionário por camada: grupo, descrição, colunas e ligações; carregado sob demanda pelas páginas de camadas);
   4. `pipeline/raio_x.py` → `raio_x.json` (totais, subestações, alimentadores, km por `COMP` e medidos no elipsoide, transformadores e consumidores agregados; confere as somas com o catálogo e aplica a supressão complementar);
-  5. `pipeline/checar_privacidade.py` (trava) e `python -m unittest discover -s pipeline\testes`.
+  5. `pipeline/mapa.py` → `mapa_rede.geojson` (ARAT, SUB, SSDAT e SSDMT juntada por alimentador), `mapa_bt.geojson`, `mapa_transformadores.geojson` e `mapa_resumo.json` (geometrias simplificadas, ~5 m, coordenadas com 5 casas);
+  6. `pipeline/checar_privacidade.py` (trava) e `python -m unittest discover -s pipeline\testes`.
 - O site só lê dados processados; nunca lê o `.gdb`.
 - **Site** em `site/`, publicado em https://joaoviktorino.github.io/bdgd-raio-x/ pelo workflow `.github/workflows/publicar-site.yml` a cada push no `main`.
   - A lista de seções (menu, página inicial e páginas provisórias) fica em `site/src/secoes.ts`; a seção que ganha página própria entra em `PAGINAS_PRONTAS`, no `site/src/main.tsx`.

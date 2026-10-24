@@ -41,6 +41,17 @@ export const REFERENCIAS = {
       "pipeline/raio_x.py, o script deste projeto que soma as camadas do .gdb por subestação e alimentador e grava dados/processados/raio_x.json",
     url: "https://github.com/joaoviktorino/bdgd-raio-x/blob/main/pipeline/raio_x.py",
   },
+  mapa: {
+    curto: "cálculo deste projeto",
+    titulo:
+      "pipeline/mapa.py, o script deste projeto que junta e simplifica as geometrias do .gdb por alimentador e grava os GeoJSON do mapa",
+    url: "https://github.com/joaoviktorino/bdgd-raio-x/blob/main/pipeline/mapa.py",
+  },
+  fundo: {
+    curto: "OpenFreeMap",
+    titulo: "Mapa de fundo: OpenFreeMap (estilos Positron e Dark), com dados © OpenStreetMap e OpenMapTiles",
+    url: "https://openfreemap.org/",
+  },
 } satisfies Record<string, Referencia>;
 
 export type ChaveReferencia = keyof typeof REFERENCIAS;

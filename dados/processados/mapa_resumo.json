@@ -1,0 +1,22 @@
+{
+ "tolerancia_graus": 5e-05,
+ "casas_decimais": 5,
+ "arquivos": [
+  {
+   "arquivo": "mapa_rede.geojson",
+   "feicoes": 52,
+   "kb": 364
+  },
+  {
+   "arquivo": "mapa_bt.geojson",
+   "feicoes": 28,
+   "kb": 573
+  },
+  {
+   "arquivo": "mapa_transformadores.geojson",
+   "feicoes": 3343,
+   "kb": 607
+  }
+ ],
+ "area_km2": 547.3
+}

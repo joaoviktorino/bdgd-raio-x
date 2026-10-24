@@ -65,7 +65,8 @@ dados brutos (dados/brutos/, fora do Git)
   1. `pipeline/catalogar_gdb.py` → `arquivo.json` e `catalogo.json` (estrutura do `.gdb`);
   2. `pipeline/extrair_dicionario.py` → `dicionario.json` (entidades com grupo e descrição da Seção 2, campos e domínios do Manual, comparados com o catálogo);
   3. `pipeline/montar_explorador.py` → `explorador.json` (catálogo + dicionário por camada: grupo, descrição, colunas e ligações; carregado sob demanda pelas páginas de camadas);
-  4. `pipeline/checar_privacidade.py` (trava) e `python -m unittest discover -s pipeline\testes`.
+  4. `pipeline/raio_x.py` → `raio_x.json` (totais, subestações, alimentadores, km por `COMP` e medidos no elipsoide, transformadores e consumidores agregados; confere as somas com o catálogo e aplica a supressão complementar);
+  5. `pipeline/checar_privacidade.py` (trava) e `python -m unittest discover -s pipeline\testes`.
 - O site só lê dados processados; nunca lê o `.gdb`.
 - **Site** em `site/`, publicado em https://joaoviktorino.github.io/bdgd-raio-x/ pelo workflow `.github/workflows/publicar-site.yml` a cada push no `main`.
   - A lista de seções (menu, página inicial e páginas provisórias) fica em `site/src/secoes.ts`; a seção que ganha página própria entra em `PAGINAS_PRONTAS`, no `site/src/main.tsx`.
@@ -125,6 +126,7 @@ O conteúdo dos Anexos I e II está em `dados/processados/dicionario.json`: 43 e
 
 - Dados de unidades consumidoras e geradoras **só podem aparecer agregados**: por alimentador, transformador ou município. **Nunca por consumidor individual**, em tabelas, mapas, gráficos, logs ou arquivos commitados.
 - **Grupos com menos de 3 unidades** não mostram o valor: aparecem como "menos de 3" ou são omitidos. Isso evita que um transformador com um único consumidor exponha um dado individual.
+- **Supressão complementar:** um grupo mascarado não pode ser deduzido por subtração (total do grupo maior menos as partes visíveis). Quando isso aconteceria, a menor parte visível também é escondida e aparece como `"oculto"`. O `pipeline/raio_x.py` faz isso e confere todas as partições (alimentadores dentro da subestação e do total, subestações dentro do total); o catálogo publica o total de cada camada, então esse total também conta.
 - Vale também para a contagem de uma camada inteira: no `catalogo.json`, camadas de unidades consumidoras ou geradoras com 1 ou 2 registros têm `"registros": "menos de 3"` (ex.: na DMED, `UCAT_tab` e `UGAT_tab`).
 - Colunas que identificam a unidade (`COD_ID`, `PAC`, `PN_CON`, `CEP`, `BRR`, `RAMAL`) servem só para agrupar e ligar camadas. Nunca vão para os dados processados.
 - Nunca ligar unidades consumidoras ou geradoras à camada `PONNOT` para obter localização em saídas.
@@ -134,7 +136,7 @@ O conteúdo dos Anexos I e II está em `dados/processados/dicionario.json`: 43 e
 Todo arquivo em `dados/processados/` segue estas convenções, conferidas por `pipeline/checar_privacidade.py` (termina com erro se alguma for quebrada):
 
 1. **Sem colunas que identificam unidade:** `PAC`, `PN_CON`, `CEP`, `BRR`, `RAMAL` e também o genérico `COD_ID`. Códigos de elementos da rede ganham nomes explícitos (`alimentador`, `transformador`, `subestacao`…).
-2. **Contagens de unidades** sempre em `qtd_uc` (consumidoras) e `qtd_ug` (geradoras). Valores derivados dessas unidades usam o prefixo `uc_` ou `ug_` (ex.: `ug_potencia_kw`). Se a contagem for 1 ou 2, ela vira `"menos de 3"` e os campos `uc_*`/`ug_*` da mesma linha ficam vazios (`null`). Zero é permitido.
+2. **Contagens de unidades** sempre em `qtd_uc` (consumidoras) e `qtd_ug` (geradoras). Valores derivados dessas unidades usam o prefixo `uc_` ou `ug_` (ex.: `ug_potencia_kw`). Se a contagem for 1 ou 2, ela vira `"menos de 3"` e os campos `uc_*`/`ug_*` da mesma linha ficam vazios (`null`); o mesmo vale para contagens `"oculto"` (supressão complementar). Zero é permitido.
 3. **GeoJSON:** toda feição tem a propriedade `camada` (a camada da BDGD de origem). Feições de camadas de unidades consumidoras ou geradoras (`UCBT`, `UGMT_tab` etc.) são proibidas.
 4. **Sem coordenadas soltas** (`lat`, `lon`, `latitude`, `longitude`…). Geometria só dentro de GeoJSON.
 

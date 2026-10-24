@@ -1,4 +1,4 @@
-import { type ReactNode, StrictMode } from "react";
+import { lazy, type ReactNode, StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router";
 
@@ -13,6 +13,9 @@ import NaoEncontrada from "./paginas/NaoEncontrada";
 import OQueEBdgd from "./paginas/OQueEBdgd";
 import RaioX from "./paginas/RaioX";
 import { SECOES } from "./secoes";
+
+// O mapa carrega o MapLibre (pesado): só é baixado quando a página do mapa abre.
+const Mapa = lazy(() => import("./paginas/Mapa"));
 import "./estilos.css";
 import "./visual.css";
 
@@ -23,6 +26,11 @@ const PAGINAS_PRONTAS: Record<string, ReactNode> = {
   camadas: <Camadas />,
   ligacoes: <Ligacoes />,
   "raio-x": <RaioX />,
+  mapa: (
+    <Suspense fallback={<p className="nota">Carregando o mapa…</p>}>
+      <Mapa />
+    </Suspense>
+  ),
 };
 
 createRoot(document.getElementById("raiz")!).render(

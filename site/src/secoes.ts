@@ -58,10 +58,12 @@ export const SECOES: Secao[] = [
   },
   {
     caminho: "mapa",
-    titulo: "Mapa",
-    resumo: "A rede da distribuidora num mapa interativo, sem localizar consumidores.",
+    titulo: "Mapa da rede",
+    resumo: "Área de atuação, subestações, redes e transformadores num mapa interativo, sem localizar consumidores.",
     issue: 11,
     icone: "mapa",
+    pronta: true,
+    teste: true,
   },
   {
     caminho: "gd",

@@ -1,5 +1,6 @@
 import { Link, NavLink, Outlet } from "react-router";
 
+import BotaoTema from "./componentes/BotaoTema";
 import { arquivo, dataBR } from "./dados";
 import { SECOES, URL_REPOSITORIO } from "./secoes";
 
@@ -20,6 +21,7 @@ export default function App() {
             ))}
           </ul>
         </nav>
+        <BotaoTema />
       </header>
 
       <main className="conteudo">

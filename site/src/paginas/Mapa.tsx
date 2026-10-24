@@ -5,7 +5,7 @@ import resumoJson from "../../../dados/processados/mapa_resumo.json";
 import { Fonte, ListaDeFontes } from "../componentes/Fonte";
 import MapaRede from "../componentes/MapaRede";
 import Quiz, { type Pergunta } from "../componentes/Quiz";
-import { acharCamada, distribuidora, registrosTexto } from "../dados";
+import { acharCamada, registrosTexto } from "../dados";
 import { inteiro } from "../formatos";
 import { decimal, raioX } from "../raioX";
 import "./mapa.css";
@@ -26,7 +26,7 @@ function perguntas(): Pergunta[] {
     {
       id: "estimar-area",
       tipo: "estimativa",
-      enunciado: `Chute: qual é o tamanho da área de atuação da ${distribuidora}, em km²?`,
+      enunciado: `Chute: qual é o tamanho da área de atuação da distribuidora, em km²?`,
       valor: Math.round(resumo.area_km2),
       min: 10,
       max: 100000,
@@ -94,7 +94,7 @@ export default function Mapa() {
     <article className="pagina-visual">
       <header className="pagina-visual-topo">
         <p className="sobretitulo">Mapa da rede</p>
-        <h1>A rede da {distribuidora} sobre o mapa</h1>
+        <h1>A rede elétrica sobre o mapa</h1>
         <p className="lide">
           Área de atuação, subestações, linhas de alta, média e baixa tensão e transformadores, cada um desenhado a partir
           da sua camada. A cor da rede é a da subestação; escolha um alimentador para destacá-lo.

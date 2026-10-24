@@ -398,8 +398,7 @@ export default function MapaLigacoes({ exp }: { exp: Explorador }) {
           <>
             <p>
               <code>{focado.nome}</code> · {focado.nome_oficial} ·{" "}
-              {typeof focado.registros === "number" ? inteiro(focado.registros) : focado.registros} registros na{" "}
-              {exp.distribuidora}
+              {typeof focado.registros === "number" ? inteiro(focado.registros) : focado.registros} registros no arquivo
             </p>
             <p className="nota">
               Aponta para {saem.length} {saem.length === 1 ? "camada" : "camadas"}
@@ -429,7 +428,7 @@ export default function MapaLigacoes({ exp }: { exp: Explorador }) {
           <span className="marcador mapa-legenda-ficha" /> Ficha sem desenho
         </li>
         <li>
-          <span className="marcador forma-vazia" /> Vazia na {exp.distribuidora}
+          <span className="marcador forma-vazia" /> Vazia no arquivo
         </li>
         <li>Seta: a camada de origem guarda o código da camada de destino</li>
       </ul>

@@ -11,6 +11,7 @@ import DecifrandoArquivo from "./paginas/DecifrandoArquivo";
 import Ligacoes from "./paginas/Ligacoes";
 import NaoEncontrada from "./paginas/NaoEncontrada";
 import OQueEBdgd from "./paginas/OQueEBdgd";
+import RaioX from "./paginas/RaioX";
 import { SECOES } from "./secoes";
 import "./estilos.css";
 import "./visual.css";
@@ -21,6 +22,7 @@ const PAGINAS_PRONTAS: Record<string, ReactNode> = {
   "decifrando-o-arquivo": <DecifrandoArquivo />,
   camadas: <Camadas />,
   ligacoes: <Ligacoes />,
+  "raio-x": <RaioX />,
 };
 
 createRoot(document.getElementById("raiz")!).render(

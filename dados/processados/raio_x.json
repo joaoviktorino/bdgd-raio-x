@@ -1,0 +1,915 @@
+{
+ "fonte": "ANEEL, BDGD (licença ODbL). Cálculo: pipeline/raio_x.py",
+ "paginas_manual": {
+  "TTEN": 180,
+  "TSITATI": 201
+ },
+ "totais": {
+  "subestacoes": 5,
+  "alimentadores": 39,
+  "transformadores": 3343,
+  "potencia_kva": 259377.5,
+  "consumidores_bt": {
+   "qtd_uc": 93995
+  },
+  "consumidores_mt": {
+   "qtd_uc": 220
+  },
+  "mediana_uc_bt_por_transformador": 21.0
+ },
+ "comprimentos": [
+  {
+   "camada": "SSDAT",
+   "rede": "AT",
+   "trechos": 224,
+   "km_comp": 54.18,
+   "km_medido": 54.11
+  },
+  {
+   "camada": "SSDMT",
+   "rede": "MT",
+   "trechos": 23692,
+   "km_comp": 918.65,
+   "km_medido": 914.44
+  },
+  {
+   "camada": "SSDBT",
+   "rede": "BT",
+   "trechos": 33748,
+   "km_comp": 728.84,
+   "km_medido": 722.26
+  }
+ ],
+ "tensoes": [
+  {
+   "codigo": "49",
+   "descricao": "13,8 kV",
+   "alimentadores": 39
+  }
+ ],
+ "situacao_uc_bt": [
+  {
+   "codigo": "AT",
+   "descricao": "Ativada",
+   "qtd_uc": 88728
+  },
+  {
+   "codigo": "DS",
+   "descricao": "Desativada",
+   "qtd_uc": 5267
+  }
+ ],
+ "subestacoes": [
+  {
+   "subestacao": "DIST",
+   "nome": "SUBESTAÇÃO DISTRITO",
+   "alimentadores": 6,
+   "km_mt": 173.21,
+   "km_bt": 122.84,
+   "transformadores": 516,
+   "potencia_kva": 55832.5,
+   "consumidores_bt": {
+    "qtd_uc": 11224
+   },
+   "consumidores_mt": {
+    "qtd_uc": 59
+   }
+  },
+  {
+   "subestacao": "PC1",
+   "nome": "SUBESTAÇÃO-PC1-(INT_138KV)",
+   "alimentadores": 12,
+   "km_mt": 160.89,
+   "km_bt": 217.59,
+   "transformadores": 797,
+   "potencia_kva": 66745.0,
+   "consumidores_bt": {
+    "qtd_uc": 30021
+   },
+   "consumidores_mt": {
+    "qtd_uc": 44
+   }
+  },
+  {
+   "subestacao": "PC11",
+   "nome": "SUBESTAÇÃO-PC1-1-(INT_69KV)",
+   "alimentadores": 0,
+   "km_mt": 0.0,
+   "km_bt": 0.0,
+   "transformadores": 0,
+   "potencia_kva": 0.0,
+   "consumidores_bt": {
+    "qtd_uc": 0
+   },
+   "consumidores_mt": {
+    "qtd_uc": 0
+   }
+  },
+  {
+   "subestacao": "PC3",
+   "nome": "SUBESTAÇÃO - PC3 - (SATURNINO)",
+   "alimentadores": 12,
+   "km_mt": 325.01,
+   "km_bt": 287.99,
+   "transformadores": 1301,
+   "potencia_kva": 86795.0,
+   "consumidores_bt": {
+    "qtd_uc": 40386
+   },
+   "consumidores_mt": {
+    "qtd_uc": 58
+   }
+  },
+  {
+   "subestacao": "PC4",
+   "nome": "SUBESTAÇÃO - PC4 - (OSORIO)",
+   "alimentadores": 9,
+   "km_mt": 259.54,
+   "km_bt": 100.42,
+   "transformadores": 729,
+   "potencia_kva": 50005.0,
+   "consumidores_bt": {
+    "qtd_uc": 12364
+   },
+   "consumidores_mt": {
+    "qtd_uc": 59
+   }
+  }
+ ],
+ "alimentadores": [
+  {
+   "alimentador": "12_PC3_1",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 12F4.",
+   "subestacao": "PC3",
+   "tensao": "13,8 kV",
+   "km_mt": 17.86,
+   "km_bt": 1.02,
+   "transformadores": 10,
+   "potencia_kva": 215.0,
+   "consumidores_bt": {
+    "qtd_uc": 5
+   },
+   "consumidores_mt": {
+    "qtd_uc": "menos de 3"
+   }
+  },
+  {
+   "alimentador": "13_PC3_1",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 13F4.",
+   "subestacao": "PC3",
+   "tensao": "13,8 kV",
+   "km_mt": 18.3,
+   "km_bt": 24.47,
+   "transformadores": 97,
+   "potencia_kva": 6035.0,
+   "consumidores_bt": {
+    "qtd_uc": 4530
+   },
+   "consumidores_mt": {
+    "qtd_uc": "menos de 3"
+   }
+  },
+  {
+   "alimentador": "14_PC3_1",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 14F4",
+   "subestacao": "PC3",
+   "tensao": "13,8 kV",
+   "km_mt": 35.34,
+   "km_bt": 56.71,
+   "transformadores": 211,
+   "potencia_kva": 12157.5,
+   "consumidores_bt": {
+    "qtd_uc": 10512
+   },
+   "consumidores_mt": {
+    "qtd_uc": 4
+   }
+  },
+  {
+   "alimentador": "15_PC3_1",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 15F4",
+   "subestacao": "PC3",
+   "tensao": "13,8 kV",
+   "km_mt": 33.75,
+   "km_bt": 52.25,
+   "transformadores": 195,
+   "potencia_kva": 13340.0,
+   "consumidores_bt": {
+    "qtd_uc": 7973
+   },
+   "consumidores_mt": {
+    "qtd_uc": 7
+   }
+  },
+  {
+   "alimentador": "16_PC3_3",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 16F4.",
+   "subestacao": "PC3",
+   "tensao": "13,8 kV",
+   "km_mt": 39.25,
+   "km_bt": 59.21,
+   "transformadores": 240,
+   "potencia_kva": 14327.5,
+   "consumidores_bt": {
+    "qtd_uc": 9834
+   },
+   "consumidores_mt": {
+    "qtd_uc": 7
+   }
+  },
+  {
+   "alimentador": "17_PC3_3",
+   "nome": "S/E PC3 - (SATURNINO) - AL 17F4.",
+   "subestacao": "PC3",
+   "tensao": "13,8 kV",
+   "km_mt": 27.77,
+   "km_bt": 0.42,
+   "transformadores": 51,
+   "potencia_kva": 12920.0,
+   "consumidores_bt": {
+    "qtd_uc": 46
+   },
+   "consumidores_mt": {
+    "qtd_uc": 9
+   }
+  },
+  {
+   "alimentador": "18_PC3_3",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 18F4.",
+   "subestacao": "PC3",
+   "tensao": "13,8 kV",
+   "km_mt": 22.7,
+   "km_bt": 13.95,
+   "transformadores": 52,
+   "potencia_kva": 2365.0,
+   "consumidores_bt": {
+    "qtd_uc": 286
+   },
+   "consumidores_mt": {
+    "qtd_uc": 5
+   }
+  },
+  {
+   "alimentador": "19_PC3_3",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 19F4.",
+   "subestacao": "PC3",
+   "tensao": "13,8 kV",
+   "km_mt": 2.43,
+   "km_bt": 3.56,
+   "transformadores": 4,
+   "potencia_kva": 165.0,
+   "consumidores_bt": {
+    "qtd_uc": 19
+   },
+   "consumidores_mt": {
+    "qtd_uc": 0
+   }
+  },
+  {
+   "alimentador": "1_PC1_1",
+   "nome": "S/E PC1 - (INTERLIGACAO) - ALIMENTACAO T",
+   "subestacao": "PC1",
+   "tensao": "13,8 kV",
+   "km_mt": 0.09,
+   "km_bt": 0.0,
+   "transformadores": 0,
+   "potencia_kva": 0.0,
+   "consumidores_bt": {
+    "qtd_uc": 0
+   },
+   "consumidores_mt": {
+    "qtd_uc": 0
+   }
+  },
+  {
+   "alimentador": "1_PC4_4",
+   "nome": "S/E PC4 - (OSORIO) - AL. 01F4.",
+   "subestacao": "PC4",
+   "tensao": "13,8 kV",
+   "km_mt": 19.97,
+   "km_bt": 25.5,
+   "transformadores": 110,
+   "potencia_kva": 10057.5,
+   "consumidores_bt": {
+    "qtd_uc": 3668
+   },
+   "consumidores_mt": {
+    "qtd_uc": 15
+   }
+  },
+  {
+   "alimentador": "21_PC3_9",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 21F4.",
+   "subestacao": "PC3",
+   "tensao": "13,8 kV",
+   "km_mt": 0.05,
+   "km_bt": 0.0,
+   "transformadores": 0,
+   "potencia_kva": 0.0,
+   "consumidores_bt": {
+    "qtd_uc": 0
+   },
+   "consumidores_mt": {
+    "qtd_uc": 0
+   }
+  },
+  {
+   "alimentador": "22_PC3_9",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 22F4.",
+   "subestacao": "PC3",
+   "tensao": "13,8 kV",
+   "km_mt": 116.5,
+   "km_bt": 75.64,
+   "transformadores": 430,
+   "potencia_kva": 20542.5,
+   "consumidores_bt": {
+    "qtd_uc": 7165
+   },
+   "consumidores_mt": {
+    "qtd_uc": 18
+   }
+  },
+  {
+   "alimentador": "23_PC3_9",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 23F4.",
+   "subestacao": "PC3",
+   "tensao": "13,8 kV",
+   "km_mt": 11.01,
+   "km_bt": 0.76,
+   "transformadores": 11,
+   "potencia_kva": 4727.5,
+   "consumidores_bt": {
+    "qtd_uc": 16
+   },
+   "consumidores_mt": {
+    "qtd_uc": 5
+   }
+  },
+  {
+   "alimentador": "24_PC3_9",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 20F4.",
+   "subestacao": "PC3",
+   "tensao": "13,8 kV",
+   "km_mt": 0.05,
+   "km_bt": 0.0,
+   "transformadores": 0,
+   "potencia_kva": 0.0,
+   "consumidores_bt": {
+    "qtd_uc": 0
+   },
+   "consumidores_mt": {
+    "qtd_uc": 0
+   }
+  },
+  {
+   "alimentador": "26_PC4_3",
+   "nome": "S/E PC4 - (OSORIO) - AL. 26F4.",
+   "subestacao": "PC4",
+   "tensao": "13,8 kV",
+   "km_mt": 1.72,
+   "km_bt": 0.0,
+   "transformadores": 0,
+   "potencia_kva": 0.0,
+   "consumidores_bt": {
+    "qtd_uc": 0
+   },
+   "consumidores_mt": {
+    "qtd_uc": 0
+   }
+  },
+  {
+   "alimentador": "27_PC4_2",
+   "nome": "S/E PC4 - (OSORIO) - AL. 27F4.",
+   "subestacao": "PC4",
+   "tensao": "13,8 kV",
+   "km_mt": 1.72,
+   "km_bt": 0.0,
+   "transformadores": 0,
+   "potencia_kva": 0.0,
+   "consumidores_bt": {
+    "qtd_uc": 0
+   },
+   "consumidores_mt": {
+    "qtd_uc": 0
+   }
+  },
+  {
+   "alimentador": "28_PC4_6",
+   "nome": "S/E PC4 - (OSORIO) - AL. 28F4.",
+   "subestacao": "PC4",
+   "tensao": "13,8 kV",
+   "km_mt": 19.17,
+   "km_bt": 24.72,
+   "transformadores": 112,
+   "potencia_kva": 9770.0,
+   "consumidores_bt": {
+    "qtd_uc": 3698
+   },
+   "consumidores_mt": {
+    "qtd_uc": 12
+   }
+  },
+  {
+   "alimentador": "29_PC4_6",
+   "nome": "S/E PC4 - (OSORIO) - AL. 29F4.",
+   "subestacao": "PC4",
+   "tensao": "13,8 kV",
+   "km_mt": 4.02,
+   "km_bt": 0.5,
+   "transformadores": 6,
+   "potencia_kva": 637.5,
+   "consumidores_bt": {
+    "qtd_uc": 28
+   },
+   "consumidores_mt": {
+    "qtd_uc": "menos de 3"
+   }
+  },
+  {
+   "alimentador": "2_PC1_3",
+   "nome": "S/E PC1 - (INTERLIGACAO) - ALIMENTACAO T",
+   "subestacao": "PC1",
+   "tensao": "13,8 kV",
+   "km_mt": 0.08,
+   "km_bt": 0.0,
+   "transformadores": 0,
+   "potencia_kva": 0.0,
+   "consumidores_bt": {
+    "qtd_uc": 0
+   },
+   "consumidores_mt": {
+    "qtd_uc": 0
+   }
+  },
+  {
+   "alimentador": "2_PC4_4",
+   "nome": "S/E PC4 - (OSORIO) - AL. 02F4.",
+   "subestacao": "PC4",
+   "tensao": "13,8 kV",
+   "km_mt": 22.35,
+   "km_bt": 25.35,
+   "transformadores": 113,
+   "potencia_kva": 10110.0,
+   "consumidores_bt": {
+    "qtd_uc": 3561
+   },
+   "consumidores_mt": {
+    "qtd_uc": 16
+   }
+  },
+  {
+   "alimentador": "30_PC4_3",
+   "nome": "S/E PC4 - (OSORIO) - AL. 30F4.",
+   "subestacao": "PC4",
+   "tensao": "13,8 kV",
+   "km_mt": 3.23,
+   "km_bt": 0.0,
+   "transformadores": 0,
+   "potencia_kva": 0.0,
+   "consumidores_bt": {
+    "qtd_uc": 0
+   },
+   "consumidores_mt": {
+    "qtd_uc": 0
+   }
+  },
+  {
+   "alimentador": "34_PC1_1",
+   "nome": "S/E PC1 - INTERLIGAÇÃO -( AL. 34F).",
+   "subestacao": "PC1",
+   "tensao": "13,8 kV",
+   "km_mt": 4.56,
+   "km_bt": 0.0,
+   "transformadores": 3,
+   "potencia_kva": 115.0,
+   "consumidores_bt": {
+    "qtd_uc": "oculto"
+   },
+   "consumidores_mt": {
+    "qtd_uc": 0
+   }
+  },
+  {
+   "alimentador": "36_PC1_7",
+   "nome": "S/E PC1 - (INTERLIGACAO - AL. 36F4 - CEM",
+   "subestacao": "PC1",
+   "tensao": "13,8 kV",
+   "km_mt": 0.06,
+   "km_bt": 0.0,
+   "transformadores": 0,
+   "potencia_kva": 0.0,
+   "consumidores_bt": {
+    "qtd_uc": 0
+   },
+   "consumidores_mt": {
+    "qtd_uc": 0
+   }
+  },
+  {
+   "alimentador": "37_PC1_1",
+   "nome": "S/E PC1 - INTERLIGAÇÃO - (AL. 37F).",
+   "subestacao": "PC1",
+   "tensao": "13,8 kV",
+   "km_mt": 3.26,
+   "km_bt": 0.0,
+   "transformadores": 3,
+   "potencia_kva": 2120.0,
+   "consumidores_bt": {
+    "qtd_uc": "menos de 3"
+   },
+   "consumidores_mt": {
+    "qtd_uc": "menos de 3"
+   }
+  },
+  {
+   "alimentador": "38_PC1_1",
+   "nome": "S/E PC1 - INTERLIGAÇÃO -( AL. 38F).",
+   "subestacao": "PC1",
+   "tensao": "13,8 kV",
+   "km_mt": 21.85,
+   "km_bt": 35.95,
+   "transformadores": 155,
+   "potencia_kva": 14437.5,
+   "consumidores_bt": {
+    "qtd_uc": 5306
+   },
+   "consumidores_mt": {
+    "qtd_uc": 14
+   }
+  },
+  {
+   "alimentador": "39_PC1_1",
+   "nome": "S/E PC1 - INTERLIGAÇÃO - (AL. 39F).",
+   "subestacao": "PC1",
+   "tensao": "13,8 kV",
+   "km_mt": 15.61,
+   "km_bt": 25.99,
+   "transformadores": 94,
+   "potencia_kva": 7150.0,
+   "consumidores_bt": {
+    "qtd_uc": 2372
+   },
+   "consumidores_mt": {
+    "qtd_uc": 9
+   }
+  },
+  {
+   "alimentador": "3_PC4_4",
+   "nome": "S/E PC4 - (OSORIO) - AL. 03F4.",
+   "subestacao": "PC4",
+   "tensao": "13,8 kV",
+   "km_mt": 6.3,
+   "km_bt": 6.58,
+   "transformadores": 28,
+   "potencia_kva": 5725.0,
+   "consumidores_bt": {
+    "qtd_uc": 462
+   },
+   "consumidores_mt": {
+    "qtd_uc": 9
+   }
+  },
+  {
+   "alimentador": "40_PC1_1",
+   "nome": "S/E PC1 - INTERLIGAÇÃO - (AL. 40F).",
+   "subestacao": "PC1",
+   "tensao": "13,8 kV",
+   "km_mt": 41.67,
+   "km_bt": 58.96,
+   "transformadores": 226,
+   "potencia_kva": 13620.0,
+   "consumidores_bt": {
+    "qtd_uc": 10632
+   },
+   "consumidores_mt": {
+    "qtd_uc": "oculto"
+   }
+  },
+  {
+   "alimentador": "41_PC1_3",
+   "nome": "S/E PC1 - INTERLIGACAO - (AL. 41F).",
+   "subestacao": "PC1",
+   "tensao": "13,8 kV",
+   "km_mt": 40.84,
+   "km_bt": 47.88,
+   "transformadores": 180,
+   "potencia_kva": 10327.5,
+   "consumidores_bt": {
+    "qtd_uc": 5928
+   },
+   "consumidores_mt": {
+    "qtd_uc": 7
+   }
+  },
+  {
+   "alimentador": "42_PC1_3",
+   "nome": "S/E PC1 - INTERLIGACAO - (AL. 42F).",
+   "subestacao": "PC1",
+   "tensao": "13,8 kV",
+   "km_mt": 19.23,
+   "km_bt": 29.15,
+   "transformadores": 106,
+   "potencia_kva": 7590.0,
+   "consumidores_bt": {
+    "qtd_uc": 4440
+   },
+   "consumidores_mt": {
+    "qtd_uc": "menos de 3"
+   }
+  },
+  {
+   "alimentador": "43_PC1_3",
+   "nome": "S/E PC1 - INTERLIGACAO - (AL. 43F).",
+   "subestacao": "PC1",
+   "tensao": "13,8 kV",
+   "km_mt": 4.53,
+   "km_bt": 0.24,
+   "transformadores": 3,
+   "potencia_kva": 85.0,
+   "consumidores_bt": {
+    "qtd_uc": 15
+   },
+   "consumidores_mt": {
+    "qtd_uc": 0
+   }
+  },
+  {
+   "alimentador": "44_PC1_3",
+   "nome": "S/E PC1 - INTERLIGAÇÃO - (AL. 44F).",
+   "subestacao": "PC1",
+   "tensao": "13,8 kV",
+   "km_mt": 9.09,
+   "km_bt": 19.41,
+   "transformadores": 27,
+   "potencia_kva": 11300.0,
+   "consumidores_bt": {
+    "qtd_uc": 1323
+   },
+   "consumidores_mt": {
+    "qtd_uc": 7
+   }
+  },
+  {
+   "alimentador": "4_PC4_6",
+   "nome": "S/E PC4 - (OSORIO) - AL. 04F4.",
+   "subestacao": "PC4",
+   "tensao": "13,8 kV",
+   "km_mt": 181.07,
+   "km_bt": 17.77,
+   "transformadores": 360,
+   "potencia_kva": 13705.0,
+   "consumidores_bt": {
+    "qtd_uc": 947
+   },
+   "consumidores_mt": {
+    "qtd_uc": "oculto"
+   }
+  },
+  {
+   "alimentador": "65_DIST_1",
+   "nome": "S/E DIST - (DISTRITO) - AL.65F4",
+   "subestacao": "DIST",
+   "tensao": "13,8 kV",
+   "km_mt": 3.45,
+   "km_bt": 0.42,
+   "transformadores": 4,
+   "potencia_kva": 2972.5,
+   "consumidores_bt": {
+    "qtd_uc": "menos de 3"
+   },
+   "consumidores_mt": {
+    "qtd_uc": "menos de 3"
+   }
+  },
+  {
+   "alimentador": "66_DIST_1",
+   "nome": "S/E DIST - (DISTRITO) - AL.66F4.",
+   "subestacao": "DIST",
+   "tensao": "13,8 kV",
+   "km_mt": 98.19,
+   "km_bt": 72.16,
+   "transformadores": 314,
+   "potencia_kva": 18330.0,
+   "consumidores_bt": {
+    "qtd_uc": 9741
+   },
+   "consumidores_mt": {
+    "qtd_uc": 17
+   }
+  },
+  {
+   "alimentador": "67_DIST_1",
+   "nome": "S/E DIST - (DISTRITO) - AL.67F4.",
+   "subestacao": "DIST",
+   "tensao": "13,8 kV",
+   "km_mt": 17.48,
+   "km_bt": 5.35,
+   "transformadores": 23,
+   "potencia_kva": 6117.5,
+   "consumidores_bt": {
+    "qtd_uc": 20
+   },
+   "consumidores_mt": {
+    "qtd_uc": 9
+   }
+  },
+  {
+   "alimentador": "70_DIST_3",
+   "nome": "S/E DIST - (DISTRITO) - AL.70F4.",
+   "subestacao": "DIST",
+   "tensao": "13,8 kV",
+   "km_mt": 48.23,
+   "km_bt": 42.12,
+   "transformadores": 153,
+   "potencia_kva": 11610.0,
+   "consumidores_bt": {
+    "qtd_uc": 1445
+   },
+   "consumidores_mt": {
+    "qtd_uc": 17
+   }
+  },
+  {
+   "alimentador": "71_DIST_3",
+   "nome": "S/E DIST - (DISTRITO) - AL.71F4.",
+   "subestacao": "DIST",
+   "tensao": "13,8 kV",
+   "km_mt": 4.92,
+   "km_bt": 2.8,
+   "transformadores": 21,
+   "potencia_kva": 9890.0,
+   "consumidores_bt": {
+    "qtd_uc": "oculto"
+   },
+   "consumidores_mt": {
+    "qtd_uc": 13
+   }
+  },
+  {
+   "alimentador": "72_DIST_3",
+   "nome": "S/E DIST - (DISTRITO) - AL.72F4.",
+   "subestacao": "DIST",
+   "tensao": "13,8 kV",
+   "km_mt": 0.94,
+   "km_bt": 0.0,
+   "transformadores": 1,
+   "potencia_kva": 6912.5,
+   "consumidores_bt": {
+    "qtd_uc": 0
+   },
+   "consumidores_mt": {
+    "qtd_uc": "menos de 3"
+   }
+  }
+ ],
+ "potencias_transformadores": [
+  {
+   "kva": 5.0,
+   "transformadores": 12
+  },
+  {
+   "kva": 10.0,
+   "transformadores": 93
+  },
+  {
+   "kva": 15.0,
+   "transformadores": 208
+  },
+  {
+   "kva": 20.0,
+   "transformadores": 2
+  },
+  {
+   "kva": 25.0,
+   "transformadores": 23
+  },
+  {
+   "kva": 30.0,
+   "transformadores": 720
+  },
+  {
+   "kva": 37.5,
+   "transformadores": 16
+  },
+  {
+   "kva": 45.0,
+   "transformadores": 1073
+  },
+  {
+   "kva": 75.0,
+   "transformadores": 726
+  },
+  {
+   "kva": 112.5,
+   "transformadores": 184
+  },
+  {
+   "kva": 150.0,
+   "transformadores": 115
+  },
+  {
+   "kva": 167.5,
+   "transformadores": 1
+  },
+  {
+   "kva": 225.0,
+   "transformadores": 70
+  },
+  {
+   "kva": 300.0,
+   "transformadores": 48
+  },
+  {
+   "kva": 450.0,
+   "transformadores": 1
+  },
+  {
+   "kva": 500.0,
+   "transformadores": 27
+  },
+  {
+   "kva": 575.0,
+   "transformadores": 2
+  },
+  {
+   "kva": 600.0,
+   "transformadores": 1
+  },
+  {
+   "kva": 750.0,
+   "transformadores": 4
+  },
+  {
+   "kva": 825.0,
+   "transformadores": 1
+  },
+  {
+   "kva": 1000.0,
+   "transformadores": 6
+  },
+  {
+   "kva": 1500.0,
+   "transformadores": 2
+  },
+  {
+   "kva": 1625.0,
+   "transformadores": 1
+  },
+  {
+   "kva": 2000.0,
+   "transformadores": 2
+  },
+  {
+   "kva": 2800.0,
+   "transformadores": 1
+  },
+  {
+   "kva": 3587.5,
+   "transformadores": 1
+  },
+  {
+   "kva": 4000.0,
+   "transformadores": 1
+  },
+  {
+   "kva": 6912.5,
+   "transformadores": 1
+  },
+  {
+   "kva": 10000.0,
+   "transformadores": 1
+  }
+ ],
+ "faixas_uc_bt_por_transformador": [
+  {
+   "de": 0,
+   "ate": 0,
+   "transformadores": 338
+  },
+  {
+   "de": 1,
+   "ate": 9,
+   "transformadores": 1035
+  },
+  {
+   "de": 10,
+   "ate": 24,
+   "transformadores": 388
+  },
+  {
+   "de": 25,
+   "ate": 49,
+   "transformadores": 820
+  },
+  {
+   "de": 50,
+   "ate": 99,
+   "transformadores": 686
+  },
+  {
+   "de": 100,
+   "ate": null,
+   "transformadores": 76
+  }
+ ]
+}

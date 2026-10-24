@@ -53,6 +53,8 @@ export const SECOES: Secao[] = [
     resumo: "Subestações, alimentadores, km de rede, transformadores e consumidores por alimentador.",
     issue: 10,
     icone: "rede",
+    pronta: true,
+    teste: true,
   },
   {
     caminho: "mapa",

@@ -4,7 +4,8 @@ Percorre todos os .json, .geojson e .csv de dados/processados/ e termina com
 erro (código 1) se encontrar:
   1. coluna que identifica unidade (PAC, PN_CON, CEP, BRR, RAMAL, COD_ID);
   2. grupo com 1 ou 2 unidades exposto (qtd_uc/qtd_ug não mascarado como
-     "menos de 3", ou campo uc_*/ug_* preenchido num grupo mascarado; no
+     "menos de 3", ou campo uc_*/ug_* preenchido num grupo mascarado ou
+     "oculto"; no
      catálogo, camada de unidades com 1 ou 2 registros);
   3. feição de mapa sem a propriedade "camada" ou vinda de camada de unidade
      consumidora/geradora (UCBT, UGMT_tab...);
@@ -29,6 +30,9 @@ COLUNAS_PROIBIDAS = {"PAC", "PN_CON", "CEP", "BRR", "RAMAL", "COD_ID"}
 # Regra 2. Grupos com menos de MINIMO_UNIDADES unidades não mostram valor.
 MINIMO_UNIDADES = 3
 MASCARA = "menos de 3"
+# Supressão complementar: contagem de 3 ou mais escondida para que um grupo
+# mascarado não possa ser deduzido por subtração (total menos as partes visíveis).
+OCULTO = "oculto"
 CONTAGENS = {"qtd_uc": "uc_", "qtd_ug": "ug_"}  # contagem -> prefixo dos campos derivados
 
 # Regra 3. Camadas de unidades consumidoras e geradoras (AT, MT, BT; com ou sem _tab).
@@ -62,10 +66,10 @@ def verificar_contagens(registro, onde):
         if contagem not in registro:
             continue
         valor = registro[contagem]
-        if valor == MASCARA:
+        if valor in (MASCARA, OCULTO):
             preenchidos = [c for c in registro if c.startswith(prefixo) and not vazio(registro[c])]
             for campo in preenchidos:
-                problemas.append(f"{onde}: '{campo}' preenchido num grupo mascarado ({contagem} = '{MASCARA}')")
+                problemas.append(f"{onde}: '{campo}' preenchido num grupo mascarado ({contagem} = '{valor}')")
             continue
         try:
             numero = float(valor)

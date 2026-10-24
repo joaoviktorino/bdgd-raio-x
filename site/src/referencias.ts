@@ -35,6 +35,12 @@ export const REFERENCIAS = {
     titulo: "pipeline/catalogar_gdb.py, o script deste projeto que abre o .gdb e gera o catálogo de camadas",
     url: "https://github.com/joaoviktorino/bdgd-raio-x/blob/main/pipeline/catalogar_gdb.py",
   },
+  raioX: {
+    curto: "cálculo deste projeto",
+    titulo:
+      "pipeline/raio_x.py, o script deste projeto que soma as camadas do .gdb por subestação e alimentador e grava dados/processados/raio_x.json",
+    url: "https://github.com/joaoviktorino/bdgd-raio-x/blob/main/pipeline/raio_x.py",
+  },
 } satisfies Record<string, Referencia>;
 
 export type ChaveReferencia = keyof typeof REFERENCIAS;

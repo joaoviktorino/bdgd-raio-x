@@ -89,6 +89,10 @@ class TravaDePrivacidade(unittest.TestCase):
         self.gravar("gd.json", [{"transformador": "TR1", "qtd_ug": "menos de 3", "ug_potencia_kw": 7.5}])
         self.assertBarra("'ug_potencia_kw' preenchido num grupo mascarado")
 
+    def test_barra_valor_derivado_em_grupo_oculto(self):
+        self.gravar("gd.json", [{"transformador": "TR1", "qtd_ug": "oculto", "ug_potencia_kw": 7.5}])
+        self.assertBarra("'ug_potencia_kw' preenchido num grupo mascarado")
+
     def test_barra_contagem_com_valor_invalido(self):
         self.gravar("gd.json", [{"transformador": "TR1", "qtd_ug": "poucos"}])
         self.assertBarra("valor inválido")

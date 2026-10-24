@@ -1,0 +1,608 @@
+{
+ "fonte": "ANEEL, BDGD (licença ODbL). Cálculo: pipeline/gd.py",
+ "paginas_manual": {
+  "TPOTAPRT": 192
+ },
+ "totais": {
+  "geradores_bt": {
+   "qtd_ug": 1943,
+   "ug_potencia_kw": 15336.1,
+   "ug_razao_pct": 5.9
+  },
+  "geradores_mt": {
+   "qtd_ug": 22,
+   "ug_potencia_kw": 18784.7
+  },
+  "capacidade_kva": 259577.5,
+  "transformadores": 3343,
+  "transformadores_com_gd": 1138,
+  "transformadores_com_3_ou_mais": 182,
+  "equipamentos_eqtrmt": 3385,
+  "capacidade_diferente_da_untrmt": 1
+ },
+ "alimentadores": [
+  {
+   "alimentador": "12_PC3_1",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 12F4.",
+   "subestacao": "PC3",
+   "capacidade_kva": 215.0,
+   "geradores_bt": {
+    "qtd_ug": 0,
+    "ug_potencia_kw": 0.0,
+    "ug_razao_pct": 0.0
+   }
+  },
+  {
+   "alimentador": "13_PC3_1",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 13F4.",
+   "subestacao": "PC3",
+   "capacidade_kva": 6035.0,
+   "geradores_bt": {
+    "qtd_ug": 66,
+    "ug_potencia_kw": 354.4,
+    "ug_razao_pct": 5.9
+   }
+  },
+  {
+   "alimentador": "14_PC3_1",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 14F4",
+   "subestacao": "PC3",
+   "capacidade_kva": 12157.5,
+   "geradores_bt": {
+    "qtd_ug": 200,
+    "ug_potencia_kw": 978.5,
+    "ug_razao_pct": 8.0
+   }
+  },
+  {
+   "alimentador": "15_PC3_1",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 15F4",
+   "subestacao": "PC3",
+   "capacidade_kva": 13340.0,
+   "geradores_bt": {
+    "qtd_ug": 128,
+    "ug_potencia_kw": 754.6,
+    "ug_razao_pct": 5.7
+   }
+  },
+  {
+   "alimentador": "16_PC3_3",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 16F4.",
+   "subestacao": "PC3",
+   "capacidade_kva": 14327.5,
+   "geradores_bt": {
+    "qtd_ug": 159,
+    "ug_potencia_kw": 922.0,
+    "ug_razao_pct": 6.4
+   }
+  },
+  {
+   "alimentador": "17_PC3_3",
+   "nome": "S/E PC3 - (SATURNINO) - AL 17F4.",
+   "subestacao": "PC3",
+   "capacidade_kva": 12920.0,
+   "geradores_bt": {
+    "qtd_ug": 5,
+    "ug_potencia_kw": 39.8,
+    "ug_razao_pct": 0.3
+   }
+  },
+  {
+   "alimentador": "18_PC3_3",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 18F4.",
+   "subestacao": "PC3",
+   "capacidade_kva": 2365.0,
+   "geradores_bt": {
+    "qtd_ug": 23,
+    "ug_potencia_kw": 350.8,
+    "ug_razao_pct": 14.8
+   }
+  },
+  {
+   "alimentador": "19_PC3_3",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 19F4.",
+   "subestacao": "PC3",
+   "capacidade_kva": 165.0,
+   "geradores_bt": {
+    "qtd_ug": 0,
+    "ug_potencia_kw": 0.0,
+    "ug_razao_pct": 0.0
+   }
+  },
+  {
+   "alimentador": "1_PC1_1",
+   "nome": "S/E PC1 - (INTERLIGACAO) - ALIMENTACAO T",
+   "subestacao": "PC1",
+   "capacidade_kva": 0.0,
+   "geradores_bt": {
+    "qtd_ug": 0,
+    "ug_potencia_kw": 0.0,
+    "ug_razao_pct": null
+   }
+  },
+  {
+   "alimentador": "1_PC4_4",
+   "nome": "S/E PC4 - (OSORIO) - AL. 01F4.",
+   "subestacao": "PC4",
+   "capacidade_kva": 10057.5,
+   "geradores_bt": {
+    "qtd_ug": 54,
+    "ug_potencia_kw": 458.3,
+    "ug_razao_pct": 4.6
+   }
+  },
+  {
+   "alimentador": "21_PC3_9",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 21F4.",
+   "subestacao": "PC3",
+   "capacidade_kva": 0.0,
+   "geradores_bt": {
+    "qtd_ug": 0,
+    "ug_potencia_kw": 0.0,
+    "ug_razao_pct": null
+   }
+  },
+  {
+   "alimentador": "22_PC3_9",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 22F4.",
+   "subestacao": "PC3",
+   "capacidade_kva": 20542.5,
+   "geradores_bt": {
+    "qtd_ug": 196,
+    "ug_potencia_kw": 2120.2,
+    "ug_razao_pct": 10.3
+   }
+  },
+  {
+   "alimentador": "23_PC3_9",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 23F4.",
+   "subestacao": "PC3",
+   "capacidade_kva": 4727.5,
+   "geradores_bt": {
+    "qtd_ug": 0,
+    "ug_potencia_kw": 0.0,
+    "ug_razao_pct": 0.0
+   }
+  },
+  {
+   "alimentador": "24_PC3_9",
+   "nome": "S/E PC3 - (SATURNINO) - AL. 20F4.",
+   "subestacao": "PC3",
+   "capacidade_kva": 0.0,
+   "geradores_bt": {
+    "qtd_ug": 0,
+    "ug_potencia_kw": 0.0,
+    "ug_razao_pct": null
+   }
+  },
+  {
+   "alimentador": "26_PC4_3",
+   "nome": "S/E PC4 - (OSORIO) - AL. 26F4.",
+   "subestacao": "PC4",
+   "capacidade_kva": 0.0,
+   "geradores_bt": {
+    "qtd_ug": 0,
+    "ug_potencia_kw": 0.0,
+    "ug_razao_pct": null
+   }
+  },
+  {
+   "alimentador": "27_PC4_2",
+   "nome": "S/E PC4 - (OSORIO) - AL. 27F4.",
+   "subestacao": "PC4",
+   "capacidade_kva": 0.0,
+   "geradores_bt": {
+    "qtd_ug": 0,
+    "ug_potencia_kw": 0.0,
+    "ug_razao_pct": null
+   }
+  },
+  {
+   "alimentador": "28_PC4_6",
+   "nome": "S/E PC4 - (OSORIO) - AL. 28F4.",
+   "subestacao": "PC4",
+   "capacidade_kva": 9770.0,
+   "geradores_bt": {
+    "qtd_ug": 54,
+    "ug_potencia_kw": 553.9,
+    "ug_razao_pct": 5.7
+   }
+  },
+  {
+   "alimentador": "29_PC4_6",
+   "nome": "S/E PC4 - (OSORIO) - AL. 29F4.",
+   "subestacao": "PC4",
+   "capacidade_kva": 637.5,
+   "geradores_bt": {
+    "qtd_ug": "menos de 3",
+    "ug_potencia_kw": null,
+    "ug_razao_pct": null
+   }
+  },
+  {
+   "alimentador": "2_PC1_3",
+   "nome": "S/E PC1 - (INTERLIGACAO) - ALIMENTACAO T",
+   "subestacao": "PC1",
+   "capacidade_kva": 0.0,
+   "geradores_bt": {
+    "qtd_ug": 0,
+    "ug_potencia_kw": 0.0,
+    "ug_razao_pct": null
+   }
+  },
+  {
+   "alimentador": "2_PC4_4",
+   "nome": "S/E PC4 - (OSORIO) - AL. 02F4.",
+   "subestacao": "PC4",
+   "capacidade_kva": 10110.0,
+   "geradores_bt": {
+    "qtd_ug": 28,
+    "ug_potencia_kw": 361.0,
+    "ug_razao_pct": 3.6
+   }
+  },
+  {
+   "alimentador": "30_PC4_3",
+   "nome": "S/E PC4 - (OSORIO) - AL. 30F4.",
+   "subestacao": "PC4",
+   "capacidade_kva": 0.0,
+   "geradores_bt": {
+    "qtd_ug": 0,
+    "ug_potencia_kw": 0.0,
+    "ug_razao_pct": null
+   }
+  },
+  {
+   "alimentador": "34_PC1_1",
+   "nome": "S/E PC1 - INTERLIGAÇÃO -( AL. 34F).",
+   "subestacao": "PC1",
+   "capacidade_kva": 115.0,
+   "geradores_bt": {
+    "qtd_ug": 0,
+    "ug_potencia_kw": 0.0,
+    "ug_razao_pct": 0.0
+   }
+  },
+  {
+   "alimentador": "36_PC1_7",
+   "nome": "S/E PC1 - (INTERLIGACAO - AL. 36F4 - CEM",
+   "subestacao": "PC1",
+   "capacidade_kva": 0.0,
+   "geradores_bt": {
+    "qtd_ug": 0,
+    "ug_potencia_kw": 0.0,
+    "ug_razao_pct": null
+   }
+  },
+  {
+   "alimentador": "37_PC1_1",
+   "nome": "S/E PC1 - INTERLIGAÇÃO - (AL. 37F).",
+   "subestacao": "PC1",
+   "capacidade_kva": 2120.0,
+   "geradores_bt": {
+    "qtd_ug": 0,
+    "ug_potencia_kw": 0.0,
+    "ug_razao_pct": 0.0
+   }
+  },
+  {
+   "alimentador": "38_PC1_1",
+   "nome": "S/E PC1 - INTERLIGAÇÃO -( AL. 38F).",
+   "subestacao": "PC1",
+   "capacidade_kva": 14437.5,
+   "geradores_bt": {
+    "qtd_ug": 85,
+    "ug_potencia_kw": 1030.8,
+    "ug_razao_pct": 7.1
+   }
+  },
+  {
+   "alimentador": "39_PC1_1",
+   "nome": "S/E PC1 - INTERLIGAÇÃO - (AL. 39F).",
+   "subestacao": "PC1",
+   "capacidade_kva": 7150.0,
+   "geradores_bt": {
+    "qtd_ug": 98,
+    "ug_potencia_kw": 600.9,
+    "ug_razao_pct": 8.4
+   }
+  },
+  {
+   "alimentador": "3_PC4_4",
+   "nome": "S/E PC4 - (OSORIO) - AL. 03F4.",
+   "subestacao": "PC4",
+   "capacidade_kva": 5725.0,
+   "geradores_bt": {
+    "qtd_ug": 11,
+    "ug_potencia_kw": 98.6,
+    "ug_razao_pct": 1.7
+   }
+  },
+  {
+   "alimentador": "40_PC1_1",
+   "nome": "S/E PC1 - INTERLIGAÇÃO - (AL. 40F).",
+   "subestacao": "PC1",
+   "capacidade_kva": 13620.0,
+   "geradores_bt": {
+    "qtd_ug": 243,
+    "ug_potencia_kw": 1168.2,
+    "ug_razao_pct": 8.6
+   }
+  },
+  {
+   "alimentador": "41_PC1_3",
+   "nome": "S/E PC1 - INTERLIGACAO - (AL. 41F).",
+   "subestacao": "PC1",
+   "capacidade_kva": 10327.5,
+   "geradores_bt": {
+    "qtd_ug": 88,
+    "ug_potencia_kw": 773.8,
+    "ug_razao_pct": 7.5
+   }
+  },
+  {
+   "alimentador": "42_PC1_3",
+   "nome": "S/E PC1 - INTERLIGACAO - (AL. 42F).",
+   "subestacao": "PC1",
+   "capacidade_kva": 7590.0,
+   "geradores_bt": {
+    "qtd_ug": 36,
+    "ug_potencia_kw": 434.3,
+    "ug_razao_pct": 5.7
+   }
+  },
+  {
+   "alimentador": "43_PC1_3",
+   "nome": "S/E PC1 - INTERLIGACAO - (AL. 43F).",
+   "subestacao": "PC1",
+   "capacidade_kva": 85.0,
+   "geradores_bt": {
+    "qtd_ug": 0,
+    "ug_potencia_kw": 0.0,
+    "ug_razao_pct": 0.0
+   }
+  },
+  {
+   "alimentador": "44_PC1_3",
+   "nome": "S/E PC1 - INTERLIGAÇÃO - (AL. 44F).",
+   "subestacao": "PC1",
+   "capacidade_kva": 11300.0,
+   "geradores_bt": {
+    "qtd_ug": 11,
+    "ug_potencia_kw": 334.0,
+    "ug_razao_pct": 3.0
+   }
+  },
+  {
+   "alimentador": "4_PC4_6",
+   "nome": "S/E PC4 - (OSORIO) - AL. 04F4.",
+   "subestacao": "PC4",
+   "capacidade_kva": 13705.0,
+   "geradores_bt": {
+    "qtd_ug": 85,
+    "ug_potencia_kw": 1034.4,
+    "ug_razao_pct": 7.5
+   }
+  },
+  {
+   "alimentador": "65_DIST_1",
+   "nome": "S/E DIST - (DISTRITO) - AL.65F4",
+   "subestacao": "DIST",
+   "capacidade_kva": 2972.5,
+   "geradores_bt": {
+    "qtd_ug": "menos de 3",
+    "ug_potencia_kw": null,
+    "ug_razao_pct": null
+   }
+  },
+  {
+   "alimentador": "66_DIST_1",
+   "nome": "S/E DIST - (DISTRITO) - AL.66F4.",
+   "subestacao": "DIST",
+   "capacidade_kva": 18330.0,
+   "geradores_bt": {
+    "qtd_ug": 144,
+    "ug_potencia_kw": 1056.0,
+    "ug_razao_pct": 5.8
+   }
+  },
+  {
+   "alimentador": "67_DIST_1",
+   "nome": "S/E DIST - (DISTRITO) - AL.67F4.",
+   "subestacao": "DIST",
+   "capacidade_kva": 6117.5,
+   "geradores_bt": {
+    "qtd_ug": "menos de 3",
+    "ug_potencia_kw": null,
+    "ug_razao_pct": null
+   }
+  },
+  {
+   "alimentador": "70_DIST_3",
+   "nome": "S/E DIST - (DISTRITO) - AL.70F4.",
+   "subestacao": "DIST",
+   "capacidade_kva": 11610.0,
+   "geradores_bt": {
+    "qtd_ug": 222,
+    "ug_potencia_kw": 1704.5,
+    "ug_razao_pct": 14.7
+   }
+  },
+  {
+   "alimentador": "71_DIST_3",
+   "nome": "S/E DIST - (DISTRITO) - AL.71F4.",
+   "subestacao": "DIST",
+   "capacidade_kva": 9890.0,
+   "geradores_bt": {
+    "qtd_ug": 3,
+    "ug_potencia_kw": 98.2,
+    "ug_razao_pct": 1.0
+   }
+  },
+  {
+   "alimentador": "72_DIST_3",
+   "nome": "S/E DIST - (DISTRITO) - AL.72F4.",
+   "subestacao": "DIST",
+   "capacidade_kva": 7112.5,
+   "geradores_bt": {
+    "qtd_ug": 0,
+    "ug_potencia_kw": 0.0,
+    "ug_razao_pct": 0.0
+   }
+  }
+ ],
+ "faixas_razao_transformadores": [
+  {
+   "de": 0,
+   "ate": 10,
+   "transformadores": 2
+  },
+  {
+   "de": 10,
+   "ate": 25,
+   "transformadores": 52
+  },
+  {
+   "de": 25,
+   "ate": 50,
+   "transformadores": 63
+  },
+  {
+   "de": 50,
+   "ate": 75,
+   "transformadores": 34
+  },
+  {
+   "de": 75,
+   "ate": 100,
+   "transformadores": 18
+  },
+  {
+   "de": 100,
+   "ate": null,
+   "transformadores": 13
+  }
+ ],
+ "maiores_razoes": [
+  {
+   "transformador": "1_7807",
+   "alimentador": "70_DIST_3",
+   "capacidade_kva": 30.0,
+   "qtd_ug": 5,
+   "ug_potencia_kw": 64.8,
+   "ug_razao_pct": 215.8
+  },
+  {
+   "transformador": "1_6955",
+   "alimentador": "70_DIST_3",
+   "capacidade_kva": 45.0,
+   "qtd_ug": 10,
+   "ug_potencia_kw": 71.6,
+   "ug_razao_pct": 159.1
+  },
+  {
+   "transformador": "1_8405",
+   "alimentador": "71_DIST_3",
+   "capacidade_kva": 75.0,
+   "qtd_ug": 3,
+   "ug_potencia_kw": 98.2,
+   "ug_razao_pct": 131.0
+  },
+  {
+   "transformador": "1_7093",
+   "alimentador": "4_PC4_6",
+   "capacidade_kva": 45.0,
+   "qtd_ug": 3,
+   "ug_potencia_kw": 58.6,
+   "ug_razao_pct": 130.2
+  },
+  {
+   "transformador": "1_5425",
+   "alimentador": "70_DIST_3",
+   "capacidade_kva": 15.0,
+   "qtd_ug": 5,
+   "ug_potencia_kw": 19.5,
+   "ug_razao_pct": 129.9
+  },
+  {
+   "transformador": "1_7693",
+   "alimentador": "39_PC1_1",
+   "capacidade_kva": 45.0,
+   "qtd_ug": 5,
+   "ug_potencia_kw": 55.5,
+   "ug_razao_pct": 123.3
+  },
+  {
+   "transformador": "1_5940",
+   "alimentador": "22_PC3_9",
+   "capacidade_kva": 75.0,
+   "qtd_ug": 3,
+   "ug_potencia_kw": 86.5,
+   "ug_razao_pct": 115.3
+  },
+  {
+   "transformador": "1_7412",
+   "alimentador": "66_DIST_1",
+   "capacidade_kva": 45.0,
+   "qtd_ug": 5,
+   "ug_potencia_kw": 51.6,
+   "ug_razao_pct": 114.8
+  },
+  {
+   "transformador": "1_7702",
+   "alimentador": "41_PC1_3",
+   "capacidade_kva": 45.0,
+   "qtd_ug": 4,
+   "ug_potencia_kw": 47.7,
+   "ug_razao_pct": 106.1
+  },
+  {
+   "transformador": "1_6528",
+   "alimentador": "14_PC3_1",
+   "capacidade_kva": 45.0,
+   "qtd_ug": 5,
+   "ug_potencia_kw": 46.7,
+   "ug_razao_pct": 103.7
+  },
+  {
+   "transformador": "1_6413",
+   "alimentador": "28_PC4_6",
+   "capacidade_kva": 30.0,
+   "qtd_ug": 3,
+   "ug_potencia_kw": 30.7,
+   "ug_razao_pct": 102.4
+  },
+  {
+   "transformador": "1_7616",
+   "alimentador": "40_PC1_1",
+   "capacidade_kva": 45.0,
+   "qtd_ug": 10,
+   "ug_potencia_kw": 45.6,
+   "ug_razao_pct": 101.2
+  },
+  {
+   "transformador": "1_5414",
+   "alimentador": "40_PC1_1",
+   "capacidade_kva": 30.0,
+   "qtd_ug": 8,
+   "ug_potencia_kw": 30.3,
+   "ug_razao_pct": 101.0
+  },
+  {
+   "transformador": "1_6961",
+   "alimentador": "70_DIST_3",
+   "capacidade_kva": 45.0,
+   "qtd_ug": 10,
+   "ug_potencia_kw": 44.7,
+   "ug_razao_pct": 99.2
+  },
+  {
+   "transformador": "1_6814",
+   "alimentador": "40_PC1_1",
+   "capacidade_kva": 30.0,
+   "qtd_ug": 4,
+   "ug_potencia_kw": 29.7,
+   "ug_razao_pct": 99.0
+  }
+ ]
+}

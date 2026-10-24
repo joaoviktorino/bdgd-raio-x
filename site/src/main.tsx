@@ -8,6 +8,7 @@ import Camadas from "./paginas/Camadas";
 import EmConstrucao from "./paginas/EmConstrucao";
 import Inicio from "./paginas/Inicio";
 import DecifrandoArquivo from "./paginas/DecifrandoArquivo";
+import Gd from "./paginas/Gd";
 import Ligacoes from "./paginas/Ligacoes";
 import NaoEncontrada from "./paginas/NaoEncontrada";
 import OQueEBdgd from "./paginas/OQueEBdgd";
@@ -26,6 +27,7 @@ const PAGINAS_PRONTAS: Record<string, ReactNode> = {
   camadas: <Camadas />,
   ligacoes: <Ligacoes />,
   "raio-x": <RaioX />,
+  gd: <Gd />,
   mapa: (
     <Suspense fallback={<p className="nota">Carregando o mapa…</p>}>
       <Mapa />

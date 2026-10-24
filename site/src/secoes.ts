@@ -71,6 +71,8 @@ export const SECOES: Secao[] = [
     resumo: "Geração distribuída conectada comparada com a capacidade dos transformadores.",
     issue: 12,
     icone: "sol",
+    pronta: true,
+    teste: true,
   },
 ];
 

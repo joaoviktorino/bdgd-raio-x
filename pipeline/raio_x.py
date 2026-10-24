@@ -88,6 +88,10 @@ def montar(gdb, dicionario, catalogo):
     trafos = ler(gdb, "UNTRMT", ["COD_ID", "CTMT", "POT_NOM"])
     ucbt = ler(gdb, "UCBT_tab", ["CTMT", "UNI_TR_MT", "SIT_ATIV"])
     ucmt = ler(gdb, "UCMT_tab", ["CTMT"])
+    # Alta tensão dentro de cada subestação: transformadores (POT_NOM em MVA, p. 99)
+    # e unidades seccionadoras (chaves), ambas com a coluna SUB.
+    trafos_at = ler(gdb, "UNTRAT", ["SUB", "POT_NOM"])
+    secc_at = ler(gdb, "UNSEAT", ["SUB"])
 
     # Comprimentos: COMP somado e desenho medido no elipsoide.
     comprimentos, km_por_alimentador = [], {}
@@ -136,6 +140,9 @@ def montar(gdb, dicionario, catalogo):
             "subestacao": s,
             "nome": str(linha.NOME).strip(),
             "alimentadores": len(meus),
+            "transformadores_at": int((trafos_at.SUB == s).sum()),
+            "potencia_at_mva": round(float(trafos_at.POT_NOM[trafos_at.SUB == s].sum()), 1),
+            "seccionadoras_at": int((secc_at.SUB == s).sum()),
             "km_mt": km(km_por_alimentador["MT"][km_por_alimentador["MT"].index.isin(meus)].sum()),
             "km_bt": km(km_por_alimentador["BT"][km_por_alimentador["BT"].index.isin(meus)].sum()),
             "transformadores": int(tr_qtd[tr_qtd.index.isin(meus)].sum()),

@@ -41,7 +41,7 @@ Seções planejadas:
 4. Mapa de ligações (`/ligacoes`): as 43 entidades e todas as ligações sobre um desenho do sistema elétrico (transmissão → AT → subestação → MT → transformador → BT). As posições das entidades no desenho ficam em `POSICOES`, no `site/src/componentes/MapaLigacoes.tsx` (ilustração, sem coordenadas reais); as ligações vêm do `explorador.json`.
 5. Raio-x da rede (Fase 1).
 6. GD × capacidade (Fase 2).
-7. Mapa da rede (`/mapa`): MapLibre GL com fundo do OpenFreeMap (livre, sem chave); área de atuação, subestações, redes AT/MT/BT e transformadores, cor por subestação e destaque de um alimentador. O MapLibre só carrega nessa página (`lazy` no `main.tsx`); BT e transformadores só são baixados quando o mapa é aproximado. Consumidores e geradores não entram no mapa, nem somados por transformador (a soma por transformador, subtraída do total do alimentador, revelaria grupos pequenos).
+7. Mapa da rede (`/mapa`): MapLibre GL com fundo do OpenFreeMap (livre, sem chave), sempre claro (Positron) mesmo no tema escuro do site; dica ao passar o mouse e ficha ao clicar; área de atuação, subestações, redes AT/MT/BT e transformadores, cor por subestação e destaque de um alimentador. O MapLibre só carrega nessa página (`lazy` no `main.tsx`); BT e transformadores só são baixados quando o mapa é aproximado. Consumidores e geradores não entram no mapa, nem somados por transformador (a soma por transformador, subtraída do total do alimentador, revelaria grupos pequenos).
 
 ### Fase 1: raio-x da rede da distribuidora
 Subestações, alimentadores, km de rede, transformadores e consumidores por alimentador.

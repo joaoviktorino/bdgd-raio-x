@@ -11,18 +11,11 @@
   --mr-area: #550899;
   --mr-sub: #518e16;
   --mr-tr: #1b1b1b;
+  --mr-fundo: #ffffff;
+  --mr-neutra: #5a5a5a;
 }
 
-[data-tema="escuro"] .mr {
-  --mr-cor-0: #4f86f0;
-  --mr-cor-1: #e0651a;
-  --mr-cor-2: #ac4dff;
-  --mr-cor-3: #5e9a24;
-  --mr-at: #ffffff;
-  --mr-area: #ac4dff;
-  --mr-sub: #aaf766;
-  --mr-tr: #ffffff;
-}
+
 
 .mr {
   margin-top: 1.25rem;
@@ -116,6 +109,22 @@
 .mr-amostra.mt { height: 4px; background: linear-gradient(90deg, var(--mr-cor-0) 25%, var(--mr-cor-1) 25% 50%, var(--mr-cor-2) 50% 75%, var(--mr-cor-3) 75%); }
 .mr-amostra.bt { height: 2px; opacity: 0.6; background: linear-gradient(90deg, var(--mr-cor-0) 25%, var(--mr-cor-1) 25% 50%, var(--mr-cor-2) 50% 75%, var(--mr-cor-3) 75%); }
 .mr-amostra.tr { width: 0.7rem; border-radius: 50%; background: var(--mr-tr); }
+
+/* O mapa é sempre claro: no tema escuro do site, as amostras ganham um fundo branco,
+   como o do mapa, para as cores escuras (alta tensão, transformadores) aparecerem. */
+[data-tema="escuro"] .mr-amostra,
+[data-tema="escuro"] .mr-legenda-cor {
+  box-shadow: 0 0 0 3px #ffffff;
+}
+
+[data-tema="escuro"] .mr-amostra.area,
+[data-tema="escuro"] .mr-amostra.sub {
+  box-shadow: 0 0 0 3px #ffffff, inset 0 0 0 2px var(--mr-area);
+}
+
+[data-tema="escuro"] .mr-amostra.sub {
+  box-shadow: 0 0 0 3px #ffffff, inset 0 0 0 2px var(--mr-sub);
+}
 
 .mr-destaque {
   display: flex;
@@ -289,20 +298,38 @@
   color: var(--texto-suave);
 }
 
-/* Controles do MapLibre no tema escuro. */
-[data-tema="escuro"] .mr .maplibregl-ctrl-group {
-  background: var(--superficie);
+.mr-ficha-nota {
+  margin: 0;
+  padding: 0.3rem 1.2rem 0;
+  font-size: 0.88rem;
 }
 
-[data-tema="escuro"] .mr .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
-  filter: invert(1);
+/* --- dica do hover (popup do MapLibre; o mapa é sempre claro) --- */
+
+.mr-dica-mapa .maplibregl-popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1b1b1b;
+  font: 0.8rem var(--font-texto, inherit);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 0.18);
+  pointer-events: none;
 }
 
-[data-tema="escuro"] .mr .maplibregl-ctrl-attrib {
-  background: rgb(36 34 38 / 0.85);
-  color: var(--texto-suave);
+.mr-dica-mapa em {
+  font-style: normal;
+  font-size: 0.72rem;
+  color: #5a5a5a;
 }
 
-[data-tema="escuro"] .mr .maplibregl-ctrl-attrib a {
-  color: var(--texto);
+.mr-dica-mapa strong {
+  font-size: 0.85rem;
+  margin-bottom: 0.15rem;
+}
+
+.mr-dica-mapa .maplibregl-popup-tip {
+  display: none;
 }

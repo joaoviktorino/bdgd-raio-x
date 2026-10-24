@@ -29,31 +29,29 @@
   --codigo-texto: #f0f0f0;
 }
 
-@media (prefers-color-scheme: dark) {
-  .pagina-visual {
-    --cor-nome: #ac4dff;
-    --cor-codigo: #00cde2;
-    --cor-referencia: #ff6a00;
-    --cor-modelo: #aaf766;
-    --cor-geracao: #c98bff;
-    --cor-formato: #bcbcbc;
+[data-tema="escuro"] .pagina-visual {
+  --cor-nome: #ac4dff;
+  --cor-codigo: #00cde2;
+  --cor-referencia: #ff6a00;
+  --cor-modelo: #aaf766;
+  --cor-geracao: #c98bff;
+  --cor-formato: #bcbcbc;
 
-    --forma-ponto: #00cde2;
-    --forma-linha: #ff6a00;
-    --forma-linha-at: #aaf766;
-    --forma-poligono: #518e16;
-    --forma-tabela: #ac4dff;
+  --forma-ponto: #00cde2;
+  --forma-linha: #ff6a00;
+  --forma-linha-at: #aaf766;
+  --forma-poligono: #518e16;
+  --forma-tabela: #ac4dff;
 
-    --ext-gdbtable: #ac4dff;
-    --ext-gdbtablx: #6c0ac6;
-    --ext-gdbindexes: #00cde2;
-    --ext-outra: #3a3340;
+  --ext-gdbtable: #ac4dff;
+  --ext-gdbtablx: #6c0ac6;
+  --ext-gdbindexes: #00cde2;
+  --ext-outra: #3a3340;
 
-    --certo: #aaf766;
-    --errado: #ff6a00;
+  --certo: #aaf766;
+  --errado: #ff6a00;
 
-    --codigo-fundo: #121112;
-  }
+  --codigo-fundo: #121112;
 }
 
 @keyframes surgir {
@@ -166,10 +164,8 @@
   color: var(--texto-suave);
 }
 
-@media (prefers-color-scheme: dark) {
-  .selo-ok { color: #aaf766; }
-  .selo-talvez { color: #ff6a00; }
-}
+[data-tema="escuro"] .selo-ok { color: #aaf766; }
+[data-tema="escuro"] .selo-talvez { color: #ff6a00; }
 
 /* --- botões --- */
 

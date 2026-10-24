@@ -17,22 +17,23 @@
   --font-titulo: "Sora", "Plus Jakarta Sans", system-ui, sans-serif;
   --font-texto: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  color-scheme: light dark;
+  color-scheme: light;
   font-family: var(--font-texto);
   line-height: 1.55;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --fundo: #1b1b1b;
-    --superficie: #242226;
-    --texto: #ffffff;
-    --texto-suave: #bcbcbc;
-    --borda: #3a3340;
-    --destaque: #ac4dff;
-    --destaque-suave: rgb(172 77 255 / 0.18);
-    --aviso: #2e2340;
-  }
+/* Tema escuro: o atributo data-tema="escuro" no <html> é decidido por um script no index.html
+   (automático pelo sistema, ou a escolha guardada pelo botão do cabeçalho). */
+:root[data-tema="escuro"] {
+  --fundo: #1b1b1b;
+  --superficie: #242226;
+  --texto: #ffffff;
+  --texto-suave: #bcbcbc;
+  --borda: #3a3340;
+  --destaque: #ac4dff;
+  --destaque-suave: rgb(172 77 255 / 0.18);
+  --aviso: #2e2340;
+  color-scheme: dark;
 }
 
 h1,
@@ -86,6 +87,52 @@ code {
 
 .marca span {
   color: var(--destaque);
+}
+
+/* botão de tema, sempre no canto direito do cabeçalho */
+.botao-tema {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.3rem 0.7rem 0.3rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--borda);
+  background: var(--fundo);
+  color: var(--texto);
+  cursor: pointer;
+}
+
+.botao-tema:hover {
+  border-color: var(--destaque);
+}
+
+.botao-tema:focus-visible {
+  outline: 2px solid var(--destaque);
+  outline-offset: 2px;
+}
+
+/* em telas mais estreitas, só o ícone (o nome do tema continua no aria-label e no title) */
+@media (max-width: 1100px) {
+  .botao-tema {
+    padding: 0.35rem;
+  }
+
+  .botao-tema-rotulo {
+    display: none;
+  }
+}
+
+.botao-tema svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: var(--destaque);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .menu {

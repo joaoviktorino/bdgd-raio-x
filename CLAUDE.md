@@ -73,6 +73,7 @@ dados brutos (dados/brutos/, fora do Git)
   - Números e nomes da distribuidora são lidos dos JSON, nunca digitados no texto. Registros de camada podem vir como `"menos de 3"`: usar `registrosTexto` (mostrar) e `registrosNumero` (calcular) de `site/src/dados.ts`.
   - Estilos: `site/src/estilos.css` (moldura do site), `site/src/visual.css` (cores, formas, selos, botões, código, animações comuns) e um CSS por página ou componente. **Nomes de classe CSS valem para o site inteiro**: classes de componente levam prefixo próprio (ex.: `quiz-…`, `regua-marca`, `cena-…`) para não colidir.
   - Os JSON de `dados/processados/` são importados em `site/src/dados.ts`.
+  - **Tema claro/escuro:** o `<html>` recebe `data-tema="claro"` ou `"escuro"`, decidido por um script no `<head>` do `index.html` (antes de a página aparecer) e pelo botão do cabeçalho (`site/src/componentes/BotaoTema.tsx`: automático → claro → escuro, escolha guardada em `localStorage`). Cores do modo escuro vão em seletores `[data-tema="escuro"] …`, nunca em `@media (prefers-color-scheme)`.
   - Endereços próprios por página (`/camadas/UNTRMT`); o `404.html` é cópia do `index.html` para o GitHub Pages abrir esses endereços diretamente.
   - Comandos (em `site/`): `npm ci`, `npm run dev`, `npm run build`, `npm run preview`.
 - O `.gitignore` ignora `dados/brutos/`; `dados/processados/` é versionado.

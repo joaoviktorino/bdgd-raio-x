@@ -4,6 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Tutorial e explorador da BDGD (Base de Dados Geográfica da Distribuidora) da ANEEL, com os dados reais de uma distribuidora." />
+    <script>
+      // Decide o tema antes de a página aparecer (evita a "piscada" de cor).
+      // Escolha guardada pelo botão do cabeçalho: "auto" (segue o sistema), "claro" ou "escuro".
+      (function () {
+        var escolha = "auto";
+        try {
+          escolha = localStorage.getItem("bdgd-tema") || "auto";
+        } catch (e) {}
+        var escuro = escolha === "escuro" || (escolha === "auto" && matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.dataset.tema = escuro ? "escuro" : "claro";
+        document.documentElement.dataset.temaEscolha = escolha;
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />

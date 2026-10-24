@@ -12,7 +12,6 @@ import {
   MEDIDAS,
   RankingAlimentadores,
 } from "../componentes/RaioXGraficos";
-import { distribuidora } from "../dados";
 import { inteiro } from "../formatos";
 import { type Alimentador, contagemTexto, decimal, nomeCurto, numero, raioX } from "../raioX";
 import "./raiox.css";
@@ -76,7 +75,7 @@ function perguntas(): Pergunta[] {
     {
       id: "estimar-km-mt",
       tipo: "estimativa",
-      enunciado: `Chute: quantos km de rede de média tensão a ${distribuidora} tem?`,
+      enunciado: `Chute: quantos km de rede de média tensão a distribuidora tem?`,
       valor: Math.round(mt.km_comp),
       min: 10,
       max: 100000,
@@ -166,7 +165,7 @@ export default function RaioX() {
     <article className="pagina-visual rx">
       <header className="pagina-visual-topo">
         <p className="sobretitulo">Raio-x da rede</p>
-        <h1>A rede da {distribuidora}, somada camada por camada</h1>
+        <h1>A rede inteira, somada camada por camada</h1>
         <p className="lide">
           Subestações, alimentadores, quilômetros de fio, transformadores e consumidores. Cada número é uma soma feita
           no arquivo, e cada um diz de onde veio.

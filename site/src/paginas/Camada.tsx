@@ -186,7 +186,7 @@ export default function Camada() {
         <div className="camada-numero">
           <strong>{textoRegistros(c)}</strong>
           <span>
-            registros na {exp.distribuidora} <Fonte de="arquivo" onde={`camada ${c.nome}`} />
+            registros no arquivo <Fonte de="arquivo" onde={`camada ${c.nome}`} />
           </span>
         </div>
       </header>
@@ -201,7 +201,7 @@ export default function Camada() {
 
       {c.vazia && (
         <p className="aviso camada-vazia">
-          Esta camada veio <strong>vazia</strong> no arquivo da {exp.distribuidora}
+          Esta camada veio <strong>vazia</strong> no arquivo estudado
           {c.vazia_em_todas_as_comparadas
             ? `, e também nas outras ${exp.distribuidoras_comparadas - 1} distribuidoras comparadas na escolha da distribuidora de estudo: nenhuma delas declarou registros nesta camada.`
             : ". A estrutura existe no modelo, mas a distribuidora não declarou nenhum registro."}

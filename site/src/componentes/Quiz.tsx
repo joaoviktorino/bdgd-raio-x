@@ -1,5 +1,6 @@
 import { type ReactNode, useState } from "react";
 
+import { arquivo, dataBR } from "../dados";
 import { inteiro } from "../formatos";
 import "./quiz.css";
 
@@ -64,6 +65,11 @@ export default function Quiz({ titulo, perguntas }: { titulo: string; perguntas:
           })}
         </ol>
       </div>
+      {/* O nome da distribuidora aparece aqui, uma vez, e não em cada pergunta. */}
+      <p className="quiz-contexto">
+        Números do arquivo estudado: {arquivo.distribuidora}, data de referência{" "}
+        {dataBR(arquivo.partes_do_nome.data_referencia)}.
+      </p>
 
       {terminou ? (
         <Resultado pontos={pontos} total={perguntas.length} reiniciar={reiniciar} />

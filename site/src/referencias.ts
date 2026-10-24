@@ -26,7 +26,7 @@ export const REFERENCIAS = {
     url: "https://www.planalto.gov.br/ccivil_03/leis/l8987cons.htm",
   },
   arquivo: {
-    curto: `Arquivo da ${distribuidora}`,
+    curto: "Arquivo estudado",
     titulo: `BDGD da ${distribuidora}, data de referência ${dataBR(arquivo.partes_do_nome.data_referencia)}, portal de dados abertos da ANEEL`,
     url: "https://dadosabertos-aneel.opendata.arcgis.com/search?tags=distribuicao",
   },

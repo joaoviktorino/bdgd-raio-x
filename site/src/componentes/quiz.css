@@ -296,3 +296,9 @@
     align-items: flex-start;
   }
 }
+
+.quiz-contexto {
+  margin: -0.2rem 0 0.8rem;
+  font-size: 0.78rem;
+  color: var(--texto-suave);
+}

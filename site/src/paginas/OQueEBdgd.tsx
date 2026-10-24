@@ -5,7 +5,7 @@ import { Fonte, ListaDeFontes } from "../componentes/Fonte";
 import Icone from "../componentes/Icone";
 import LinhaPrazos from "../componentes/LinhaPrazos";
 import Quiz, { type Pergunta } from "../componentes/Quiz";
-import { acharCamada, arquivo, distribuidora, registrosNumero } from "../dados";
+import { acharCamada, arquivo, registrosNumero } from "../dados";
 import { inteiro } from "../formatos";
 import { REFERENCIAS } from "../referencias";
 import "./oque.css";
@@ -38,7 +38,7 @@ const PERGUNTAS: Pergunta[] = [
   {
     id: "estimar-trechos-mt",
     tipo: "estimativa",
-    enunciado: `Chute: quantos trechos de rede de média tensão a ${distribuidora} tem?`,
+    enunciado: `Chute: quantos trechos de rede de média tensão a distribuidora tem?`,
     valor: registros("SSDMT"),
     min: 10,
     max: 1_000_000,
@@ -67,7 +67,7 @@ const PERGUNTAS: Pergunta[] = [
   {
     id: "estimar-ucbt",
     tipo: "estimativa",
-    enunciado: `Chute: quantas unidades consumidoras de baixa tensão a ${distribuidora} atende?`,
+    enunciado: `Chute: quantas unidades consumidoras de baixa tensão a distribuidora atende?`,
     valor: registros("UCBT"),
     min: 100,
     max: 10_000_000,

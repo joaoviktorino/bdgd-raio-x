@@ -84,7 +84,7 @@ export default function FioLigacao({ exp }: { exp: Explorador }) {
       </div>
       <p className="nota">
         Cada seta é uma coluna que guarda o código da camada anterior: um campo do tipo "Vinculado"{" "}
-        <Fonte de="manual" onde="Anexo I" />. Números da {exp.distribuidora} <Fonte de="arquivo" />.
+        <Fonte de="manual" onde="Anexo I" />. Números do arquivo estudado <Fonte de="arquivo" />.
       </p>
     </div>
   );

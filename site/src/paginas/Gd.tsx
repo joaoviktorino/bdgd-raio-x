@@ -5,7 +5,6 @@ import { Fonte, ListaDeFontes } from "../componentes/Fonte";
 import Quiz, { type Pergunta } from "../componentes/Quiz";
 import { Colunas, corVar, LegendaSubestacoes } from "../componentes/RaioXGraficos";
 import { useVisivel } from "../componentes/useVisivel";
-import { distribuidora } from "../dados";
 import { inteiro } from "../formatos";
 import { gd } from "../gd";
 import { contagemTexto, decimal } from "../raioX";
@@ -41,25 +40,71 @@ function Medidor({ pct }: { pct: number }) {
   );
 }
 
-/** A "caixa d'água" da distribuidora: capacidade somada dos transformadores e a GD dentro. */
-function Tanque() {
-  const { ref, visivel } = useVisivel<HTMLDivElement>(0.4);
+// Cabo desenhado: o condutor inteiro é a capacidade somada dos transformadores; a parte
+// acesa, com a corrente correndo, é a GD de baixa tensão.
+const CABO = { ponta: 70, x0: 100, x1: 960, y: 92, raio: 28 };
+
+/** Um cabo cortado na ponta (fios de cobre à mostra); a GD preenche o condutor. */
+function Cabo() {
+  const { ref, visivel } = useVisivel<SVGSVGElement>(0.4);
+  const { ponta, x0, x1, y, raio } = CABO;
+  const largura = x1 - x0;
+  const fim = x0 + (largura * bt.ug_razao_pct) / 100;
+  const fios = [
+    [0, 0], [-9, -6], [9, -6], [-9, 6], [9, 6], [0, -12], [0, 12], [-15, 0], [15, 0],
+  ];
   return (
-    <div ref={ref} className={visivel ? "gd-tanque visivel" : "gd-tanque"}>
-      <div className="gd-tanque-corpo" role="img" aria-label={`GD de baixa tensão soma ${decimal(bt.ug_razao_pct)}% da capacidade dos transformadores`}>
-        <div className="gd-tanque-gd" style={{ height: `${bt.ug_razao_pct}%` }} />
-        <span className="gd-tanque-rotulo-cap">
-          {mw(t.capacidade_kva)} MVA
-          <small>capacidade somada dos {inteiro(t.transformadores)} transformadores</small>
-        </span>
-      </div>
-      <div className="gd-tanque-leitura">
-        <p className="gd-tanque-pct">{decimal(bt.ug_razao_pct)}%</p>
-        <p>
-          é quanto a GD de baixa tensão ({mw(bt.ug_potencia_kw)} MW instalados) soma em relação à potência de todos os
-          transformadores juntos.
-        </p>
-      </div>
+    <div className="gd-cabo-caixa">
+      <svg
+        ref={ref}
+        viewBox="0 0 1000 190"
+        className={visivel ? "gd-cabo visivel" : "gd-cabo"}
+        role="img"
+        aria-label={`Cabo: a GD de baixa tensão ocupa ${decimal(bt.ug_razao_pct)}% da capacidade somada dos transformadores`}
+      >
+        <defs>
+          <clipPath id="gd-cabo-condutor">
+            <rect x={x0} y={y - raio + 8} width={largura} height={2 * (raio - 8)} rx={raio - 8} />
+          </clipPath>
+        </defs>
+        {/* capa do cabo */}
+        <rect className="gd-cabo-capa" x={ponta} y={y - raio} width={x1 + 8 - ponta} height={2 * raio} rx={raio} />
+        {/* condutor: trilho (capacidade) e parte acesa (GD) */}
+        <rect className="gd-cabo-trilho" x={x0} y={y - raio + 8} width={largura} height={2 * (raio - 8)} rx={raio - 8} />
+        <g clipPath="url(#gd-cabo-condutor)">
+          <rect className="gd-cabo-gd" x={x0} y={y - raio + 8} width={fim - x0} height={2 * (raio - 8)} />
+          <line className="gd-cabo-corrente" x1={x0} y1={y} x2={fim} y2={y} />
+        </g>
+        {/* ponta cortada: seção do cabo com os fios de cobre */}
+        <circle className="gd-cabo-capa" cx={ponta} cy={y} r={raio} />
+        <circle className="gd-cabo-isolante" cx={ponta} cy={y} r={raio - 6} />
+        {fios.map(([dx, dy]) => (
+          <circle key={`${dx},${dy}`} className="gd-cabo-fio" cx={ponta + dx} cy={y + dy} r={4.6} />
+        ))}
+        {/* régua de 0 a 100% */}
+        {[0, 25, 50, 75, 100].map((p) => {
+          const x = x0 + (largura * p) / 100;
+          return (
+            <g key={p}>
+              <line className="gd-cabo-marca" x1={x} y1={y + raio + 6} x2={x} y2={y + raio + 14} />
+              <text className="gd-cabo-escala" x={x} y={y + raio + 30}>
+                {p}%
+              </text>
+            </g>
+          );
+        })}
+        <line className="gd-cabo-seta" x1={fim} y1={y - raio - 4} x2={fim} y2={y - raio - 26} />
+        <text className="gd-cabo-rotulo gd" x={fim} y={y - raio - 34}>
+          GD: {mw(bt.ug_potencia_kw)} MW · {decimal(bt.ug_razao_pct)}%
+        </text>
+        <text className="gd-cabo-rotulo cap" x={x1} y={y - raio - 34}>
+          capacidade: {mw(t.capacidade_kva)} MVA
+        </text>
+      </svg>
+      <p className="gd-cabo-leitura">
+        Se o cabo inteiro fosse a potência somada dos {inteiro(t.transformadores)} transformadores, a GD de baixa tensão
+        instalada ocuparia <strong>{decimal(bt.ug_razao_pct)}%</strong> dele.
+      </p>
     </div>
   );
 }
@@ -125,7 +170,7 @@ function perguntas(): Pergunta[] {
     {
       id: "estimar-mw",
       tipo: "estimativa",
-      enunciado: `Chute: quantos megawatts de GD estão instalados na baixa tensão da ${distribuidora}?`,
+      enunciado: `Chute: quantos megawatts de GD estão instalados na baixa tensão da distribuidora?`,
       valor: Math.round(bt.ug_potencia_kw / 100) / 10,
       min: 0.1,
       max: 1000,
@@ -236,8 +281,8 @@ export default function Gd() {
       </ul>
 
       <section className="bloco-visual">
-        <h2>A rede inteira, num tanque só</h2>
-        <Tanque />
+        <h2>A rede inteira, num cabo só</h2>
+        <Cabo />
         <p className="rx-origem">
           <span>De onde vem:</span> GD = soma de <code>POT_INST</code> (kW) da <code>UGBT_tab</code>{" "}
           <Fonte de="manual" onde="Anexo I, UGBT, p. 61" />; capacidade = soma da <code>POT_NOM</code> dos{" "}

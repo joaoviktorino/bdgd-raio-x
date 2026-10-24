@@ -1,7 +1,7 @@
 import { type ReactNode, useState } from "react";
 import { Link } from "react-router";
 
-import { acharCamada, distribuidora, registrosTexto } from "../dados";
+import { acharCamada, registrosTexto } from "../dados";
 import { Fonte } from "./Fonte";
 import { useVisivel } from "./useVisivel";
 
@@ -336,7 +336,7 @@ export default function CenaRede() {
         {elemento.nota && <p className="nota">{elemento.nota}</p>}
         {camada && (
           <p className="cena-contagem">
-            <strong>{registrosTexto(camada)}</strong> registros na {distribuidora}{" "}
+            <strong>{registrosTexto(camada)}</strong> registros no arquivo{" "}
             <Fonte de="arquivo" onde={`camada ${camada.nome}`} />
             <br />
             <Link to={`/camadas/${camada.nome}`}>Ver a camada {camada.nome} →</Link>

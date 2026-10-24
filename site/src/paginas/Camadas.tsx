@@ -4,7 +4,7 @@ import { Link } from "react-router";
 import FioLigacao from "../componentes/FioLigacao";
 import { Fonte, ListaDeFontes } from "../componentes/Fonte";
 import Quiz, { type Pergunta } from "../componentes/Quiz";
-import { acharCamada, catalogo, distribuidora, registrosNumero } from "../dados";
+import { acharCamada, catalogo, registrosNumero } from "../dados";
 import { type CamadaExplorador, formaDe, NOME_FORMA, useExplorador } from "../explorador";
 import { inteiro } from "../formatos";
 import "./camadas.css";
@@ -65,7 +65,7 @@ function perguntas(): Pergunta[] {
     {
       id: "estimar-alimentadores",
       tipo: "estimativa",
-      enunciado: `Chute: quantos alimentadores (circuitos de média tensão) a ${distribuidora} tem?`,
+      enunciado: `Chute: quantos alimentadores (circuitos de média tensão) a distribuidora tem?`,
       valor: n("CTMT"),
       min: 1,
       max: 1000,
@@ -101,7 +101,7 @@ function perguntas(): Pergunta[] {
     {
       id: "estimar-transformadores",
       tipo: "estimativa",
-      enunciado: `Chute: quantos transformadores de média para baixa tensão a ${distribuidora} tem?`,
+      enunciado: `Chute: quantos transformadores de média para baixa tensão a distribuidora tem?`,
       valor: n("UNTRMT"),
       min: 10,
       max: 100_000,
@@ -116,7 +116,7 @@ function perguntas(): Pergunta[] {
     {
       id: "quantas-vazias",
       tipo: "escolha",
-      enunciado: `Das ${catalogo.total_camadas} camadas do arquivo da ${distribuidora}, quantas estão vazias?`,
+      enunciado: `Das ${catalogo.total_camadas} camadas do arquivo, quantas estão vazias?`,
       opcoes: opcoesVazias.map(String),
       certa: opcoesVazias.indexOf(vazias),
       explicacao: (
@@ -162,7 +162,7 @@ export default function Camadas() {
       <header className="pagina-visual-topo">
         <p className="sobretitulo">Camadas</p>
         <h1>
-          As {catalogo.total_camadas} camadas da {distribuidora}, por família
+          As {catalogo.total_camadas} camadas do arquivo, por família
         </h1>
         <p className="lide">
           Cada camada é uma entidade do modelo da BDGD <Fonte de="manual" onde="Seção 2, item 2.4" />. Procure por

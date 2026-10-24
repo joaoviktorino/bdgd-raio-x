@@ -14,25 +14,38 @@ import {
 } from "../raioX";
 import { useVisivel } from "./useVisivel";
 
-const corVar = (sigla: string) => {
+export const corVar = (sigla: string) => {
   const i = corDaSubestacao(sigla);
   return i < 0 ? "var(--texto-suave)" : `var(--rx-cor-${i})`;
 };
 
-type Dica = { x: number; y: number; conteudo: ReactNode } | null;
+type Dica = { x: number; y: number; abaixo: boolean; conteudo: ReactNode } | null;
 
-/** Caixa de dica posicionada dentro de um contêiner com position: relative. */
+// Meia largura máxima da dica (18rem) e altura que ela precisa acima do ponteiro.
+const MEIA_DICA = 150;
+const ALTURA_DICA = 130;
+
+/** Caixa de dica posicionada dentro de um contêiner com position: relative (e sem rolagem,
+    para não ser cortada). Fica sempre dentro da largura do contêiner e, perto do topo,
+    aparece abaixo do ponteiro. */
 function useDica() {
   const [dica, setDica] = useState<Dica>(null);
   const mostrar = (e: React.PointerEvent | React.FocusEvent, conteudo: ReactNode) => {
     const caixa = (e.currentTarget as Element).closest(".rx-com-dica")!.getBoundingClientRect();
     const alvo = (e.currentTarget as Element).getBoundingClientRect();
-    const x = "clientX" in e ? e.clientX : alvo.left + alvo.width / 2;
-    const y = "clientY" in e ? e.clientY : alvo.top;
-    setDica({ x: x - caixa.left, y: y - caixa.top, conteudo });
+    const x = ("clientX" in e ? e.clientX : alvo.left + alvo.width / 2) - caixa.left;
+    const y = ("clientY" in e ? e.clientY : alvo.top) - caixa.top;
+    const meia = Math.min(MEIA_DICA, caixa.width / 2);
+    setDica({
+      x: Math.min(Math.max(x, meia), caixa.width - meia),
+      y,
+      // Perto do topo do gráfico ou da tela, a dica vai para baixo do ponteiro.
+      abaixo: y < ALTURA_DICA || y + caixa.top < ALTURA_DICA,
+      conteudo,
+    });
   };
   const caixa = dica && (
-    <div className="rx-dica" style={{ left: dica.x, top: dica.y }} role="status">
+    <div className={dica.abaixo ? "rx-dica abaixo" : "rx-dica"} style={{ left: dica.x, top: dica.y }} role="status">
       {dica.conteudo}
     </div>
   );
@@ -108,7 +121,8 @@ export function EstrelaAlimentadores({
   const { mostrar, esconder, caixa } = useDica();
 
   return (
-    <div className="rx-com-dica rx-estrela">
+    <div className="rx-com-dica">
+      <div className="rx-estrela">
       <svg
         ref={ref}
         viewBox={`0 0 ${LARGURA} ${ALTURA}`}
@@ -154,6 +168,7 @@ export function EstrelaAlimentadores({
           );
         })}
       </svg>
+      </div>
       {caixa}
     </div>
   );

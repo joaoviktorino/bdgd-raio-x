@@ -24,6 +24,9 @@ export type Subestacao = {
   subestacao: string;
   nome: string;
   alimentadores: number;
+  transformadores_at: number;
+  potencia_at_mva: number;
+  seccionadoras_at: number;
   km_mt: number;
   km_bt: number;
   transformadores: number;

@@ -19,10 +19,9 @@ import { contagemTexto, decimal, nomeCurto, raioX, SUBESTACOES_COM_ALIMENTADOR }
 
 maplibregl.setWorkerUrl(urlWorker);
 
-const ESTILO = {
-  claro: "https://tiles.openfreemap.org/styles/positron",
-  escuro: "https://tiles.openfreemap.org/styles/dark",
-};
+// O mapa fica sempre claro, mesmo com o site no tema escuro: a rede colorida lê melhor
+// sobre o fundo claro (Positron).
+const ESTILO = "https://tiles.openfreemap.org/styles/positron";
 
 // A partir deste zoom a rede BT e os transformadores são baixados e desenhados.
 const ZOOM_DETALHE = 12;
@@ -38,14 +37,21 @@ const GRUPOS: GrupoCamada[] = [
   { id: "tr", rotulo: "Transformadores", sigla: "UNTRMT", camadas: ["tr-ponto"], amostra: "tr", detalhe: true },
 ];
 
+// Linhas finas são difíceis de acertar: o hover e o clique olham um quadrado de
+// FOLGA px em volta do ponteiro.
+const FOLGA = 5;
+const perto = (p: maplibregl.Point): [maplibregl.PointLike, maplibregl.PointLike] => [
+  [p.x - FOLGA, p.y - FOLGA],
+  [p.x + FOLGA, p.y + FOLGA],
+];
+
 const CLICAVEIS = ["tr-ponto", "mt-linha", "bt-linha", "at-linha", "sub-fundo"];
 
 type Escolha = { camada: string; props: Record<string, unknown> } | null;
 
-const tema = () => (document.documentElement.dataset.tema === "escuro" ? "escuro" : "claro");
 const vazio = { type: "FeatureCollection" as const, features: [] };
 
-/** Lê as cores do CSS (mudam com o tema) para passar ao MapLibre, que não entende var(). */
+/** Lê as cores do CSS (mapa.css) para passar ao MapLibre, que não entende var(). */
 function cores(el: HTMLElement) {
   const css = getComputedStyle(el);
   const v = (nome: string) => css.getPropertyValue(nome).trim();
@@ -55,8 +61,8 @@ function cores(el: HTMLElement) {
     area: v("--mr-area"),
     sub: v("--mr-sub"),
     tr: v("--mr-tr"),
-    fundo: v("--superficie"),
-    neutra: v("--texto-suave"),
+    fundo: v("--mr-fundo"),
+    neutra: v("--mr-neutra"),
   };
 }
 
@@ -121,12 +127,12 @@ export default function MapaRede() {
   const [zoom, setZoom] = useState(0);
   const [pronto, setPronto] = useState(false);
 
-  // Cria o mapa uma vez; troca o fundo quando o tema muda.
+  // Cria o mapa uma vez.
   useEffect(() => {
     const el = caixaRef.current!;
     const mapa = new maplibregl.Map({
       container: el,
-      style: ESTILO[tema()],
+      style: ESTILO,
       center: [-47.9, -19.75],
       zoom: 9,
       attributionControl: { compact: true, customAttribution: 'Rede: <a href="https://dadosabertos-aneel.opendata.arcgis.com/">ANEEL, BDGD</a> (ODbL)' },
@@ -175,24 +181,29 @@ export default function MapaRede() {
 
     mapa.on("click", (e) => {
       const camadas = CLICAVEIS.filter((id) => mapa.getLayer(id));
-      const [f] = mapa.queryRenderedFeatures(e.point, { layers: camadas });
+      const [f] = mapa.queryRenderedFeatures(perto(e.point), { layers: camadas });
       if (!f) return setEscolha(null);
       setEscolha({ camada: String(f.properties.camada), props: f.properties });
       if (f.properties.alimentador) setDestaque(String(f.properties.alimentador));
     });
-    CLICAVEIS.forEach((id) => {
-      mapa.on("mouseenter", id, () => (mapa.getCanvas().style.cursor = "pointer"));
-      mapa.on("mouseleave", id, () => (mapa.getCanvas().style.cursor = ""));
+    // Dica ao passar o mouse: o mesmo resumo da ficha, sem precisar clicar.
+    const dica = new maplibregl.Popup({ closeButton: false, closeOnClick: false, className: "mr-dica-mapa", offset: 10, maxWidth: "280px" });
+    mapa.on("mousemove", (e) => {
+      const camadas = CLICAVEIS.filter((id) => mapa.getLayer(id));
+      const [f] = mapa.queryRenderedFeatures(perto(e.point), { layers: camadas });
+      mapa.getCanvas().style.cursor = f ? "pointer" : "";
+      if (!f) return void dica.remove();
+      const { titulo, itens, sub } = descrever(String(f.properties.camada), f.properties);
+      const linhas = itens.map(([rotulo, valor]) => `<span>${rotulo}: <b>${valor}</b></span>`).join("");
+      dica
+        .setLngLat(e.lngLat)
+        .setHTML(`<em>camada ${f.properties.camada}${sub ? ` · ${nomeCurto(sub)}` : ""}</em><strong>${escapar(titulo)}</strong>${linhas}`)
+        .addTo(mapa);
     });
-
-    const observador = new MutationObserver(() => {
-      setPronto(false);
-      mapa.setStyle(ESTILO[tema()]);
-    });
-    observador.observe(document.documentElement, { attributes: true, attributeFilter: ["data-tema"] });
+    mapa.on("mouseout", () => dica.remove());
 
     return () => {
-      observador.disconnect();
+      dica.remove();
       mapa.remove();
     };
   }, []);
@@ -289,37 +300,57 @@ export default function MapaRede() {
   );
 }
 
-function FichaEscolha({ escolha, aoFechar }: { escolha: Escolha; aoFechar: () => void }) {
-  if (!escolha) {
-    return <p className="mr-dica">Clique numa linha, subestação ou transformador para ver os dados e a camada de origem.</p>;
-  }
-  const p = escolha.props;
+/** Texto seguro para pôr no HTML da dica. */
+const escapar = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
+
+/** Título e números de um elemento do mapa (usados na dica do hover e na ficha do clique). */
+function descrever(camada: string, p: Record<string, unknown>) {
   const alimentador = raioX.alimentadores.find((a) => a.alimentador === p.alimentador);
   const sub = raioX.subestacoes.find((s) => s.subestacao === (p.subestacao ?? alimentador?.subestacao));
-  const indice = sub ? SUBESTACOES_COM_ALIMENTADOR.indexOf(sub.subestacao) : -1;
-  const cor = indice >= 0 ? `var(--mr-cor-${indice})` : "var(--destaque)";
-
   let titulo = "";
   let itens: [string, string][] = [];
-  if (escolha.camada === "UNTRMT") {
+  let nota = "";
+  if (camada === "UNTRMT") {
     titulo = `Transformador ${p.transformador}`;
     itens = [["Potência nominal", `${decimal(Number(p.potencia_kva))} kVA`], ["Alimentador", String(p.alimentador)]];
-  } else if (escolha.camada === "SSDAT") {
+  } else if (camada === "SSDAT") {
     titulo = `Circuito de alta tensão ${p.circuito_at}`;
     itens = [["Comprimento", `${decimal(Number(p.km))} km`], ["Trechos", inteiro(Number(p.trechos))]];
-  } else if (escolha.camada === "SUB" && sub) {
+  } else if (camada === "SUB" && sub) {
     titulo = sub.nome;
-    itens = [["Alimentadores", inteiro(sub.alimentadores)], ["Transformadores", inteiro(sub.transformadores)],
-      ["Potência instalada", `${inteiro(sub.potencia_kva)} kVA`], ["Consumidores BT", contagemTexto(sub.consumidores_bt.qtd_uc)]];
+    itens = [
+      ["Alimentadores de MT", inteiro(sub.alimentadores)],
+      ["Transformadores de AT", `${inteiro(sub.transformadores_at)} (${decimal(sub.potencia_at_mva)} MVA)`],
+      ["Seccionadoras de AT", inteiro(sub.seccionadoras_at)],
+    ];
+    if (sub.alimentadores > 0) {
+      itens.push(["Transformadores de MT", inteiro(sub.transformadores)], ["Consumidores BT", contagemTexto(sub.consumidores_bt.qtd_uc)]);
+    } else {
+      nota = "Nenhum alimentador de média tensão sai desta subestação no arquivo: ela só aparece em camadas de alta tensão.";
+    }
   } else if (alimentador) {
     titulo = alimentador.nome;
     itens = [
-      [escolha.camada === "SSDBT" ? "Rede BT (este alimentador)" : "Rede MT", `${decimal(Number(p.km))} km`],
+      [camada === "SSDBT" ? "Rede BT (este alimentador)" : "Rede MT", `${decimal(Number(p.km))} km`],
       ["Trechos desenhados", inteiro(Number(p.trechos))],
       ["Transformadores", inteiro(alimentador.transformadores)],
       ["Consumidores BT", contagemTexto(alimentador.consumidores_bt.qtd_uc)],
     ];
   }
+  return { titulo, itens, nota, sub, alimentador };
+}
+
+function FichaEscolha({ escolha, aoFechar }: { escolha: Escolha; aoFechar: () => void }) {
+  if (!escolha) {
+    return (
+      <p className="mr-dica">
+        Passe o mouse sobre uma linha, subestação ou transformador para ver um resumo; clique para fixar a ficha.
+      </p>
+    );
+  }
+  const { titulo, itens, nota, sub, alimentador } = descrever(escolha.camada, escolha.props);
+  const indice = sub ? SUBESTACOES_COM_ALIMENTADOR.indexOf(sub.subestacao) : -1;
+  const cor = indice >= 0 ? `var(--mr-cor-${indice})` : "var(--destaque)";
 
   return (
     <div className="mr-ficha" style={{ "--cor": cor } as React.CSSProperties} aria-live="polite">
@@ -339,8 +370,15 @@ function FichaEscolha({ escolha, aoFechar }: { escolha: Escolha; aoFechar: () =>
           </div>
         ))}
       </dl>
+      {nota && <p className="mr-ficha-nota">{nota}</p>}
       <p className="mr-ficha-origem">
         Desenho da camada <Link to={`/camadas/${escolha.camada}`}>{escolha.camada}</Link>
+        {escolha.camada === "SUB" && (
+          <>
+            {" "}· alta tensão: <Link to="/camadas/UNTRAT">UNTRAT</Link> e <Link to="/camadas/UNSEAT">UNSEAT</Link>, pela
+            coluna <code>SUB</code>
+          </>
+        )}
         {alimentador && escolha.camada !== "UNTRMT" && " · números do raio-x da rede"}.
       </p>
     </div>

@@ -47,6 +47,12 @@ export const REFERENCIAS = {
       "pipeline/mapa.py, o script deste projeto que junta e simplifica as geometrias do .gdb por alimentador e grava os GeoJSON do mapa",
     url: "https://github.com/joaoviktorino/bdgd-raio-x/blob/main/pipeline/mapa.py",
   },
+  gd: {
+    curto: "cálculo deste projeto",
+    titulo:
+      "pipeline/gd.py, o script deste projeto que soma a GD por transformador e alimentador e compara com a potência dos transformadores",
+    url: "https://github.com/joaoviktorino/bdgd-raio-x/blob/main/pipeline/gd.py",
+  },
   fundo: {
     curto: "OpenFreeMap",
     titulo: "Mapa de fundo: OpenFreeMap (estilos Positron e Dark), com dados © OpenStreetMap e OpenMapTiles",

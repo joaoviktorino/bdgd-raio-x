@@ -65,6 +65,12 @@ class Dicionario(unittest.TestCase):
         self.assertEqual(valores["4"]["pot"], "15")
         self.assertEqual(valores["4"]["descricao"], "15 kVA")
 
+    def test_campo_que_aceita_varias_entidades_liga_a_todas(self):
+        self.assertEqual(self.campo("EQSE", "UN_SE")["entidades_vinculadas"], ["UNSEAT", "UNSEMT", "UNSEBT"])
+        explorador = carregar("explorador.json")
+        eqse = next(c for c in explorador["camadas"] if c["sigla"] == "EQSE")
+        self.assertEqual(sorted(eqse["liga_a"]), ["UNSEAT", "UNSEBT", "UNSEMT"])
+
     def test_explorador_cobre_todas_as_camadas_com_grupo_e_descricao(self):
         explorador = carregar("explorador.json")
         nomes = {c["nome"] for c in explorador["camadas"]}

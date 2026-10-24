@@ -18,7 +18,9 @@ const textoRegistros = (c: CamadaExplorador) =>
   typeof c.registros === "number" ? inteiro(c.registros) : c.registros;
 
 function Ligacoes({ c, exp }: { c: CamadaExplorador; exp: Explorador }) {
-  const saem = c.colunas.filter((col) => col.liga_a && col.liga_a !== c.nome);
+  const saem = c.colunas.flatMap((col) =>
+    (col.liga_a ?? []).filter((alvo) => alvo !== c.nome).map((alvo) => ({ campo: col.campo, alvo })),
+  );
   const chegam = c.ligada_por;
   if (!saem.length && !chegam.length) {
     return <p className="nota">Esta camada não se liga a outras por colunas do tipo "Vinculado".</p>;
@@ -43,15 +45,11 @@ function Ligacoes({ c, exp }: { c: CamadaExplorador; exp: Explorador }) {
       <div className="hub-lado">
         <p className="hub-titulo">Ela aponta para ({saem.length})</p>
         <ul>
-          {saem.map((col) => (
-            <li key={col.campo}>
-              <code>{col.campo}</code>
+          {saem.map(({ campo, alvo }) => (
+            <li key={`${campo}-${alvo}`}>
+              <code>{campo}</code>
               <span aria-hidden="true">→</span>
-              {existe(col.liga_a!) ? (
-                <Link to={`/camadas/${col.liga_a}`}>{col.liga_a}</Link>
-              ) : (
-                <span>{col.liga_a}</span>
-              )}
+              {existe(alvo) ? <Link to={`/camadas/${alvo}`}>{alvo}</Link> : <span>{alvo}</span>}
             </li>
           ))}
         </ul>
@@ -105,7 +103,13 @@ function Colunas({ c }: { c: CamadaExplorador }) {
                   <span className="coluna-tipo">{col.tipo}</span>
                   {col.liga_a && (
                     <span className="coluna-detalhe">
-                      liga a <Link to={`/camadas/${col.liga_a}`}>{col.liga_a}</Link>
+                      liga a{" "}
+                      {col.liga_a.map((alvo, i) => (
+                        <span key={alvo}>
+                          {i > 0 && ", "}
+                          <Link to={`/camadas/${alvo}`}>{alvo}</Link>
+                        </span>
+                      ))}
                     </span>
                   )}
                   {col.dominio && <span className="coluna-detalhe">códigos {col.dominio}</span>}

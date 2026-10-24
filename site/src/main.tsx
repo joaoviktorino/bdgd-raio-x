@@ -8,6 +8,7 @@ import Camadas from "./paginas/Camadas";
 import EmConstrucao from "./paginas/EmConstrucao";
 import Inicio from "./paginas/Inicio";
 import DecifrandoArquivo from "./paginas/DecifrandoArquivo";
+import Ligacoes from "./paginas/Ligacoes";
 import NaoEncontrada from "./paginas/NaoEncontrada";
 import OQueEBdgd from "./paginas/OQueEBdgd";
 import { SECOES } from "./secoes";
@@ -19,6 +20,7 @@ const PAGINAS_PRONTAS: Record<string, ReactNode> = {
   "o-que-e-bdgd": <OQueEBdgd />,
   "decifrando-o-arquivo": <DecifrandoArquivo />,
   camadas: <Camadas />,
+  ligacoes: <Ligacoes />,
 };
 
 createRoot(document.getElementById("raiz")!).render(

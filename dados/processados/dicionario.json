@@ -11154,7 +11154,15 @@
           "padrao": "UCAT (COD_ID), UCMT (COD_ID), UCBT (COD_ID), UGAT (COD_ID), UGMT (COD_ID), UGBT (COD_ID)",
           "descricao": "Usuário vinculado ao medidor",
           "pagina": 117,
-          "entidade_vinculada": "UCAT"
+          "entidade_vinculada": "UCAT",
+          "entidades_vinculadas": [
+            "UCAT",
+            "UCMT",
+            "UCBT",
+            "UGAT",
+            "UGMT",
+            "UGBT"
+          ]
         },
         {
           "numero": 4,
@@ -11439,7 +11447,11 @@
           "padrao": "UNREAT (COD_ID), UNREMT (COD_ID)",
           "descricao": "Unidade reguladora vinculada ao equipamento regulador",
           "pagina": 119,
-          "entidade_vinculada": "UNREAT"
+          "entidade_vinculada": "UNREAT",
+          "entidades_vinculadas": [
+            "UNREAT",
+            "UNREMT"
+          ]
         },
         {
           "numero": 5,
@@ -11804,7 +11816,12 @@
           "padrao": "UNSEAT (COD_ID), UNSEMT (COD_ID), UNSEBT (COD_ID)",
           "descricao": "Unidade seccionadora vinculada ao equipamento regulador",
           "pagina": 121,
-          "entidade_vinculada": "UNSEAT"
+          "entidade_vinculada": "UNSEAT",
+          "entidades_vinculadas": [
+            "UNSEAT",
+            "UNSEMT",
+            "UNSEBT"
+          ]
         },
         {
           "numero": 5,
@@ -12903,7 +12920,15 @@
           "padrao": "UCAT (COD_ID), UCMT (COD_ID), UCBT (COD_ID), UGAT (COD_ID), UGMT (COD_ID), UGBT (COD_ID)",
           "descricao": "Usuário vinculado ao transformador medidor",
           "pagina": 128,
-          "entidade_vinculada": "UCAT"
+          "entidade_vinculada": "UCAT",
+          "entidades_vinculadas": [
+            "UCAT",
+            "UCMT",
+            "UCBT",
+            "UGAT",
+            "UGMT",
+            "UGBT"
+          ]
         },
         {
           "numero": 7,
@@ -13153,7 +13178,12 @@
           "padrao": "UNCRAT (COD_ID), UNCRMT (COD_ID), UNCRBT (COD_ID)",
           "descricao": "Código da Unidade Compensadora de Reativos Vinculada",
           "pagina": 130,
-          "entidade_vinculada": "UNCRAT"
+          "entidade_vinculada": "UNCRAT",
+          "entidades_vinculadas": [
+            "UNCRAT",
+            "UNCRMT",
+            "UNCRBT"
+          ]
         },
         {
           "numero": 5,

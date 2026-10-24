@@ -10,7 +10,8 @@ export type Coluna = {
   obrigatorio: boolean;
   no_arquivo: boolean;
   dominio?: string;
-  liga_a?: string;
+  /** Camadas para onde a coluna aponta (campos "Vinculado"; alguns aceitam mais de uma). */
+  liga_a?: string[];
 };
 
 export type CamadaExplorador = {

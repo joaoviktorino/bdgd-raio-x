@@ -165,6 +165,9 @@ const faixas = gd.faixas_razao_transformadores.map((f) => ({
 }));
 const acimaDe100 = gd.faixas_razao_transformadores.filter((f) => f.de >= 100).reduce((s, f) => s + f.transformadores, 0);
 
+// Quatro dos maiores, espaçados na lista, para a pergunta de ordenar (já em ordem decrescente).
+const paraOrdenar = [0, 4, 9, 14].map((i) => gd.maiores_razoes[Math.min(i, gd.maiores_razoes.length - 1)]);
+
 function perguntas(): Pergunta[] {
   return [
     {
@@ -198,6 +201,19 @@ function perguntas(): Pergunta[] {
       ),
     },
     {
+      id: "prever-razao",
+      tipo: "ordenar",
+      enunciado: "Preveja: ordene estes transformadores da maior para a menor razão GD / capacidade.",
+      itens: paraOrdenar.map((m) => `${decimal(m.ug_potencia_kw)} kW de GD num transformador de ${decimal(m.capacidade_kva)} kVA`),
+      pontas: ["Maior razão", "Menor razão"],
+      explicacao: (
+        <p>
+          A razão é a GD dividida pela potência:{" "}
+          {paraOrdenar.map((m) => `${decimal(m.ug_razao_pct, 0)}%`).join(", ")}. Um transformador pequeno com pouca GD
+          pode passar um grande com mais GD <Fonte de="gd" />.
+        </p>
+      ),
+    },    {
       id: "significado-120",
       tipo: "escolha",
       enunciado: "Um transformador tem razão GD / capacidade de 120%. O que isso diz?",
@@ -376,7 +392,7 @@ export default function Gd() {
       <section className="bloco-visual">
         <h2>Teste você mesmo</h2>
         <p className="lide">Chute, classifique e veja o que a razão quer dizer.</p>
-        <Quiz titulo="Teste: GD × capacidade" perguntas={PERGUNTAS} />
+        <Quiz id="gd" titulo="Teste: GD × capacidade" perguntas={PERGUNTAS} />
       </section>
 
       <ListaDeFontes fontes={["manual", "arquivo", "gd"]} />

@@ -1,10 +1,11 @@
 import { useMemo } from "react";
 import { Link } from "react-router";
 
+import esquemaJson from "../../../dados/processados/mapa_esquema.json";
 import resumoJson from "../../../dados/processados/mapa_resumo.json";
 import { Fonte, ListaDeFontes } from "../componentes/Fonte";
 import MapaRede from "../componentes/MapaRede";
-import Quiz, { type Pergunta } from "../componentes/Quiz";
+import Quiz, { type Desenho, type Pergunta } from "../componentes/Quiz";
 import { acharCamada, registrosTexto } from "../dados";
 import { inteiro } from "../formatos";
 import { decimal, raioX } from "../raioX";
@@ -16,6 +17,47 @@ const resumo = resumoJson as {
   area_km2: number;
   arquivos: { arquivo: string; feicoes: number; kb: number }[];
 };
+
+// --- esquema para os testes de "apontar no mapa" (pipeline/mapa.py, mapa_esquema.json) ---
+const esquema = esquemaJson as {
+  area: [number, number][];
+  alimentadores: { alimentador: string; subestacao: string; linhas: [number, number][][] }[];
+  subestacoes: { subestacao: string; nome: string; centro: [number, number] }[];
+};
+const LARGURA = 600;
+const MARGEM = 16;
+const RAIO_ACERTO = 34; // em unidades do desenho (600 de largura): cerca de 5% da largura
+const lons = esquema.area.map((c) => c[0]);
+const lats = esquema.area.map((c) => c[1]);
+const [lonMin, lonMax, latMin, latMax] = [Math.min(...lons), Math.max(...lons), Math.min(...lats), Math.max(...lats)];
+// Longitude encolhe com a latitude (cos): sem isso o desenho sairia esticado.
+const encolhe = Math.cos((((latMin + latMax) / 2) * Math.PI) / 180);
+const escala = (LARGURA - 2 * MARGEM) / ((lonMax - lonMin) * encolhe);
+const ALTURA = Math.round((latMax - latMin) * escala + 2 * MARGEM);
+const projetar = ([lon, lat]: [number, number]): [number, number] => [
+  MARGEM + (lon - lonMin) * encolhe * escala,
+  MARGEM + (latMax - lat) * escala,
+];
+const caminho = (pontos: [number, number][], fechar = false) =>
+  pontos.map((c, i) => `${i ? "L" : "M"}${projetar(c).map((v) => v.toFixed(1)).join(" ")}`).join("") + (fechar ? "Z" : "");
+
+/** Contorno da área e rede de MT; `destaque` pinta um alimentador. Sem pontos das subestações (é o que se procura). */
+function desenho(destaque?: string): Desenho {
+  const tracos = [{ d: caminho(esquema.area, true), classe: "area" }];
+  for (const a of esquema.alimentadores) {
+    if (a.alimentador !== destaque) tracos.push({ d: a.linhas.map((l) => caminho(l)).join(""), classe: "rede" });
+  }
+  const alvo = esquema.alimentadores.find((a) => a.alimentador === destaque);
+  if (alvo) tracos.push({ d: alvo.linhas.map((l) => caminho(l)).join(""), classe: "rede-destaque" });
+  return { largura: LARGURA, altura: ALTURA, tracos };
+}
+
+const subDe = (sigla: string) => esquema.subestacoes.find((s) => s.subestacao === sigla)!;
+// Alvos: a subestação com mais alimentadores e o alimentador de MT mais longo.
+const alvoSub = subDe([...raioX.subestacoes].sort((a, b) => b.alimentadores - a.alimentadores)[0].subestacao);
+const alvoAlim = esquema.alimentadores.find(
+  (a) => a.alimentador === [...raioX.alimentadores].sort((x, y) => y.km_mt - x.km_mt)[0].alimentador,
+)!;
 
 // 1 grau de latitude tem cerca de 111 km: tolerância em metros, arredondada.
 const toleranciaMetros = Math.round(resumo.tolerancia_graus * 111_000);
@@ -71,17 +113,32 @@ function perguntas(): Pergunta[] {
       ),
     },
     {
-      id: "estimar-transformadores",
-      tipo: "estimativa",
-      enunciado: "Aproxime o mapa: quantos transformadores de distribuição a rede tem, ao todo?",
-      valor: raioX.totais.transformadores,
-      min: 10,
-      max: 100000,
-      unidade: "transformadores",
+      id: "apontar-subestacao",
+      tipo: "apontar",
+      enunciado: `Siga as linhas de média tensão: clique onde fica a subestação ${alvoSub.subestacao}.`,
+      desenho: desenho(),
+      alvo: projetar(alvoSub.centro),
+      raio: RAIO_ACERTO,
+      rotuloAlvo: alvoSub.subestacao,
       explicacao: (
         <p>
-          {inteiro(raioX.totais.transformadores)}, um ponto para cada registro da <code>UNTRMT</code>{" "}
-          <Fonte de="arquivo" onde="camada UNTRMT" />.
+          As linhas de média tensão (<code>SSDMT</code>) saem das subestações (<code>SUB</code>): é para lá que elas
+          convergem. Ponto marcado no centro do polígono da subestação <Fonte de="mapa" />.
+        </p>
+      ),
+    },
+    {
+      id: "seguir-alimentador",
+      tipo: "apontar",
+      enunciado: `Siga o alimentador destacado (${alvoAlim.alimentador}): clique na subestação de onde ele sai.`,
+      desenho: desenho(alvoAlim.alimentador),
+      alvo: projetar(subDe(alvoAlim.subestacao).centro),
+      raio: RAIO_ACERTO,
+      rotuloAlvo: alvoAlim.subestacao,
+      explicacao: (
+        <p>
+          Ele sai da {alvoAlim.subestacao}: a coluna <code>SUB</code> da <code>CTMT</code> guarda a subestação de cada
+          alimentador <Fonte de="manual" onde="Anexo I, CTMT, p. 113" />.
         </p>
       ),
     },
@@ -137,7 +194,7 @@ export default function Mapa() {
       <section className="bloco-visual">
         <h2>Teste você mesmo</h2>
         <p className="lide">Use o mapa para pensar antes de responder.</p>
-        <Quiz titulo="Teste: mapa da rede" perguntas={PERGUNTAS} />
+        <Quiz id="mapa" titulo="Teste: mapa da rede" perguntas={PERGUNTAS} />
       </section>
 
       <ListaDeFontes fontes={["modulo10", "manual", "arquivo", "mapa", "fundo"]} />

@@ -88,6 +88,37 @@ function perguntas(): Pergunta[] {
       ),
     },
     {
+      id: "estimar-transformadores",
+      tipo: "estimativa",
+      enunciado: "Chute: quantos transformadores de distribuição (média para baixa tensão) a rede tem?",
+      valor: t.transformadores,
+      min: 10,
+      max: 100000,
+      unidade: "transformadores",
+      explicacao: (
+        <p>
+          {inteiro(t.transformadores)}, um por registro da <code>UNTRMT</code>, somando {inteiro(t.potencia_kva)} kVA{" "}
+          <Fonte de="manual" onde="Anexo I, UNTRMT, p. 104" />.
+        </p>
+      ),
+    },
+    {
+      id: "estimar-uc-alimentador",
+      tipo: "estimativa",
+      enunciado: "Chute: em média, quantos consumidores de baixa tensão cada alimentador atende?",
+      valor: Math.round(t.consumidores_bt.qtd_uc / t.alimentadores),
+      min: 10,
+      max: 100000,
+      unidade: "consumidores",
+      explicacao: (
+        <p>
+          Cerca de {inteiro(Math.round(t.consumidores_bt.qtd_uc / t.alimentadores))}: {inteiro(t.consumidores_bt.qtd_uc)}{" "}
+          registros da <code>UCBT_tab</code> divididos por {t.alimentadores} alimentadores. A média esconde muita
+          diferença: veja o ranking acima <Fonte de="raioX" />.
+        </p>
+      ),
+    },
+    {
       id: "estimar-uc-trafo",
       tipo: "estimativa",
       enunciado: "Chute: quantos consumidores de baixa tensão um transformador típico atende (a mediana)?",
@@ -355,7 +386,7 @@ export default function RaioX() {
       <section className="bloco-visual">
         <h2>Teste você mesmo</h2>
         <p className="lide">Chute primeiro, depois veja o número real.</p>
-        <Quiz titulo="Teste: raio-x da rede" perguntas={PERGUNTAS} />
+        <Quiz id="raio-x" titulo="Teste: raio-x da rede" perguntas={PERGUNTAS} />
       </section>
 
       <ListaDeFontes fontes={["manual", "modulo10", "arquivo", "raioX"]} />

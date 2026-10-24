@@ -1,0 +1,133 @@
+/* Painel Desafios: anel de progresso e lista dos testes. */
+
+.desafios-resumo {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+  border: 1px solid var(--borda);
+  background:
+    repeating-linear-gradient(-60deg, transparent 0 14px, color-mix(in srgb, var(--destaque) 7%, transparent) 14px 16px),
+    var(--superficie);
+}
+
+.desafios-resumo p {
+  margin: 0.2rem 0;
+  color: var(--texto-suave);
+}
+
+.desafios-resumo-numero {
+  font: 700 1.3rem var(--font-titulo);
+  color: var(--texto) !important;
+}
+
+.desafios-anel {
+  flex: none;
+  width: 7rem;
+  height: 7rem;
+}
+
+.desafios-anel circle {
+  fill: none;
+  stroke-width: 12;
+}
+
+.desafios-anel-trilho {
+  stroke: color-mix(in srgb, var(--destaque) 14%, var(--superficie));
+}
+
+.desafios-anel-valor {
+  stroke: var(--destaque);
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.6s;
+}
+
+.desafios-anel text {
+  font: 700 26px var(--font-titulo);
+  fill: var(--texto);
+  text-anchor: middle;
+}
+
+.desafios-lista {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.desafios-lista li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--borda);
+  border-left: 6px solid var(--borda);
+  background: var(--superficie);
+}
+
+.desafios-lista li.feito {
+  border-left-color: var(--destaque);
+}
+
+.desafios-lista li.gabaritado {
+  border-left-color: var(--certo);
+}
+
+.desafios-icone .icone {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+.desafios-texto {
+  flex: 1;
+  min-width: 0;
+}
+
+.desafios-titulo {
+  margin: 0;
+  font-weight: 700;
+}
+
+.desafios-barra {
+  height: 6px;
+  margin: 0.4rem 0;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--destaque) 12%, var(--superficie));
+  overflow: hidden;
+}
+
+.desafios-barra span {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--destaque);
+}
+
+.desafios-lista li.gabaritado .desafios-barra span {
+  background: var(--certo);
+}
+
+.desafios-marca {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--texto-suave);
+}
+
+.desafios-apagar {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 560px) {
+  .desafios-lista li {
+    flex-wrap: wrap;
+  }
+
+  .desafios-lista li .botao-secundario {
+    width: 100%;
+    text-align: center;
+  }
+}

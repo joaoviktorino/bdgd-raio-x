@@ -55,7 +55,7 @@ export const REFERENCIAS = {
   },
   fundo: {
     curto: "OpenFreeMap",
-    titulo: "Mapa de fundo: OpenFreeMap (estilos Positron e Dark), com dados © OpenStreetMap e OpenMapTiles",
+    titulo: "Mapa de fundo: OpenFreeMap (estilo Positron), com dados © OpenStreetMap e OpenMapTiles",
     url: "https://openfreemap.org/",
   },
 } satisfies Record<string, Referencia>;

@@ -1,7 +1,9 @@
-import { type ReactNode, useState } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
+import { Link } from "react-router";
 
 import { arquivo, dataBR } from "../dados";
 import { inteiro } from "../formatos";
+import { gravarResultado, lerPlacar } from "../placar";
 import "./quiz.css";
 
 type Base = { id: string; enunciado: ReactNode; explicacao: ReactNode };
@@ -9,9 +11,17 @@ type Base = { id: string; enunciado: ReactNode; explicacao: ReactNode };
 export type Pergunta =
   | (Base & { tipo: "escolha"; opcoes: string[]; certa: number })
   | (Base & { tipo: "estimativa"; valor: number; min: number; max: number; unidade: string })
-  | (Base & { tipo: "classificar"; grupos: [string, string]; itens: { rotulo: string; grupo: 0 | 1 }[] });
+  | (Base & { tipo: "classificar"; grupos: [string, string]; itens: { rotulo: string; grupo: 0 | 1 }[] })
+  /** Ordenar: `itens` já na ordem certa (de `pontas[0]` até `pontas[1]`); a tela mostra embaralhado. */
+  | (Base & { tipo: "ordenar"; itens: string[]; pontas: [string, string] })
+  /** Apontar: clicar num desenho (SVG). Acerta quem clicar a até `raio` do `alvo`. */
+  | (Base & { tipo: "apontar"; desenho: Desenho; alvo: [number, number]; raio: number; rotuloAlvo: string });
 
-type Resposta = number | number[]; // escolha/estimativa: número; classificar: grupo de cada item
+export type Desenho = { largura: number; altura: number; tracos: { d: string; classe: string }[] };
+
+// escolha/estimativa: número; classificar: grupo de cada item; ordenar: índices na ordem
+// escolhida; apontar: [x, y] no desenho.
+type Resposta = number | number[];
 
 // Estimativa: controle de 0 a 1000 em escala logarítmica entre min e max.
 const PASSOS = 1000;
@@ -27,26 +37,50 @@ function redondo(v: number): number {
 /** Quantas vezes o palpite errou (sempre >= 1). */
 const fator = (palpite: number, real: number) => Math.max(palpite / real, real / palpite);
 
-function acertou(p: Pergunta, r: Resposta): boolean {
+/** Ordem inicial do "ordenar": sempre a mesma e nunca já certa (salto de 3 em 3, ou a ordem invertida). */
+function embaralhado(n: number): number[] {
+  const saltos = Array.from({ length: n }, (_, i) => (i * 3 + 1) % n);
+  return new Set(saltos).size === n ? saltos : Array.from({ length: n }, (_, i) => n - 1 - i);
+}
+
+function acertou(p: Pergunta, r: Resposta | undefined): boolean {
   if (p.tipo === "escolha") return r === p.certa;
   if (p.tipo === "estimativa") return fator(r as number, p.valor) <= 2;
+  if (p.tipo === "ordenar") return (r as number[] | undefined ?? embaralhado(p.itens.length)).every((v, i) => v === i);
+  if (p.tipo === "apontar") {
+    const [x, y] = r as number[];
+    return Math.hypot(x - p.alvo[0], y - p.alvo[1]) <= p.raio;
+  }
   return p.itens.every((item, i) => (r as number[])[i] === item.grupo);
 }
 
 function respondida(p: Pergunta, r: Resposta | undefined): boolean {
+  if (p.tipo === "ordenar") return true;
   if (r === undefined) return false;
   if (p.tipo === "classificar") return (r as number[]).every((g) => g === 0 || g === 1);
   return true;
 }
 
-/** Quiz de uma página: uma pergunta por vez, com explicação e fonte depois de cada resposta. */
-export default function Quiz({ titulo, perguntas }: { titulo: string; perguntas: Pergunta[] }) {
+/** Quiz de uma página: uma pergunta por vez, com explicação e fonte depois de cada resposta.
+    `id` é o caminho da página: o resultado vai para o placar do navegador (painel Desafios). */
+export default function Quiz({ id, titulo, perguntas }: { id: string; titulo: string; perguntas: Pergunta[] }) {
   const [indice, setIndice] = useState(0);
   const [respostas, setRespostas] = useState<Record<string, Resposta>>({});
   const [confirmadas, setConfirmadas] = useState<Record<string, boolean>>({});
+  const [anterior] = useState(() => lerPlacar()[id]);
 
   const terminou = indice >= perguntas.length;
   const pontos = perguntas.filter((p) => confirmadas[p.id] && acertou(p, respostas[p.id])).length;
+
+  // Ao terminar, grava no placar (uma vez por rodada).
+  const gravado = useRef(false);
+  useEffect(() => {
+    if (terminou && !gravado.current) {
+      gravado.current = true;
+      gravarResultado(id, pontos, perguntas.length);
+    }
+    if (!terminou) gravado.current = false;
+  }, [terminou, id, pontos, perguntas.length]);
 
   function reiniciar() {
     setIndice(0);
@@ -70,6 +104,12 @@ export default function Quiz({ titulo, perguntas }: { titulo: string; perguntas:
         Números do arquivo estudado: {arquivo.distribuidora}, data de referência{" "}
         {dataBR(arquivo.partes_do_nome.data_referencia)}.
       </p>
+
+      {anterior && !terminou && indice === 0 && (
+        <p className="quiz-anterior">
+          Sua melhor marca aqui: {anterior.melhor} de {anterior.total}. <Link to="/desafios">Ver todos os desafios</Link>
+        </p>
+      )}
 
       {terminou ? (
         <Resultado pontos={pontos} total={perguntas.length} reiniciar={reiniciar} />
@@ -131,6 +171,10 @@ function PerguntaAtual(props: {
       )}
 
       {p.tipo === "estimativa" && <Estimativa pergunta={p} resposta={r as number | undefined} confirmada={confirmada} responder={props.responder} />}
+
+      {p.tipo === "ordenar" && <Ordenar pergunta={p} resposta={r as number[] | undefined} confirmada={confirmada} responder={props.responder} />}
+
+      {p.tipo === "apontar" && <Apontar pergunta={p} resposta={r as number[] | undefined} confirmada={confirmada} responder={props.responder} />}
 
       {p.tipo === "classificar" && (
         <ul className="quiz-classificar">
@@ -227,6 +271,81 @@ function Estimativa(props: {
   );
 }
 
+function Ordenar(props: {
+  pergunta: Extract<Pergunta, { tipo: "ordenar" }>;
+  resposta: number[] | undefined;
+  confirmada: boolean;
+  responder: (r: Resposta) => void;
+}) {
+  const { pergunta: p, confirmada } = props;
+  const ordem = props.resposta ?? embaralhado(p.itens.length);
+  const mover = (de: number, para: number) => {
+    const nova = [...ordem];
+    [nova[de], nova[para]] = [nova[para], nova[de]];
+    props.responder(nova);
+  };
+  return (
+    <div className="quiz-ordenar">
+      <p className="quiz-ponta">{p.pontas[0]}</p>
+      <ol>
+        {ordem.map((item, pos) => (
+          <li key={p.itens[item]} className={confirmada ? (item === pos ? "certa" : "errada") : ""}>
+            <span className="quiz-ordenar-pos">{pos + 1}</span>
+            <span className="quiz-ordenar-rotulo">{p.itens[item]}</span>
+            {confirmada ? (
+              item !== pos && <span className="quiz-ordenar-certo">certo: {item + 1}º</span>
+            ) : (
+              <span className="quiz-ordenar-botoes">
+                <button type="button" disabled={pos === 0} aria-label={`Subir ${p.itens[item]}`} onClick={() => mover(pos, pos - 1)}>
+                  ↑
+                </button>
+                <button type="button" disabled={pos === ordem.length - 1} aria-label={`Descer ${p.itens[item]}`} onClick={() => mover(pos, pos + 1)}>
+                  ↓
+                </button>
+              </span>
+            )}
+          </li>
+        ))}
+      </ol>
+      <p className="quiz-ponta">{p.pontas[1]}</p>
+    </div>
+  );
+}
+
+function Apontar(props: {
+  pergunta: Extract<Pergunta, { tipo: "apontar" }>;
+  resposta: number[] | undefined;
+  confirmada: boolean;
+  responder: (r: Resposta) => void;
+}) {
+  const { pergunta: p, resposta, confirmada } = props;
+  const { largura, altura, tracos } = p.desenho;
+  function clicar(e: React.MouseEvent<SVGSVGElement>) {
+    if (confirmada) return;
+    const caixa = e.currentTarget.getBoundingClientRect();
+    props.responder([((e.clientX - caixa.left) / caixa.width) * largura, ((e.clientY - caixa.top) / caixa.height) * altura]);
+  }
+  return (
+    <div className="quiz-apontar">
+      <svg viewBox={`0 0 ${largura} ${altura}`} onClick={clicar} role="img" aria-label="Desenho para clicar">
+        {tracos.map((t, i) => (
+          <path key={i} d={t.d} className={t.classe} />
+        ))}
+        {confirmada && (
+          <g className="quiz-apontar-alvo">
+            <circle cx={p.alvo[0]} cy={p.alvo[1]} r={p.raio} />
+            <text x={p.alvo[0]} y={p.alvo[1] - p.raio - 6}>
+              {p.rotuloAlvo}
+            </text>
+          </g>
+        )}
+        {resposta && <circle className="quiz-apontar-clique" cx={resposta[0]} cy={resposta[1]} r={7} />}
+      </svg>
+      {!resposta && <p className="quiz-apontar-dica">Clique no desenho.</p>}
+    </div>
+  );
+}
+
 function Resultado({ pontos, total, reiniciar }: { pontos: number; total: number; reiniciar: () => void }) {
   const fracao = pontos / total;
   const mensagem =
@@ -237,6 +356,9 @@ function Resultado({ pontos, total, reiniciar }: { pontos: number; total: number
         <strong>{pontos}</strong> de {total}
       </p>
       <p>{mensagem}</p>
+      <p className="quiz-guardado">
+        Resultado guardado só neste navegador. <Link to="/desafios">Ver todos os desafios</Link>
+      </p>
       <button type="button" className="botao-secundario" onClick={reiniciar}>
         Refazer o teste
       </button>
